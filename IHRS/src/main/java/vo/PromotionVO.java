@@ -1,7 +1,9 @@
 package vo;
 
 public class PromotionVO {
+	
 	private double discount;
+	
 	public PromotionVO(double discount) {
 		this.setDiscount(discount);
 	}

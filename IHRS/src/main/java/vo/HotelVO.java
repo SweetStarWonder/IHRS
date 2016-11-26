@@ -26,10 +26,10 @@ public class HotelVO {
 	
 	private String facility;  //设施服务
 	
-	
+	private double averageRank;  //总评
 	
 	public HotelVO(int id,ArrayList<RoomVO> rooms,ArrayList<PromotionVO> promotions,ArrayList<String> partners,ArrayList<EvaluateVO> evaluates,
-			String hotelName,String position,String businessDistrict,int starRating,String introduction,String facility){
+			String hotelName,String position,String businessDistrict,int starRating,String introduction,String facility,double averageRank){
 		this.id=id;
 		this.hotelName=hotelName;
 		
@@ -43,6 +43,7 @@ public class HotelVO {
 		this.starRating=starRating;
 		this.introduction=introduction;
 		this.facility=facility;
+		this.averageRank=averageRank;
 		
 	}
 
@@ -132,6 +133,14 @@ public class HotelVO {
 
 	public void setEvaluates(ArrayList<EvaluateVO> evaluates) {
 		this.evaluates = evaluates;
+	}
+
+	public double getAverageRank() {
+		return averageRank;
+	}
+
+	public void setAverageRank(double averageRank) {
+		this.averageRank = averageRank;
 	}
 	
 }

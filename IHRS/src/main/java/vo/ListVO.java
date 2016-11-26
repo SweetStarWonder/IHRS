@@ -1,5 +1,9 @@
 package vo;
 
+import java.util.ArrayList;
+
+import po.ListStatus;
+
 /**
  * id			订单编号
  * hotelId		酒店编号
@@ -13,7 +17,7 @@ package vo;
 
 public class ListVO {
 
-private int id;
+	private int listId;
 	
 	private int hotelId;
 	
@@ -25,31 +29,28 @@ private int id;
 	
 	private String lastTime;
 	
-	private String orderInfo;
+	private String lastListExecutedTime;
 	
 	private int price;
+	
+	private boolean ifHaveChild;
+	
+	private ArrayList<RoomVO> rooms;
 	
 	public ListVO(){
 	}
 
-	public ListVO(int id, int hotelId, int userId, ListStatus status,
-			String entryTime, String lastTime,String orderInfo,int price) {
-		this.id = id;
+	public ListVO(int listId, int hotelId, int userId, ListStatus status,
+			String entryTime, String lastTime,String lastListExecutedTime,int price,boolean ifHaveChild) {
+		this.listId=listId;
 		this.hotelId = hotelId;
 		this.userId = userId;
 		this.status = status;
 		this.entryTime = entryTime;
 		this.lastTime = lastTime;
-		this.orderInfo = orderInfo;
+		this.lastListExecutedTime=lastListExecutedTime;
 		this.price = price;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.ifHaveChild=ifHaveChild;
 	}
 
 	public int getHotelId() {
@@ -91,14 +92,6 @@ private int id;
 	public void setLastTime(String lastTime) {
 		this.lastTime = lastTime;
 	}
-	
-	public String getOrderInfo() {
-		return orderInfo;
-	}
-
-	public void setOrderInfo(String orderInfo) {
-		this.orderInfo = orderInfo;
-	}
 
 	public int getPrice() {
 		return price;
@@ -106,6 +99,38 @@ private int id;
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public ArrayList<RoomVO> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(ArrayList<RoomVO> rooms) {
+		this.rooms = rooms;
+	}
+
+	public int getListId() {
+		return listId;
+	}
+
+	public void setListid(int listId) {
+		this.listId = listId;
+	}
+
+	public String getLastListExecutedTime() {
+		return lastListExecutedTime;
+	}
+
+	public void setLastListExecutedTime(String lastListExecutedTime) {
+		this.lastListExecutedTime = lastListExecutedTime;
+	}
+
+	public boolean isIfHaveChild() {
+		return ifHaveChild;
+	}
+
+	public void setIfHaveChild(boolean ifHaveChild) {
+		this.ifHaveChild = ifHaveChild;
 	}
 	
 }

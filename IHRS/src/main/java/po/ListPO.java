@@ -13,7 +13,7 @@ package po;
 
 public class ListPO {
 
-private int id;
+	private int listId;
 	
 	private int hotelId;
 	
@@ -25,31 +25,23 @@ private int id;
 	
 	private String lastTime;
 	
-	private String orderInfo;
+	private String lastListExecutedTime;
 	
 	private int price;
 	
-	public ListPO(){
-	}
-
-	public ListPO(int id, int hotelId, int userId, ListStatus status,
-			String entryTime, String lastTime,String orderInfo,int price) {
-		this.id = id;
+	private boolean ifHaveChild;
+	
+	public ListPO(int listId, int hotelId, int userId, ListStatus status,
+			String entryTime, String lastTime,String lastListExecutedTime,int price,boolean ifHaveChild) {
+		this.setListId(listId);
 		this.hotelId = hotelId;
 		this.userId = userId;
 		this.status = status;
 		this.entryTime = entryTime;
 		this.lastTime = lastTime;
-		this.orderInfo = orderInfo;
+		this.lastListExecutedTime=lastListExecutedTime;
 		this.price = price;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+		this.ifHaveChild=ifHaveChild;
 	}
 
 	public int getHotelId() {
@@ -91,14 +83,6 @@ private int id;
 	public void setLastTime(String lastTime) {
 		this.lastTime = lastTime;
 	}
-	
-	public String getOrderInfo() {
-		return orderInfo;
-	}
-
-	public void setOrderInfo(String orderInfo) {
-		this.orderInfo = orderInfo;
-	}
 
 	public int getPrice() {
 		return price;
@@ -106,6 +90,30 @@ private int id;
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public String getLastListExecutedTime() {
+		return lastListExecutedTime;
+	}
+
+	public void setLastListExecutedTime(String lastListExecutedTime) {
+		this.lastListExecutedTime = lastListExecutedTime;
+	}
+
+	public boolean isIfHaveChild() {
+		return ifHaveChild;
+	}
+
+	public void setIfHaveChild(boolean ifHaveChild) {
+		this.ifHaveChild = ifHaveChild;
+	}
+
+	public int getListId() {
+		return listId;
+	}
+
+	public void setListId(int listId) {
+		this.listId = listId;
 	}
 	
 }

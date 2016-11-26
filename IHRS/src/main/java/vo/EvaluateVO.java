@@ -3,21 +3,13 @@ package vo;
 public class EvaluateVO {
 	
 	private String customerName;
-	private int starRating;
+	private int rankValue;
 	private String contents;
 	
-	public EvaluateVO(String customerName,int starRating,String contents) {
+	public EvaluateVO(String customerName,int rankValue,String contents) {
 		this.setCustomerName(customerName);
-		this.setStarRating(starRating);
+		this.setRankValue(rankValue);
 		this.setContents(contents);
-	}
-
-	public int getStarRating() {
-		return starRating;
-	}
-
-	public void setStarRating(int starRating) {
-		this.starRating = starRating;
 	}
 
 	public String getContents() {
@@ -38,6 +30,14 @@ public class EvaluateVO {
 
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
+	}
+
+	public int getRankValue() {
+		return rankValue;
+	}
+
+	public void setRankValue(int rankValue) {
+		this.rankValue = rankValue;
 	}
 
 }

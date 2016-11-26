@@ -3,12 +3,14 @@ package po;
 public class RoomPO {
 	
 	private int hotelId;
+	private int listId;
 	private int roomNum;
 	private int price;
 	private RoomStatus status;
 	
-	public RoomPO(int hotelId,int roomNum,int price,RoomStatus status){
+	public RoomPO(int hotelId,int listId,int roomNum,int price,RoomStatus status){
 		this.hotelId=hotelId;
+		this.setListId(listId);
 		this.roomNum=roomNum;
 		this.price=price;
 		this.status=status;
@@ -40,6 +42,14 @@ public class RoomPO {
 
 	public void setHotelId(int hotelId) {
 		this.hotelId = hotelId;
+	}
+
+	public int getListId() {
+		return listId;
+	}
+
+	public void setListId(int listId) {
+		this.listId = listId;
 	}
 
 	
