@@ -1,19 +1,13 @@
 package vo;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import data.dao.RoomDao;
+import po.ListPO;
 import po.ListStatus;
-
-/**
- * id			订单编号
- * hotelId		酒店编号
- * userId		用户编号
- * status		订单状态（0：未执行订单；1：已执行订单；2：异常订单）
- * entryTime	用户入住时间
- * lastTime		订单最晚执行时间
- * orderInfo	订单详情
- * price		订单价值
- */
+import po.RoomPO;
+import rmi.RemoteHelper;
 
 public class ListVO {
 
@@ -37,7 +31,26 @@ public class ListVO {
 	
 	private ArrayList<RoomVO> rooms;
 	
-	public ListVO(){
+	public ListVO(ListPO listPO){
+		this.listId=listPO.getListId();
+		this.hotelId=listPO.getHotelId();
+		this.userId=listPO.getUserId();
+		this.status=listPO.getStatus();
+		this.entryTime=listPO.getEntryTime();
+		this.lastTime=listPO.getLastTime();
+		this.lastListExecutedTime=listPO.getLastListExecutedTime();
+		this.price=listPO.getPrice();
+		this.ifHaveChild=listPO.isIfHaveChild();
+		RoomDao roomDao=RemoteHelper.getInstance().getRoomDao();
+		try {
+			ArrayList<RoomPO> roomPOs=roomDao.getRoomByList(listPO.getListId());
+			this.rooms=new ArrayList<RoomVO>();
+			for (RoomPO roomPO : roomPOs) {
+				this.rooms.add(new RoomVO(roomPO));
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public ListVO(int listId, int hotelId, int userId, ListStatus status,

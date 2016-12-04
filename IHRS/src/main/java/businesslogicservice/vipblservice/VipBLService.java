@@ -1,10 +1,13 @@
 package businesslogicservice.vipblservice;
 
-import po.VipPO;
-import po.RankPO;
+import vo.CustomerVO;
+import vo.EnterpriseVipVO;
+import vo.NormalVipVO;
 
-public interface VipBLService {
-	public boolean register(VipPO vip);
-	public String rankCalculate(int n);
-	public boolean rankEstablish(RankPO rank);
+public interface VipBlService {
+	
+	public EnterpriseVipVO registerEnterpriseVip(CustomerVO customerVO,String enterpriseName);  //注册企业会员
+	
+	public NormalVipVO registerNormalVip(CustomerVO customerVO,String birthday);  //注册普通会员
+	
 }

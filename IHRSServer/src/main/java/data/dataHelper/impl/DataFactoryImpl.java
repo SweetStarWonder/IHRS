@@ -17,65 +17,62 @@ import data.dataHelper.WebSaleDataHelper;
 public class DataFactoryImpl implements DataFactory{
 
 	public CreditChangeDataHelper getCreditChangeDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		CreditChangeDataHelper creditChangeDao=new CreditChangeDataTxtHelper();
+		return creditChangeDao;
 	}
 
 	public CustomerDataHelper getCustomerDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		CustomerDataHelper customerChangeDao=new CustomerDataTxtHelper();
+		return customerChangeDao;
 	}
 
 	public EnterpriseVipDataHelper getEnterpriseVipDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		EnterpriseVipDataHelper EnterpriseVipDao=new EnterpriseVipDataTxtHelper();
+		return EnterpriseVipDao;
 	}
 
 	public EvaluateDataHelper getEvaluateDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		EvaluateDataHelper EvaluateDao=new EvaluateDataTxtHelper();
+		return EvaluateDao;
 	}
 
 	public HotelDataHelper getHotelDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		HotelDataHelper HotelDao=new HotelDataTxtHelper();
+		return HotelDao;
 	}
 
 	public HotelManagerDataHelper getHotelManagerDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		HotelManagerDataHelper HotelManagerDao=new HotelManagerDataTxtHelper();
+		return HotelManagerDao;
 	}
 
 	public ListDataHelper getListDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		ListDataHelper ListDao=new ListDataTxtHelper();
+		return ListDao;
 	}
 
 	public NormalVipDataHelper getNormalVipDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		NormalVipDataHelper NormalVipDao=new NormalVipDataTxtHelper();
+		return NormalVipDao;
 	}
 
 	public PromotionDataHelper getPromotionDataHelper() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	public RoomDataHelper getRoomDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		 RoomDataHelper  RoomDao=new  RoomDataTxtHelper();
+		return RoomDao;
 	}
 
 	public WebManagerDataHelper getWebManagerDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		WebManagerDataHelper WebManagerDao=new WebManagerDataTxtHelper();
+		return WebManagerDao;
 	}
 
 	public WebSaleDataHelper getWebSaleDataHelper() {
-		// TODO Auto-generated method stub
-		return null;
+		WebSaleDataHelper WebSaleDao=new WebSaleDataTxtHelper();
+		return WebSaleDao;
 	}
-
-	
-
 }

@@ -1,33 +1,71 @@
 package vo;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import data.dao.CreditChangeDao;
+import data.dao.ListDao;
+import po.CreditChangePO;
+import po.CustomerPO;
+import po.ListPO;
+import rmi.RemoteHelper;
 
 public class CustomerVO extends UserVO{
 	
-	private CreditVO credit;
-	private ArrayList<ListVO> myLists;
-
-	public CustomerVO(int id,String customerName,String phone,int creditValue,ArrayList<ListVO> myLists){
-		
-		super(id,customerName,phone);
-		credit=new CreditVO(creditValue);
-		this.setMyLists(myLists);
+	private ArrayList<CreditChangeVO> credits;
+	private HashMap<Integer, ListVO> myLists;
+	
+	public CustomerVO(int id, String userName, String phone) {
+		super(id, userName, phone);
 	}
 	
-	public int getCredit() {
-		return credit.getCreditValue();
+	public CustomerVO(CustomerPO customerPO){
+		super(customerPO.getId(), customerPO.getUserName(), customerPO.getPhone());
+		CreditChangeDao creditChangeDao=RemoteHelper.getInstance().getCreditChangeDao();
+		try {
+			ArrayList<CreditChangePO> creditChangePOs = creditChangeDao.getCreditChange(customerPO.getId());
+			this.credits=new ArrayList<CreditChangeVO>();
+			for (CreditChangePO creditChangePO : creditChangePOs) {
+				this.credits.add(new CreditChangeVO(creditChangePO));
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		ListDao listDao=RemoteHelper.getInstance().getListDao();
+		try {
+			HashMap<Integer, ListPO> listPOs=listDao.getListsByUser(customerPO.getId());
+			this.myLists = new HashMap<Integer, ListVO>();
+			Iterator<Integer> iterator = listPOs.keySet().iterator();
+			while (iterator.hasNext()) {
+				Integer id = (Integer) iterator.next();
+				myLists.put(id, new ListVO(listPOs.get(id)));
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void setCredit(int creditValue) {
-		credit.setCreditValue(creditValue);
+	public ArrayList<CreditChangeVO> getCredits() {
+		return credits;
 	}
 
-	public ArrayList<ListVO> getMyLists() {
+	public void setCredits(ArrayList<CreditChangeVO> credit) {
+		this.credits = credit;
+	}
+
+	public HashMap<Integer, ListVO> getMyLists() {
 		return myLists;
 	}
 
-	public void setMyLists(ArrayList<ListVO> myLists) {
+	public void setMyLists(HashMap<Integer, ListVO> myLists) {
 		this.myLists = myLists;
 	}
+	
+	
+	
+
+	
 
 }

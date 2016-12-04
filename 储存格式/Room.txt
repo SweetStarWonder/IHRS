@@ -1,0 +1,6 @@
+<Room>
+#hotelId
+#listId
+#roomNum
+#price
+#status

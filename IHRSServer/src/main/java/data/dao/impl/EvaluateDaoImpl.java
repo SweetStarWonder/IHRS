@@ -1,24 +1,58 @@
 package data.dao.impl;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import data.dao.EvaluateDao;
+import data.dataHelper.DataFactory;
+import data.dataHelper.EvaluateDataHelper;
+import data.dataHelper.impl.DataFactoryImpl;
 import po.EvaluatePO;
 
-public class EvaluateDaoImpl implements EvaluateDao{
+public class EvaluateDaoImpl extends java.rmi.server.UnicastRemoteObject implements EvaluateDao{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4478757084750230717L;
 
-	public EvaluateDaoImpl() {
-		// TODO Auto-generated constructor stub
+	private HashMap<Integer, ArrayList<EvaluatePO>> map;
+	
+	private EvaluateDataHelper evaluateDataHelper;
+	
+	private DataFactory dataFactory;
+	
+	private static EvaluateDaoImpl evaluateDaoImpl;
+	
+	public static EvaluateDaoImpl getInstance() throws RemoteException{
+		if(evaluateDaoImpl==null){
+			evaluateDaoImpl=new EvaluateDaoImpl();
+		}
+		return evaluateDaoImpl;
 	}
 
-	public ArrayList<EvaluatePO> getEvaluates(int hotelId) {
-		// TODO Auto-generated method stub
-		return null;
+	private EvaluateDaoImpl() throws RemoteException {
+		if(map==null){
+			dataFactory=new DataFactoryImpl();
+			evaluateDataHelper=dataFactory.getEvaluateDataHelper();
+			map=evaluateDataHelper.getEvaluateData();
+		}
 	}
 
-	public boolean addEvaluate(EvaluatePO evaluatePO) {
-		// TODO Auto-generated method stub
-		return false;
+	public ArrayList<EvaluatePO> getEvaluates(int hotelId) throws RemoteException {
+		ArrayList<EvaluatePO> evaluates=map.get(hotelId);
+		return evaluates;
+	}
+
+	public boolean addEvaluate(EvaluatePO evaluatePO) throws RemoteException {
+		int hotelId=evaluatePO.getHotelId();
+		ArrayList<EvaluatePO> evaluates;
+		evaluates=map.get(hotelId);
+		evaluates.add(evaluatePO);
+		map.put(hotelId,evaluates);
+		evaluateDataHelper.updateEvaluateData(map);
+		return true;
 	}
 
 }

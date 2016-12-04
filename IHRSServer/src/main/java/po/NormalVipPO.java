@@ -5,9 +5,9 @@ public class NormalVipPO extends CustomerPO{
 	private int bonus;
 	private String birthday;  //YYYY-MM-DD
 	
-	public NormalVipPO(int id, String customerName, String phone, int creditValue,
+	public NormalVipPO(int id, String customerName, String phone,
 			int bonus,String birthday) {
-		super(id, customerName, phone, creditValue);
+		super(id, customerName, phone);
 		this.bonus=bonus;
 		this.setBirthday(birthday);
 	}

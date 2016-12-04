@@ -1,5 +1,7 @@
 package vo;
 
+import po.HotelManagerPO;
+
 public class HotelManagerVO extends UserVO{
 	
 	private int hotelId;
@@ -7,6 +9,11 @@ public class HotelManagerVO extends UserVO{
 	public HotelManagerVO(int id,String hotelManagerName,String phone,int hotelId){
 		super(id, hotelManagerName, phone);
 		this.setHotelId(hotelId);
+	}
+	
+	public HotelManagerVO(HotelManagerPO hotelManagerPO) {
+		super(hotelManagerPO.getId(), hotelManagerPO.getUserName(), hotelManagerPO.getPhone());
+		this.hotelId = hotelManagerPO.getHotelId();
 	}
 
 	public int getHotelId() {

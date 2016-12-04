@@ -1,16 +1,5 @@
 package po;
 
-/**
- * id			订单编号
- * hotelId		酒店编号
- * userId		用户编号
- * status		订单状态（0：未执行订单；1：已执行订单；2：异常订单）
- * entryTime	用户入住时间
- * lastTime		订单最晚执行时间
- * orderInfo	订单详情
- * price		订单价值
- */
-
 public class ListPO {
 
 	private int listId;
@@ -25,7 +14,7 @@ public class ListPO {
 	
 	private String lastTime;
 	
-	private String lastListExecutedTime;
+	private String lastListExecutedTime;  //最晚订单执行时间
 	
 	private int price;
 	

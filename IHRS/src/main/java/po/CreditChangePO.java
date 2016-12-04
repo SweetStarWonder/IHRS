@@ -7,13 +7,15 @@ public class CreditChangePO {
 	private String listId;
 	private int change;  //变化记录，有负有正
 	private int resultValue;
+	private CreditChangeMove creditChangeMove;
 	
-	public CreditChangePO(int userId,String time,String listId,int change,int resultValue) {
+	public CreditChangePO(int userId,String time,String listId,int change,int resultValue,CreditChangeMove creditChangeMove) {
 		this.setUserId(userId);
 		this.setTime(time);
 		this.setListId(listId);
 		this.setChange(change);
 		this.setResult(resultValue);
+		this.setCreditChangeMove(creditChangeMove);
 	}
 
 	public String getTime() {
@@ -54,6 +56,14 @@ public class CreditChangePO {
 
 	public void setUserId(int userId) {
 		this.userId = userId;
+	}
+
+	public CreditChangeMove getCreditChangeMove() {
+		return creditChangeMove;
+	}
+
+	public void setCreditChangeMove(CreditChangeMove creditChangeMove) {
+		this.creditChangeMove = creditChangeMove;
 	}
 	
 	

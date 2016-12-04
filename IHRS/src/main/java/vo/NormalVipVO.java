@@ -1,16 +1,23 @@
 package vo;
 
-import java.util.ArrayList;
+import po.CustomerPO;
+import po.NormalVipPO;
 
 public class NormalVipVO extends CustomerVO{
 	private int bonus;
 	private String birthday;  //YYYY-MM-DD
 	
-	public NormalVipVO(int id, String customerName, String phone, int creditValue,ArrayList<ListVO> myLists,
+	public NormalVipVO(int id, String customerName, String phone,
 			int bonus,String birthday) {
-		super(id, customerName, phone, creditValue, myLists);
+		super(id, customerName, phone);
 		this.bonus=bonus;
 		this.setBirthday(birthday);
+	}
+	
+	public NormalVipVO(NormalVipPO normalVipPO) {
+		super(new CustomerPO(normalVipPO.getId(), normalVipPO.getUserName(), normalVipPO.getPhone()));
+		this.bonus = normalVipPO.getBonus();
+		this.birthday = normalVipPO.getBirthday();
 	}
 	
 	public int getBonus() {

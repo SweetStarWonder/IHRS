@@ -4,22 +4,14 @@ public class EvaluatePO {
 	
 	private int hotelId;
 	private String customerName;
-	private int starRating;
+	private int rankValue;
 	private String contents;
 	
-	public EvaluatePO(int hotelId,String customerName,int starRating,String contents) {
+	public EvaluatePO(int hotelId,String customerName,int rankValue,String contents) {
 		this.setHotelId(hotelId);
 		this.setCustomerName(customerName);
-		this.setStarRating(starRating);
+		this.setRankValue(rankValue);
 		this.setContents(contents);
-	}
-
-	public int getStarRating() {
-		return starRating;
-	}
-
-	public void setStarRating(int starRating) {
-		this.starRating = starRating;
 	}
 
 	public String getContents() {
@@ -48,6 +40,14 @@ public class EvaluatePO {
 
 	public void setHotelId(int hotelId) {
 		this.hotelId = hotelId;
+	}
+
+	public int getRankValue() {
+		return rankValue;
+	}
+
+	public void setRankValue(int rankValue) {
+		this.rankValue = rankValue;
 	}
 
 }

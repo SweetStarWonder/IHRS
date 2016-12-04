@@ -1,9 +1,19 @@
 package data.dao.impl;
 
-public class PromotionDaoImpl {
+import java.rmi.RemoteException;
 
-	public PromotionDaoImpl() {
+import data.dao.PromotionDao;
+
+public class PromotionDaoImpl extends java.rmi.server.UnicastRemoteObject implements PromotionDao {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5677320944712104257L;
+
+	public PromotionDaoImpl() throws RemoteException{
 		// TODO Auto-generated constructor stub
 	}
+	
 
 }

@@ -1,6 +1,7 @@
 package vo;
 
-import java.util.ArrayList;
+import po.CustomerPO;
+import po.EnterpriseVipPO;
 
 public class EnterpriseVipVO extends CustomerVO{
 	
@@ -9,11 +10,17 @@ public class EnterpriseVipVO extends CustomerVO{
 	private int bonus;
 	
 	
-	public EnterpriseVipVO(int id, String customerName, String phone, int creditValue,ArrayList<ListVO> myLists,
+	public EnterpriseVipVO(int id, String customerName, String phone,
 			String enterpriseName,int bonus) {
-		super(id, customerName, phone, creditValue, myLists);
+		super(id, customerName, phone);
 		this.enterpriseName=enterpriseName;
 		this.bonus=bonus;
+	}
+	
+	public EnterpriseVipVO(EnterpriseVipPO enterpriseVipPO) {
+		super(new CustomerPO(enterpriseVipPO.getId(), enterpriseVipPO.getUserName(), enterpriseVipPO.getPhone()));
+		this.enterpriseName = enterpriseVipPO.getEnterpriseName();
+		this.bonus = enterpriseVipPO.getBonus();
 	}
 
 

@@ -1,6 +1,14 @@
 package vo;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
+
+import data.dao.EvaluateDao;
+import data.dao.RoomDao;
+import po.EvaluatePO;
+import po.HotelPO;
+import po.RoomPO;
+import rmi.RemoteHelper;
 
 public class HotelVO {
 
@@ -44,6 +52,41 @@ public class HotelVO {
 		this.introduction=introduction;
 		this.facility=facility;
 		this.averageRank=averageRank;
+		
+	}
+	
+	public HotelVO(HotelPO hotelPO) {
+		this.id = hotelPO.getId();
+		this.hotelName = hotelPO.getHotelName();
+		this.position = hotelPO.getPosition();
+		this.businessDistrict = hotelPO.getBusinessDistrict();
+		this.starRating = hotelPO.getStarRating();
+		this.facility = hotelPO.getFacility();
+		this.partners = hotelPO.getPartners();
+		
+		RoomDao roomDao = RemoteHelper.getInstance().getRoomDao();
+		try {
+			ArrayList<RoomPO> roomPOs = roomDao.getRoomsByHotel(hotelPO.getId());
+			rooms = new ArrayList<RoomVO>();
+			for (RoomPO roomPO : roomPOs) {
+				rooms.add(new RoomVO(roomPO));
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		
+		EvaluateDao evaluateDao = RemoteHelper.getInstance().getEvaluateDao();
+		try {
+			ArrayList<EvaluatePO> evaluatePOs = evaluateDao.getEvaluates(hotelPO.getId());
+			this.averageRank = calculateRank(evaluatePOs);
+			
+			evaluates = new ArrayList<EvaluateVO>();
+			for (EvaluatePO evaluatePO : evaluatePOs) {
+				evaluates.add(new EvaluateVO(evaluatePO));
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -141,6 +184,17 @@ public class HotelVO {
 
 	public void setAverageRank(double averageRank) {
 		this.averageRank = averageRank;
+	}
+	
+	
+	private double calculateRank(ArrayList<EvaluatePO> evaluates){
+		double total = 0.0;
+		int num = 0;
+		for (EvaluatePO evaluatePO : evaluates) {
+			total += evaluatePO.getRankValue();
+			num++;
+		}
+		return total / (double)num;
 	}
 	
 }

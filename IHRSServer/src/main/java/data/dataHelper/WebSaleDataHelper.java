@@ -11,5 +11,5 @@ public interface WebSaleDataHelper {
 	
 	public void updateWebSaleDataById(HashMap<Integer, WebSalePO> webSaleDataMap);
 	
-	public void updateWebSaleDataByName(HashMap<Integer, WebSalePO> webSaleDataMap);
+	public void updateWebSaleDataByName(HashMap<String, WebSalePO> webSaleDataMap);
 }

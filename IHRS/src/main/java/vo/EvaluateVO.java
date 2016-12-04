@@ -1,5 +1,7 @@
 package vo;
 
+import po.EvaluatePO;
+
 public class EvaluateVO {
 	
 	private String customerName;
@@ -10,6 +12,12 @@ public class EvaluateVO {
 		this.setCustomerName(customerName);
 		this.setRankValue(rankValue);
 		this.setContents(contents);
+	}
+	
+	public EvaluateVO(EvaluatePO evaluatePO) {
+		this.customerName = evaluatePO.getCustomerName();
+		this.rankValue = evaluatePO.getRankValue();
+		this.contents = evaluatePO.getContents();
 	}
 
 	public String getContents() {

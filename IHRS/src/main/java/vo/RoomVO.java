@@ -1,11 +1,22 @@
 package vo;
 
+import po.RoomPO;
+import po.RoomStatus;
+
 public class RoomVO {
 	private int hotelId;
 	private int listId;
 	private int roomNum;
 	private int price;
 	private RoomStatus status;
+	
+	public RoomVO(RoomPO roomPO){
+		this.hotelId=roomPO.getHotelId();
+		this.listId=roomPO.getListId();
+		this.roomNum=roomPO.getRoomNum();
+		this.price=roomPO.getPrice();
+		this.status=roomPO.getStatus();
+	}
 	
 	public RoomVO(int hotelId,int listId,int roomNum,int price,RoomStatus status){
 		this.hotelId=hotelId;

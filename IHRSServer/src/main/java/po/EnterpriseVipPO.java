@@ -8,9 +8,9 @@ public class EnterpriseVipPO extends CustomerPO{
 	private int bonus;
 	
 	
-	public EnterpriseVipPO(int id, String customerName, String phone, int creditValue,
+	public EnterpriseVipPO(int id, String customerName, String phone,
 			String enterpriseName,int bonus) {
-		super(id, customerName, phone, creditValue);
+		super(id, customerName, phone);
 		this.enterpriseName=enterpriseName;
 		this.bonus=bonus;
 	}
