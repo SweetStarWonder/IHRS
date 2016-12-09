@@ -58,7 +58,11 @@ public class HotelDaoImpl extends java.rmi.server.UnicastRemoteObject implements
 	}
 
 	public HotelPO getHotel(int hotelId) throws RemoteException {
-		return hotelMap.get(hotelId);
+		if (hotelMap.containsKey(hotelId)) {
+			return hotelMap.get(hotelId);
+		} else {
+			return null;
+		}
 	}
 	
 	public ArrayList<HotelPO> getHotelsByStarRating(String position, String businessDistrict, int starRating) throws RemoteException {

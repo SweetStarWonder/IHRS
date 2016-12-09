@@ -7,11 +7,14 @@ import data.dataHelper.EnterpriseVipDataHelper;
 import data.dataHelper.EvaluateDataHelper;
 import data.dataHelper.HotelDataHelper;
 import data.dataHelper.HotelManagerDataHelper;
+import data.dataHelper.HotelPromotionDataHelper;
 import data.dataHelper.ListDataHelper;
 import data.dataHelper.NormalVipDataHelper;
+import data.dataHelper.NormalVipPromotionDataHelper;
 import data.dataHelper.PromotionDataHelper;
 import data.dataHelper.RoomDataHelper;
 import data.dataHelper.WebManagerDataHelper;
+import data.dataHelper.WebPromotionDataHelper;
 import data.dataHelper.WebSaleDataHelper;
 
 public class DataFactoryImpl implements DataFactory{
@@ -74,5 +77,20 @@ public class DataFactoryImpl implements DataFactory{
 	public WebSaleDataHelper getWebSaleDataHelper() {
 		WebSaleDataHelper WebSaleDao=new WebSaleDataTxtHelper();
 		return WebSaleDao;
+	}
+
+	public HotelPromotionDataHelper getHotelPromotionDataHelper() {
+		HotelPromotionDataHelper hotelPromotionDataHelper = new HotelPromotionDataTxtHelper();
+		return hotelPromotionDataHelper;
+	}
+
+	public NormalVipPromotionDataHelper getNormalVipPromotionDataHelper() {
+		NormalVipPromotionDataHelper normalVipPromotionDataHelper = new NormalVipPromotionDataTxtHelper();
+		return normalVipPromotionDataHelper;
+	}
+
+	public WebPromotionDataHelper getWebPromotionDataHelper() {
+		WebPromotionDataHelper webPromotionDataHelper = new WebPromotionDataTxtHelper();
+		return webPromotionDataHelper;
 	}
 }

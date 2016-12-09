@@ -27,7 +27,7 @@ public class EnterpriseVipDataTxtHelper implements EnterpriseVipDataHelper{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
 					file), "UTF-8");
 			BufferedReader br = new BufferedReader(reader);
-			for(String str = br.readLine();!str.equals(null);){
+			for(String str = br.readLine(); str != null;){
 				int userId = Integer.valueOf(br.readLine().substring(1));
 				String customerName = br.readLine().substring(1);
 				String phone = br.readLine().substring(1);

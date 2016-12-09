@@ -72,19 +72,37 @@ public class ListDaoImpl extends java.rmi.server.UnicastRemoteObject implements 
 	}
 
 	public HashMap<Integer, ListPO> getListsByUser(int userId) throws RemoteException {
-		return mapByUser.get(userId);
+		if (mapByUser.containsKey(userId)) {
+			return mapByUser.get(userId);
+		} else {
+			return null;
+		}
 	}
 
 	public HashMap<Integer, ListPO> getListsByHotel(int hotelId) throws RemoteException {
-		return mapByHotel.get(hotelId);
+		if (mapByHotel.containsKey(hotelId)) {
+			return mapByHotel.get(hotelId);			
+		} else {
+			return null;
+		}
 	}
 
 	public boolean updateList(ListPO listPO) throws RemoteException {
 		int user = listPO.getUserId();
 		int hotel = listPO.getHotelId();
 		int id = listPO.getListId();
-		HashMap<Integer, ListPO> listMapU = mapByUser.get(user);
-		HashMap<Integer, ListPO> listMapH = mapByHotel.get(hotel);
+		HashMap<Integer, ListPO> listMapU;
+		if (mapByUser.containsKey(user)) {
+			listMapU = mapByUser.get(user);
+		} else {
+			listMapU = new HashMap<Integer, ListPO>();
+		}
+		HashMap<Integer, ListPO> listMapH;
+		if (mapByHotel.containsKey(hotel)) {
+			listMapH = mapByHotel.get(hotel);			
+		} else {
+			listMapH = new HashMap<Integer, ListPO>();
+		}
 		if (listMapU.containsKey(id)) {
 			listMapU.put(id, listPO);
 			mapByUser.put(user, listMapU);
@@ -102,8 +120,18 @@ public class ListDaoImpl extends java.rmi.server.UnicastRemoteObject implements 
 		int user = listPO.getUserId();
 		int hotel = listPO.getHotelId();
 		int id = listPO.getListId();
-		HashMap<Integer, ListPO> listMapU = mapByUser.get(user);
-		HashMap<Integer, ListPO> listMapH = mapByHotel.get(hotel);
+		HashMap<Integer, ListPO> listMapU;
+		if (mapByUser.containsKey(user)) {
+			listMapU = mapByUser.get(user);
+		} else {
+			listMapU = new HashMap<Integer, ListPO>();
+		}
+		HashMap<Integer, ListPO> listMapH;
+		if (mapByHotel.containsKey(hotel)) {
+			listMapH = mapByHotel.get(hotel);			
+		} else {
+			listMapH = new HashMap<Integer, ListPO>();
+		}
 		if (listMapU.containsKey(id)) {
 			return false;
 		} else {

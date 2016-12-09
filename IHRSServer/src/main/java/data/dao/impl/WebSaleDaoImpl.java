@@ -43,11 +43,19 @@ public class WebSaleDaoImpl extends java.rmi.server.UnicastRemoteObject implemen
 	}
 
 	public WebSalePO getWebSale(int userId) throws RemoteException {
-		return mapById.get(userId);
+		if (mapById.containsKey(userId)) {
+			return mapById.get(userId);			
+		} else {
+			return null;
+		}
 	}
 
 	public WebSalePO getWebSale(String userName) throws RemoteException {
-		return mapByName.get(userName);
+		if (mapByName.containsKey(userName)) {
+			return mapByName.get(userName);			
+		} else {
+			return null;
+		}
 	}
 
 	public boolean addWebSale(WebSalePO webSalePO) throws RemoteException {

@@ -24,7 +24,7 @@ public class CreditChangeDataTxtHelper implements CreditChangeDataHelper{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
 					file), "UTF-8");
 			BufferedReader br = new BufferedReader(reader);
-			for(String str = br.readLine();!str.equals("End");){
+			for(String str = br.readLine(); str != null;){
 				int userId = Integer.valueOf(br.readLine().substring(1));
 				String time = br.readLine().substring(1);
 				String listId = br.readLine().substring(1);
@@ -100,7 +100,6 @@ public class CreditChangeDataTxtHelper implements CreditChangeDataHelper{
 					creditarray.remove(0);
 				}
 			}
-			writer.write("End");
 			writer.close();	
 		} catch (Exception e) {
 			e.printStackTrace();

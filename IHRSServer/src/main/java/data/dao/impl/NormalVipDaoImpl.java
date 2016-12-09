@@ -54,7 +54,11 @@ public class NormalVipDaoImpl extends java.rmi.server.UnicastRemoteObject implem
 	}
 
 	public NormalVipPO getNormalVip(int userId) throws RemoteException {
-		return map.get(userId);
+		if (map.containsKey(userId)) {
+			return map.get(userId);			
+		} else {
+			return null;
+		}
 	}
 
 	public boolean addNormalVip(NormalVipPO normalVipPO) throws RemoteException {

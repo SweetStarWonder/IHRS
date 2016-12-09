@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!-- 注册企业会员窗口 -->
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.vip.EnterpriseVipPaneController">
+   <children>
+      <VBox layoutX="34.0" layoutY="17.0" prefHeight="150.0" prefWidth="232.0" spacing="40.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="17.0">
+         <children>
+            <VBox spacing="30.0">
+               <children>
+                  <Label text="输入企业名称：" />
+                  <TextArea fx:id="enterpriseNameTextField" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" prefHeight="38.0" prefWidth="232.0" spacing="40.0">
+               <children>
+                  <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#handleConfirm" text="注册" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancel" text="取消" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

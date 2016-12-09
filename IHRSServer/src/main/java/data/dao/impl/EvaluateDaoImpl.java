@@ -41,14 +41,22 @@ public class EvaluateDaoImpl extends java.rmi.server.UnicastRemoteObject impleme
 	}
 
 	public ArrayList<EvaluatePO> getEvaluates(int hotelId) throws RemoteException {
-		ArrayList<EvaluatePO> evaluates=map.get(hotelId);
-		return evaluates;
+		if (map.containsKey(hotelId)) {
+			ArrayList<EvaluatePO> evaluates=map.get(hotelId);
+			return evaluates;			
+		} else {
+			return null;
+		}
 	}
 
 	public boolean addEvaluate(EvaluatePO evaluatePO) throws RemoteException {
 		int hotelId=evaluatePO.getHotelId();
 		ArrayList<EvaluatePO> evaluates;
-		evaluates=map.get(hotelId);
+		if (map.containsKey(hotelId)) {
+			evaluates=map.get(hotelId);			
+		} else {
+			evaluates = new ArrayList<EvaluatePO>();
+		}
 		evaluates.add(evaluatePO);
 		map.put(hotelId,evaluates);
 		evaluateDataHelper.updateEvaluateData(map);

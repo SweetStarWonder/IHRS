@@ -12,10 +12,13 @@ import data.dao.EnterpriseVipDao;
 import data.dao.EvaluateDao;
 import data.dao.HotelDao;
 import data.dao.HotelManagerDao;
+import data.dao.HotelPromotionDao;
 import data.dao.ListDao;
 import data.dao.NormalVipDao;
+import data.dao.NormalVipPromotionDao;
 import data.dao.RoomDao;
 import data.dao.WebManagerDao;
+import data.dao.WebPromotionDao;
 import data.dao.WebSaleDao;
 import data.dao.impl.CreditChangeDaoImpl;
 import data.dao.impl.CustomerDaoImpl;
@@ -23,10 +26,13 @@ import data.dao.impl.EnterpriseVipDaoImpl;
 import data.dao.impl.EvaluateDaoImpl;
 import data.dao.impl.HotelDaoImpl;
 import data.dao.impl.HotelManagerDaoImpl;
+import data.dao.impl.HotelPromotionDaoImpl;
 import data.dao.impl.ListDaoImpl;
 import data.dao.impl.NormalVipDaoImpl;
+import data.dao.impl.NormalVipPromotionDaoImpl;
 import data.dao.impl.RoomDaoImpl;
 import data.dao.impl.WebManagerDaoImpl;
+import data.dao.impl.WebPromotionDaoImpl;
 import data.dao.impl.WebSaleDaoImpl;
 
 public class RemoteHelper {
@@ -43,10 +49,13 @@ public class RemoteHelper {
 		HotelManagerDao hotelManagerDao;
 		ListDao listDao;
 		NormalVipDao normalVipDao;
-//		PromotionDao promotionDao;
 		RoomDao roomDao;
 		WebManagerDao webManagerDao;
 		WebSaleDao webSaleDao;
+		
+		HotelPromotionDao hotelPromotionDao;
+		WebPromotionDao webPromotionDao;
+		NormalVipPromotionDao normalVipPromotionDao;
 		
 		
 		try {
@@ -59,10 +68,13 @@ public class RemoteHelper {
 			hotelManagerDao=HotelManagerDaoImpl.getInstance();
 			listDao=ListDaoImpl.getInstance();
 			normalVipDao=NormalVipDaoImpl.getInstance();
-//		promotionDao=PromotionDaoImpl.getInstance();
 			roomDao=RoomDaoImpl.getInstance();
 			webManagerDao=WebManagerDaoImpl.getInstance();
 			webSaleDao=WebSaleDaoImpl.getInstance();
+			
+			hotelPromotionDao=HotelPromotionDaoImpl.getInstance();
+			webPromotionDao=WebPromotionDaoImpl.getInstance();
+			normalVipPromotionDao=NormalVipPromotionDaoImpl.getInstance();
 			
 			LocateRegistry.createRegistry(6666);
 			
@@ -77,6 +89,9 @@ public class RemoteHelper {
 			Naming.bind("rmi://localhost:6666/RoomDao",roomDao);
 			Naming.bind("rmi://localhost:6666/WebManagerDao",webManagerDao);
 			Naming.bind("rmi://localhost:6666/WebSaleDao",webSaleDao);
+			Naming.bind("rmi://localhost:6666/HotelPromotionDao",hotelPromotionDao);
+			Naming.bind("rmi://localhost:6666/WebPromotionDao",webPromotionDao);
+			Naming.bind("rmi://localhost:6666/NormalVipPromotionDao",normalVipPromotionDao);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {

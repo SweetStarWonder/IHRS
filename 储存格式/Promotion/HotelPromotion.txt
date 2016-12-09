@@ -1,0 +1,15 @@
+<HotelPromotion>
+#discount
+#discountName
+#hotelId
+#hotelPromotionType
+<HotelPromotion>
+#discount
+#discountName
+#hotelId
+#hotelPromotionType
+<HotelPromotion>
+#discount
+#discountName
+#hotelId
+#hotelPromotionType

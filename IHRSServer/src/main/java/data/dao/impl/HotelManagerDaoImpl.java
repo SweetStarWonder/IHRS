@@ -42,8 +42,12 @@ public class HotelManagerDaoImpl extends java.rmi.server.UnicastRemoteObject imp
 	}
 
 	public HotelManagerPO getHotelManagerByUser(int hotelManagerId) throws RemoteException {
-		HotelManagerPO hotelManager=map.get(hotelManagerId);
-		return hotelManager;
+		if (map.containsKey(hotelManagerId)) {
+			HotelManagerPO hotelManager=map.get(hotelManagerId);
+			return hotelManager;			
+		} else {
+			return null;
+		}
 	}
  
 	public HotelManagerPO getHotelManagerByHotel(int hotelId) throws RemoteException{

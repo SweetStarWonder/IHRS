@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!-- 订单生成界面 -->
+
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <ScrollPane prefHeight="600.0" prefWidth="800.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <VBox prefHeight="855.0" prefWidth="800.0" spacing="20.0">
+               <children>
+                  <AnchorPane prefHeight="230.0" prefWidth="798.0">
+                     <children>
+                        <GridPane hgap="20.0" layoutX="163.0" layoutY="45.0" prefHeight="150.0" prefWidth="473.0" vgap="20.0" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="162.0" AnchorPane.topAnchor="45.0">
+                           <children>
+                              <Label text="开始时间：" />
+                              <Label text="结束时间：" GridPane.rowIndex="1" />
+                              <Label text="最晚执行时间：" GridPane.rowIndex="2" />
+                              <DatePicker GridPane.columnIndex="1" />
+                              <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
+                                 <children>
+                                    <TextField prefWidth="48.0" />
+                                    <Label text="：" />
+                                    <TextField maxWidth="48.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <children>
+                                    <TextField prefWidth="48.0" />
+                                    <Label text="：" />
+                                    <TextField maxWidth="48.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <children>
+                                    <TextField prefWidth="48.0" />
+                                    <Label text="：" />
+                                    <TextField maxWidth="48.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="119.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="159.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="150.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="300.0" prefWidth="800.0">
+                     <children>
+                        <GridPane layoutX="197.0" layoutY="40.0" prefHeight="240.0" prefWidth="406.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <Label text="选择房间：" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                              <Label text="总计：" GridPane.rowIndex="1" />
+                              <Label text="单人房：" GridPane.rowIndex="2" />
+                              <Label text="数量" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="金额" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label text="双人房：" GridPane.rowIndex="3" />
+                              <Label text="数量" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="金额" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label text="三人房：" GridPane.rowIndex="4" />
+                              <Label text="数量" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="金额" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="146.0" prefWidth="800.0">
+                     <children>
+                        <GridPane layoutX="200.0" layoutY="12.0" prefHeight="168.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Label text="预计入住人数：" />
+                                    <TextField prefHeight="36.0" prefWidth="193.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="81.0" prefWidth="401.0" spacing="30.0" GridPane.rowIndex="1">
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="有儿童" />
+                                    <RadioButton mnemonicParsing="false" text="无儿童" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="166.0" prefWidth="800.0">
+                     <children>
+                        <VBox layoutY="18.0" prefHeight="162.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="112.0" prefWidth="518.0" spacing="30.0">
+                                 <children>
+                                    <Label text="优惠策略：" />
+                                    <Label text="优惠策略" />
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <Label text="(省" />
+                                          <Label text="金额" />
+                                          <Label text="元)" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <Label text="总计：" />
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <Label text="金额" />
+                                          <Label text="元" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" text="提交订单" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

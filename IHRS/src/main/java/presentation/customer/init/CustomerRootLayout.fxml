@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<!-- 普通用户界面的主布局界面 -->
+
+<BorderPane prefHeight="636.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.init.CustomerRootLayoutController">
+   <top>
+      <AnchorPane>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="273.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="527.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="酒店预定系统客户版">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButton" text="&lt;" BorderPane.alignment="CENTER" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="494.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="306.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="头像" />
+                  <MenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="用户">
+                    <items>
+                      <MenuItem fx:id="personalInformationItem" mnemonicParsing="false" onAction="#showPersonalInformation" text="个人信息" />
+                      <MenuItem fx:id="creditRecordItem" mnemonicParsing="false" onAction="#showCreditRecord" text="信用记录" />
+                        <Menu mnemonicParsing="false" text="注册会员">
+                          <items>
+                            <MenuItem fx:id="registerNormalVipItem" mnemonicParsing="false" onAction="#registerNormalVip" text="普通会员" />
+                              <MenuItem fx:id="registerEnterpriseVipItem" mnemonicParsing="false" onAction="#registerEnterpriseVip" text="企业会员" />
+                          </items>
+                        </Menu>
+                        <MenuItem fx:id="signOutItem" mnemonicParsing="false" text="注销" />
+                    </items>
+                  </MenuButton>
+                  <MenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="订单记录">
+                    <items>
+                      <MenuItem fx:id="personalListItem" mnemonicParsing="false" onAction="#showPersonalLists" text="我的订单" />
+                      <MenuItem fx:id="personalHotelItem" mnemonicParsing="false" onAction="#showPersonalHotels" text="我的酒店" />
+                    </items>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </MenuButton>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

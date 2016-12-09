@@ -9,6 +9,7 @@ import po.EvaluatePO;
 import po.HotelPO;
 import po.RoomPO;
 import rmi.RemoteHelper;
+import vo.promotionVO.HotelPromotionVO;
 
 public class HotelVO {
 
@@ -16,7 +17,7 @@ public class HotelVO {
 	
 	private ArrayList<RoomVO> rooms;
 	
-	private ArrayList<PromotionVO> promotions;
+	private ArrayList<HotelPromotionVO> promotions;
 	
 	private ArrayList<String> partners;
 	
@@ -36,13 +37,13 @@ public class HotelVO {
 	
 	private double averageRank;  //总评
 	
-	public HotelVO(int id,ArrayList<RoomVO> rooms,ArrayList<PromotionVO> promotions,ArrayList<String> partners,ArrayList<EvaluateVO> evaluates,
+	public HotelVO(int id,ArrayList<RoomVO> rooms,ArrayList<HotelPromotionVO> promotions,ArrayList<String> partners,ArrayList<EvaluateVO> evaluates,
 			String hotelName,String position,String businessDistrict,int starRating,String introduction,String facility,double averageRank){
 		this.id=id;
 		this.hotelName=hotelName;
 		
 		this.rooms=rooms;
-		this.promotions=promotions;
+		this.setPromotions(promotions);
 		this.partners=partners;
 		this.evaluates=evaluates;
 		
@@ -122,14 +123,6 @@ public class HotelVO {
 		this.rooms = rooms;
 	}
 
-	public ArrayList<PromotionVO> getPromotions() {
-		return promotions;
-	}
-
-	public void setPromotions(ArrayList<PromotionVO> promotions) {
-		this.promotions = promotions;
-	}
-
 	public ArrayList<String> getPartners() {
 		return partners;
 	}
@@ -195,6 +188,14 @@ public class HotelVO {
 			num++;
 		}
 		return total / (double)num;
+	}
+
+	public ArrayList<HotelPromotionVO> getPromotions() {
+		return promotions;
+	}
+
+	public void setPromotions(ArrayList<HotelPromotionVO> promotions) {
+		this.promotions = promotions;
 	}
 	
 }

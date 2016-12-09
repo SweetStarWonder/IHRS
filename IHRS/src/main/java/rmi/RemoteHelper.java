@@ -8,10 +8,13 @@ import data.dao.EnterpriseVipDao;
 import data.dao.EvaluateDao;
 import data.dao.HotelDao;
 import data.dao.HotelManagerDao;
+import data.dao.HotelPromotionDao;
 import data.dao.ListDao;
 import data.dao.NormalVipDao;
+import data.dao.NormalVipPromotionDao;
 import data.dao.RoomDao;
 import data.dao.WebManagerDao;
+import data.dao.WebPromotionDao;
 import data.dao.WebSaleDao;
 
 public class RemoteHelper {
@@ -24,10 +27,12 @@ public class RemoteHelper {
 	Remote hotelManagerDao;
 	Remote listDao;
 	Remote normalVipDao;
-//	Remote promotionDao;
 	Remote roomDao;
 	Remote webManagerDao;
 	Remote webSaleDao;
+	Remote hotelPromotionDao;
+	Remote webPromotionDao;
+	Remote normalVipPromotionDao;
 	
 	private static RemoteHelper remoteHelper=new RemoteHelper();
 	
@@ -97,11 +102,28 @@ public class RemoteHelper {
 	public void setWebManagerDao(Remote webManagerDao) {
 		this.webManagerDao = webManagerDao;
 	}
-	public WebSaleDao getWebSaleDao() {
-		return (WebSaleDao)webSaleDao;
+	public WebSaleDao getWebSaleDao(){
+		return(WebSaleDao)webSaleDao;
 	}
-	public void setWebSaleDao(Remote webSaleDao) {
-		this.webSaleDao = webSaleDao;
+	public void setWebSaleDao(Remote webSaleDao){
+		this.webManagerDao=webSaleDao;
 	}
-	
+	public HotelPromotionDao getHotelPromotionDao() {
+		return (HotelPromotionDao)hotelPromotionDao;
+	}
+	public void setHotelPromotionDao(Remote hotelPromotionDao) {
+		this.hotelPromotionDao=hotelPromotionDao;
+	}
+	public WebPromotionDao getWebPromotionDao() {
+		return (WebPromotionDao)webPromotionDao;
+	}
+	public void setWebPromotionDao(Remote webPromotionDao) {
+		this.webPromotionDao=webPromotionDao;
+	}
+	public NormalVipPromotionDao getNormalVipPromotionDao() {
+		return (NormalVipPromotionDao)normalVipPromotionDao;
+	}
+	public void setNormalVipPromotionDao(Remote normalVipPromotionDao) {
+		this.normalVipPromotionDao=normalVipPromotionDao;
+	}
 }

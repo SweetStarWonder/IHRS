@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!-- 个人信息查看界面 -->
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.information.PersonInformationController">
+   <children>
+      <GridPane alignment="CENTER" layoutX="171.0" layoutY="148.0" prefHeight="226.0" prefWidth="459.0" AnchorPane.leftAnchor="171.0" AnchorPane.rightAnchor="170.0" AnchorPane.topAnchor="148.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="220.0" minWidth="159.0" prefWidth="178.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="281.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="用户名：" GridPane.halignment="CENTER" />
+            <Label fx:id="usernameLabel" text="用户名" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            <Label text="手机：" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="phoneLabel" text="手机" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label text="信用：" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label fx:id="creditLabel" text="信用" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button fx:id="modifyButton" layoutX="359.0" layoutY="447.0" mnemonicParsing="false" onAction="#handleModifyButton" text="修改" AnchorPane.topAnchor="447.0" />
+   </children>
+</AnchorPane>

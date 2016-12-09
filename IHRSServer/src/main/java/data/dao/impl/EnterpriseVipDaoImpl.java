@@ -39,8 +39,12 @@ public class EnterpriseVipDaoImpl extends java.rmi.server.UnicastRemoteObject im
 	}
 
 	public EnterpriseVipPO getEnterpriseVip(int userId) throws RemoteException {
-		EnterpriseVipPO enterpriseVipPO=map.get(userId);
-		return enterpriseVipPO;
+		if (map.containsKey(userId)) {
+			EnterpriseVipPO enterpriseVipPO=map.get(userId);
+			return enterpriseVipPO;			
+		} else {
+			return null;
+		}
 	}
 
 	public boolean addEnterpriseVip(EnterpriseVipPO enterpriseVipPO) throws RemoteException {

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!-- 信用记录单元格 -->
+
+<AnchorPane prefHeight="116.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="33.0" layoutY="14.0" text="动作" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="14.0" />
+      <Label layoutX="300.0" layoutY="14.0" text="信用变化" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="14.0" />
+      <Label layoutX="336.0" layoutY="46.0" text="时间" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="46.0" />
+      <Label layoutX="113.0" layoutY="46.0" text="订单号" AnchorPane.leftAnchor="113.0" AnchorPane.topAnchor="46.0" />
+      <Label layoutX="33.0" layoutY="46.0" text="订单号：" AnchorPane.leftAnchor="33.0" AnchorPane.topAnchor="46.0" />
+      <Label layoutX="33.0" layoutY="82.0" text="剩余信用：" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="33.0" />
+      <Label layoutX="140.0" layoutY="82.0" text="剩余信用" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="140.0" />
+   </children>
+</AnchorPane>

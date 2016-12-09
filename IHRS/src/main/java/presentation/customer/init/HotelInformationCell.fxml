@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!-- 酒店信息单元格 -->
+
+<AnchorPane minHeight="160.0" prefWidth="160.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Hyperlink layoutY="8.0" prefHeight="37.0" prefWidth="80.0" text="酒店名" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="8.0" />
+      <Label layoutX="114.0" layoutY="2.0" text="预定过" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0" />
+      <Label layoutX="123.0" layoutY="56.0" text="价格" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0" />
+      <Label layoutX="17.0" layoutY="122.0" text="评分" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="17.0" />
+      <Button layoutX="82.0" layoutY="116.0" mnemonicParsing="false" text="下订单" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="0.0" />
+      <Label layoutY="68.0" prefHeight="24.0" prefWidth="80.0" text="星级" />
+   </children>
+</AnchorPane>

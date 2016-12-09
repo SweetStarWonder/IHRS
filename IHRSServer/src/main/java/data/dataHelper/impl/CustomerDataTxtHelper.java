@@ -28,9 +28,7 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 				String customerName = br.readLine().substring(1);
 				String phone = br.readLine().substring(1);
 				CustomerPO customerPO= new CustomerPO(id,customerName,phone);
-				if(Map.containsKey(id)){
-					Map.put(id, customerPO);
-				}
+				Map.put(id, customerPO);
 				str = br.readLine();
 			}
 			br.close();
@@ -55,9 +53,7 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 				String customerName = br.readLine().substring(1);
 				String phone = br.readLine().substring(1);
 				CustomerPO customerPO= new CustomerPO(id,customerName,phone);
-				if(Map.containsKey(customerName)){
-					Map.put(customerName, customerPO);
-				}
+				Map.put(customerName, customerPO);
 				str = br.readLine();
 			}
 			br.close();
@@ -75,7 +71,7 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
 			
-			//瀵筸ap杩涜閬嶅巻
+			//对map进行遍历
 			Iterator<Map.Entry<Integer, CustomerPO>> iterator = customerMap.entrySet().iterator();
 			while(iterator.hasNext()){
 				Map.Entry<Integer, CustomerPO> entry = iterator.next();
@@ -100,7 +96,7 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
 			
-			//瀵筸ap杩涜閬嶅巻
+			//对map进行遍历
 			Iterator<Map.Entry<Integer, CustomerPO>> iterator = customerMap.entrySet().iterator();
 			while(iterator.hasNext()){
 				Map.Entry<Integer, CustomerPO> entry = iterator.next();
@@ -121,4 +117,3 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 	}
 
 }
-

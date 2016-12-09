@@ -43,13 +43,21 @@ public class CustomerDaoImpl extends java.rmi.server.UnicastRemoteObject impleme
 	}
 
 	public CustomerPO getCustomer(int userId) throws RemoteException {
-		CustomerPO customerPO=idMap.get(userId);
-		return customerPO;
+		if (idMap.containsKey(userId)) {
+			CustomerPO customerPO=idMap.get(userId);
+			return customerPO;			
+		} else {
+			return null;
+		}
 	}
 
 	public CustomerPO getCustomer(String userName) throws RemoteException {
-		CustomerPO customerPO=nameMap.get(userName);
-		return customerPO;
+		if (nameMap.containsKey(userName)) {			
+			CustomerPO customerPO=nameMap.get(userName);
+			return customerPO;
+		} else {
+			return null;
+		}
 	}
 
 	public boolean updateCustomer(CustomerPO customerPO) throws RemoteException {

@@ -26,4 +26,10 @@ public interface DataFactory {
 	
 	public WebSaleDataHelper getWebSaleDataHelper();
 	
+	public HotelPromotionDataHelper getHotelPromotionDataHelper();
+	
+	public NormalVipPromotionDataHelper getNormalVipPromotionDataHelper();
+	
+	public WebPromotionDataHelper getWebPromotionDataHelper();
+	
 }

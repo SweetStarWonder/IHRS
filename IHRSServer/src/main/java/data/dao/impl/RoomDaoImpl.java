@@ -72,7 +72,12 @@ public class RoomDaoImpl extends java.rmi.server.UnicastRemoteObject implements 
 	public boolean addRoom(RoomPO roomPO) throws RemoteException {
 		int hotel = roomPO.getHotelId();
 		int num = roomPO.getRoomNum();
-		HashMap<Integer, RoomPO> roomMap = map.get(hotel);
+		HashMap<Integer, RoomPO> roomMap;
+		if (map.containsKey(hotel)) {
+			roomMap = map.get(hotel);			
+		} else {
+			roomMap = new HashMap<Integer, RoomPO>();
+		}
 		if (roomMap.containsKey(num)) {
 			return false;
 		} else {

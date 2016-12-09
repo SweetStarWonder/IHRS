@@ -1,0 +1,15 @@
+<NormalVipPromotion>
+#discount
+#discountName
+#rankValue
+#businessDistrict
+<NormalVipPromotion>
+#discount
+#discountName
+#rankValue
+#businessDistrict
+<NormalVipPromotion>
+#discount
+#discountName
+#rankValue
+#businessDistrict

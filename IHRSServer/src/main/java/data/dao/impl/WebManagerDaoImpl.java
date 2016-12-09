@@ -51,7 +51,11 @@ public class WebManagerDaoImpl extends java.rmi.server.UnicastRemoteObject imple
 	}
 
 	public WebManagerPO getWebManager(int userId) throws RemoteException {
-		return map.get(userId);
+		if (map.containsKey(userId)) {
+			return map.get(userId);
+		} else {
+			return null;
+		}
 	}
 
 }

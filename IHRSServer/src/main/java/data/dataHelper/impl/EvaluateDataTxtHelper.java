@@ -60,7 +60,9 @@ public class EvaluateDataTxtHelper implements EvaluateDataHelper{
 			Iterator<Map.Entry<Integer, ArrayList<EvaluatePO>>> iterator = evaluateDataMap.entrySet().iterator();
 			while(iterator.hasNext()){
 				Map.Entry<Integer, ArrayList<EvaluatePO>> entry = iterator.next();
-				ArrayList<EvaluatePO> evaluateArray = entry.getValue();
+				ArrayList<EvaluatePO> evaluateArraytmp= entry.getValue();
+				@SuppressWarnings("unchecked")
+				ArrayList<EvaluatePO> evaluateArray = (ArrayList<EvaluatePO>)evaluateArraytmp.clone();
 				while(!evaluateArray.isEmpty()){
 					EvaluatePO evaluatePO = evaluateArray.get(0);
 					int hotelId = evaluatePO.getHotelId();

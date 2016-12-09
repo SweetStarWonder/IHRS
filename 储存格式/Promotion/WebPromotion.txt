@@ -1,0 +1,15 @@
+<WebPromotion>
+#discount
+#discountName
+#startTime
+#endTime
+<WebPromotion>
+#discount
+#discountName
+#startTime
+#endTime
+<WebPromotion>
+#discount
+#discountName
+#startTime
+#endTime

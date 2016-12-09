@@ -41,14 +41,22 @@ public class CreditChangeDaoImpl extends java.rmi.server.UnicastRemoteObject imp
 	}
 
 	public ArrayList<CreditChangePO> getCreditChange(int userId) throws RemoteException {
-		ArrayList<CreditChangePO> creditChange=map.get(userId);
-		return creditChange;
+		if(map.containsKey(userId)) {
+			ArrayList<CreditChangePO> creditChange=map.get(userId);
+			return creditChange;
+		} else {
+			return null;
+		}
 	}
 
 	public boolean addCreditChange(CreditChangePO creditChangePO) throws RemoteException {
-		int userId=creditChangePO.getUserId();
 		ArrayList<CreditChangePO> creditChanges;
-		creditChanges=map.get(userId);
+		int userId=creditChangePO.getUserId();
+		if (map.containsKey(userId)) {
+			creditChanges = map.get(userId);
+		} else {
+			creditChanges = new ArrayList<CreditChangePO>();
+		}
 		creditChanges.add(creditChangePO);
 		map.put(userId,creditChanges);
 		creditChangeDataHelper.updateCreditChangeData(map);
