@@ -14,8 +14,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import presentation.customer.hotel.HotelDetailInformationController;
 import presentation.customer.information.PersonInformationController;
+import presentation.customer.information.PersonalHotelViewController;
 import presentation.customer.init.CustomerRootLayoutController;
+import presentation.customer.init.HotelSearchPaneController;
 import presentation.customer.vip.EnterpriseVipPaneController;
 import presentation.customer.vip.NormalVipPaneController;
 
@@ -56,6 +59,8 @@ public class TestCustomer extends Application {
 		AnchorPane anchorPane;
 		try {
 			anchorPane = (AnchorPane) loader.load();
+			HotelSearchPaneController controller = loader.getController();
+			controller.setMainApp(this);
 			sceneStack.add(anchorPane);
 			rootLayout.setCenter(anchorPane);
 		} catch (IOException e) {
@@ -174,6 +179,41 @@ public class TestCustomer extends Application {
 	public void showPersonalHotels() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("information/PersonalHotelView.fxml"));
+		AnchorPane anchorPane;
+		try {
+			anchorPane = (AnchorPane) loader.load();
+			changeView(anchorPane);
+			
+			PersonalHotelViewController controller = loader.getController();
+			controller.setMainApp(this);
+			
+			rootLayout.setCenter(anchorPane);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void showHotelDetailInformation() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(TestCustomer.class.getResource("hotel/HotelDetailInfomation.fxml"));
+		AnchorPane anchorPane = null;
+		try {
+			anchorPane = (AnchorPane) loader.load();				
+			
+			HotelDetailInformationController controller = loader.getController();
+			controller.setMainApp(this);
+			
+			changeView(anchorPane);
+			
+			rootLayout.setCenter(anchorPane);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void showGenerateList() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(TestCustomer.class.getResource("list/ListGenerateView.fxml"));
 		AnchorPane anchorPane;
 		try {
 			anchorPane = (AnchorPane) loader.load();

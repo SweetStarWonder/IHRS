@@ -7,10 +7,9 @@
 
 <!-- 酒店评价列表 -->
 
-
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.hotel.HotelEvaluateController">
    <children>
-      <ListView layoutX="19.0" layoutY="59.0" prefHeight="500.0" prefWidth="360.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-      <Button layoutX="20.0" layoutY="14.0" mnemonicParsing="false" text="写评论" />
+      <ListView fx:id="evaluateListView" layoutX="19.0" layoutY="59.0" prefHeight="500.0" prefWidth="360.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+      <Button fx:id="writeEvaluateButton" layoutX="20.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleWriteEvaluateButton" text="写评论" />
    </children>
 </AnchorPane>

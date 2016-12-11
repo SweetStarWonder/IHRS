@@ -6,9 +6,17 @@ import org.controlsfx.control.GridCell;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import presentation.customer.TestCustomer;
 import vo.HotelVO;
 
 public class HotelCell extends GridCell<HotelVO>{
+	private TestCustomer mainApp;
+	
+	public HotelCell(TestCustomer testCustomer) {
+		super();
+		this.mainApp = testCustomer;
+	}
+	
 	@Override 
 	public void updateItem(HotelVO item, boolean empty) {
 		super.updateItem(item, empty);
@@ -17,6 +25,8 @@ public class HotelCell extends GridCell<HotelVO>{
 		AnchorPane anchorPane = null;
 		try {
 			anchorPane = (AnchorPane) loader.load();
+			HotelCellController controller = loader.getController();
+			controller.setMainApp(mainApp);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

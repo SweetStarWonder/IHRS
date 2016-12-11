@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
+import presentation.customer.TestCustomer;
 import presentation.customer.init.HotelCell;
 import vo.HotelVO;
 
@@ -17,6 +18,8 @@ public class PersonalHotelViewController {
 	private AnchorPane hotelAnchorPane;
 	
 	private ObservableList<HotelVO> hotels;
+	
+	private TestCustomer mainApp;
 	
 	public PersonalHotelViewController() {
 		
@@ -33,7 +36,7 @@ public class PersonalHotelViewController {
 		myGrid.setCellFactory(new Callback<GridView<HotelVO>, GridCell<HotelVO>>() {
 			
 			public GridCell<HotelVO> call(GridView<HotelVO> param) {
-				return new HotelCell();
+				return new PersonalHotelCell(mainApp);
 			}
 			});
 		for (int i = 0; i < 20; i++) {
@@ -46,5 +49,9 @@ public class PersonalHotelViewController {
 		myGrid.setPrefHeight(480);
 		
 		hotelAnchorPane.getChildren().add(myGrid);
+	}
+	
+	public void setMainApp(TestCustomer mainApp) {
+		this.mainApp = mainApp;
 	}
 }

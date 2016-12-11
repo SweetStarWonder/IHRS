@@ -8,12 +8,11 @@
 
 <!-- 订单生成界面 -->
 
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.list.ListGenerateViewController">
    <children>
-      <ScrollPane prefHeight="600.0" prefWidth="800.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="800.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <VBox prefHeight="855.0" prefWidth="800.0" spacing="20.0">
+            <VBox minWidth="780.0" prefHeight="855.0" prefWidth="800.0" spacing="20.0">
                <children>
                   <AnchorPane prefHeight="230.0" prefWidth="798.0">
                      <children>
@@ -22,28 +21,28 @@
                               <Label text="开始时间：" />
                               <Label text="结束时间：" GridPane.rowIndex="1" />
                               <Label text="最晚执行时间：" GridPane.rowIndex="2" />
-                              <DatePicker GridPane.columnIndex="1" />
-                              <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <DatePicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <DatePicker fx:id="beginTimeDatePicker" GridPane.columnIndex="1" />
+                              <DatePicker fx:id="endTimeDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="lastExTimeDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2">
                                  <children>
-                                    <TextField prefWidth="48.0" />
+                                    <TextField fx:id="beginTimeHourTextField" prefWidth="48.0" />
                                     <Label text="：" />
-                                    <TextField maxWidth="48.0" />
+                                    <TextField fx:id="beginTimeMinuteTextField" maxWidth="48.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                                  <children>
-                                    <TextField prefWidth="48.0" />
+                                    <TextField fx:id="endTimeHourTextField" prefWidth="48.0" />
                                     <Label text="：" />
-                                    <TextField maxWidth="48.0" />
+                                    <TextField fx:id="endTimeMinuteTextField" maxWidth="48.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                                  <children>
-                                    <TextField prefWidth="48.0" />
+                                    <TextField fx:id="lastExTimeHourTextField" prefWidth="48.0" />
                                     <Label text="：" />
-                                    <TextField maxWidth="48.0" />
+                                    <TextField fx:id="lastExTimeMinuteTextField" maxWidth="48.0" />
                                  </children>
                               </HBox>
                            </children>
@@ -65,17 +64,17 @@
                         <GridPane layoutX="197.0" layoutY="40.0" prefHeight="240.0" prefWidth="406.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="197.0" AnchorPane.rightAnchor="197.0" AnchorPane.topAnchor="10.0">
                            <children>
                               <Label text="选择房间：" />
-                              <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
                               <Label text="总计：" GridPane.rowIndex="1" />
                               <Label text="单人房：" GridPane.rowIndex="2" />
-                              <Label text="数量" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                              <Label text="金额" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <Label fx:id="singleNumLabel" text="数量" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label fx:id="singlePriceLabel" text="金额" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                               <Label text="双人房：" GridPane.rowIndex="3" />
-                              <Label text="数量" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <Label text="金额" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                              <Label fx:id="doubleNumLabel" text="数量" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label fx:id="doublePriceLabel" text="金额" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                               <Label text="三人房：" GridPane.rowIndex="4" />
-                              <Label text="数量" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <Label text="金额" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <Label fx:id="tripleNumLabel" text="数量" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label fx:id="triplePriceLabel" text="金额" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                              <HBox fx:id="roomChooseHBox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" />
                            </children>
                            <columnConstraints>
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -99,13 +98,16 @@
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Label text="预计入住人数：" />
-                                    <TextField prefHeight="36.0" prefWidth="193.0" />
+                                    <TextField fx:id="personNumTextField" prefHeight="36.0" prefWidth="193.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="81.0" prefWidth="401.0" spacing="30.0" GridPane.rowIndex="1">
                                  <children>
-                                    <RadioButton mnemonicParsing="false" text="有儿童" />
-                                    <RadioButton mnemonicParsing="false" text="无儿童" />
+                                    <RadioButton fx:id="haveChildRadioButton" mnemonicParsing="false" selected="true" text="有儿童">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="a" />
+                                       </toggleGroup></RadioButton>
+                                    <RadioButton fx:id="noChildRadioButton" mnemonicParsing="false" text="无儿童" toggleGroup="$a" />
                                  </children>
                               </HBox>
                            </children>
@@ -126,11 +128,11 @@
                               <HBox alignment="CENTER" prefHeight="112.0" prefWidth="518.0" spacing="30.0">
                                  <children>
                                     <Label text="优惠策略：" />
-                                    <Label text="优惠策略" />
+                                    <Label fx:id="promotionNameLabel" text="优惠策略" />
                                     <HBox alignment="CENTER">
                                        <children>
                                           <Label text="(省" />
-                                          <Label text="金额" />
+                                          <Label fx:id="promotionPriceLabel" text="金额" />
                                           <Label text="元)" />
                                        </children>
                                     </HBox>
@@ -141,7 +143,7 @@
                                     <Label text="总计：" />
                                     <HBox alignment="CENTER">
                                        <children>
-                                          <Label text="金额" />
+                                          <Label fx:id="totalPriceLabel" text="金额" />
                                           <Label text="元" />
                                        </children>
                                     </HBox>
@@ -149,7 +151,7 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="提交订单" />
+                                    <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#handleConfirmButton" text="提交订单" />
                                  </children>
                               </HBox>
                            </children>

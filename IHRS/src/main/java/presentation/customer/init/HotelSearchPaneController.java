@@ -20,6 +20,7 @@ import javafx.scene.control.TreeView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
+import presentation.customer.TestCustomer;
 import vo.HotelVO;
 
 public class HotelSearchPaneController {
@@ -46,6 +47,8 @@ public class HotelSearchPaneController {
 	
 	@FXML 
 	private AnchorPane searchResultAnchorPane;
+	
+	private TestCustomer mainApp;
 	
 	private DetailSearchPaneController detailSearchPaneController;
 	
@@ -92,7 +95,7 @@ public class HotelSearchPaneController {
 			
 			public GridCell<HotelVO> call(GridView<HotelVO> param) {
 				// TODO Auto-generated method stub
-				return new HotelCell();
+				return new HotelCell(mainApp);
 			}
 			});
 		for (int i = 0; i < 20; i++) {
@@ -129,5 +132,9 @@ public class HotelSearchPaneController {
 			children.add(sortSegmentedButton);	
 		}
 		
+	}
+	
+	public void setMainApp(TestCustomer mainApp) {
+		this.mainApp = mainApp;
 	}
 }

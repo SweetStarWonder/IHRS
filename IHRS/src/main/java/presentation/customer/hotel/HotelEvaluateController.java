@@ -17,6 +17,8 @@ public class HotelEvaluateController {
 	
 	ObservableList<EvaluateVO> evaluates;
 	
+	private HotelDetailInformationController hotelDetailInformationController;
+	
 	public HotelEvaluateController() {
 		
 	}
@@ -33,5 +35,14 @@ public class HotelEvaluateController {
 		for (int i = 0; i < 50; i++) {
 			evaluates.add(null);
 		}
+	}
+	
+	@FXML
+	private void handleWriteEvaluateButton() {
+		hotelDetailInformationController.writeEvaluate();
+	}
+	
+	public void setController(HotelDetailInformationController controller) {
+		this.hotelDetailInformationController = controller;
 	}
 }

@@ -72,7 +72,7 @@ public class Test extends Application {
 		}
 	}
 	
-	public void testGrid() {
+	/*public void testGrid() {
 		ObservableList<HotelVO> list = FXCollections.observableArrayList();
 		GridView<HotelVO> myGrid = new GridView<HotelVO>(list);
 		myGrid.setCellFactory(new Callback<GridView<HotelVO>, GridCell<HotelVO>>() {
@@ -97,7 +97,7 @@ public class Test extends Application {
 		Scene scene = new Scene(myGrid);
 		primaryStage.setScene(scene);
 		primaryStage.show();
-	}
+	}*/
 	
 	@SuppressWarnings("static-access")
 	public void testCell() {

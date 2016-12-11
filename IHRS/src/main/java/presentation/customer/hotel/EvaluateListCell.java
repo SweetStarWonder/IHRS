@@ -13,7 +13,7 @@ public class EvaluateListCell extends ListCell<EvaluateVO> {
 	public void updateItem(EvaluateVO item, boolean empty) {
 		super.updateItem(item, empty);
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(HotelCell.class.getResource("EvaluateCell.fxml"));
+		loader.setLocation(EvaluateListCell.class.getResource("EvaluateCell.fxml"));
 		AnchorPane anchorPane = null;
 		try {
 			anchorPane = (AnchorPane) loader.load();
