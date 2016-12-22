@@ -71,7 +71,7 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
 			
-			//¶Ômap½øÐÐ±éÀú
+			//ï¿½ï¿½mapï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
 			Iterator<Map.Entry<Integer, CustomerPO>> iterator = customerMap.entrySet().iterator();
 			while(iterator.hasNext()){
 				Map.Entry<Integer, CustomerPO> entry = iterator.next();
@@ -90,16 +90,16 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 		
 	}
 
-	public void updateCustomerDataByName(HashMap<Integer, CustomerPO> customerMap) {
+	public void updateCustomerDataByName(HashMap<String, CustomerPO> customerMap) {
 		File file = new File("TxtData/Customer.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
 			
-			//¶Ômap½øÐÐ±éÀú
-			Iterator<Map.Entry<Integer, CustomerPO>> iterator = customerMap.entrySet().iterator();
+			//ï¿½ï¿½mapï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
+			Iterator<Map.Entry<String, CustomerPO>> iterator = customerMap.entrySet().iterator();
 			while(iterator.hasNext()){
-				Map.Entry<Integer, CustomerPO> entry = iterator.next();
+				Map.Entry<String, CustomerPO> entry = iterator.next();
 				CustomerPO customerPO = entry.getValue();
 				int id = customerPO.getId();
 				String customerName = customerPO.getUserName();

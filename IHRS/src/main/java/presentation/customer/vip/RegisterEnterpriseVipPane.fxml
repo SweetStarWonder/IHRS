@@ -7,7 +7,7 @@
 
 <!-- 注册企业会员窗口 -->
 
-<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.vip.EnterpriseVipPaneController">
+<AnchorPane prefHeight="200.0" prefWidth="300.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.vip.EnterpriseVipPaneController">
    <children>
       <VBox layoutX="34.0" layoutY="17.0" prefHeight="150.0" prefWidth="232.0" spacing="40.0" AnchorPane.bottomAnchor="17.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="17.0">
          <children>

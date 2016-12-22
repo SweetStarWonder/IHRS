@@ -25,7 +25,12 @@
             <HBox alignment="CENTER_RIGHT" layoutX="494.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="306.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label text="头像" />
-                  <Label fx:id="hotelNameLabel" text="酒店名" />
+                  <MenuButton fx:id="hotelNameLabel" mnemonicParsing="false" text="酒店名">
+                    <items>
+                        <MenuItem fx:id="modifyPasswordMenuItem" mnemonicParsing="false" onAction="#handleModifyPasswordMenuItem" text="修改密码" />
+                        <MenuItem fx:id="signoutMenuItem" mnemonicParsing="false" onAction="#handleSignoutMenuItem" text="注销" />
+                    </items>
+                  </MenuButton>
                </children>
             </HBox>
          </children>

@@ -8,9 +8,9 @@
 
 <!-- 普通用户界面的主布局界面 -->
 
-<BorderPane prefHeight="636.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.init.CustomerRootLayoutController">
+<BorderPane prefHeight="636.0" prefWidth="800.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.init.CustomerRootLayoutController">
    <top>
-      <AnchorPane>
+      <AnchorPane stylesheets="@RootTheme.css">
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="273.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="527.0" AnchorPane.topAnchor="0.0">
                <children>
@@ -25,20 +25,21 @@
             <HBox alignment="CENTER_RIGHT" layoutX="494.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="306.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label text="头像" />
-                  <MenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="用户">
+                  <MenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="用户" textFill="#f5f5f5">
                     <items>
                       <MenuItem fx:id="personalInformationItem" mnemonicParsing="false" onAction="#showPersonalInformation" text="个人信息" />
                       <MenuItem fx:id="creditRecordItem" mnemonicParsing="false" onAction="#showCreditRecord" text="信用记录" />
+                        <MenuItem fx:id="modifyPasswordItem" mnemonicParsing="false" onAction="#handleModifyPasswordItem" text="修改密码" />
                         <Menu mnemonicParsing="false" text="注册会员">
                           <items>
                             <MenuItem fx:id="registerNormalVipItem" mnemonicParsing="false" onAction="#registerNormalVip" text="普通会员" />
                               <MenuItem fx:id="registerEnterpriseVipItem" mnemonicParsing="false" onAction="#registerEnterpriseVip" text="企业会员" />
                           </items>
                         </Menu>
-                        <MenuItem fx:id="signOutItem" mnemonicParsing="false" text="注销" />
+                        <MenuItem fx:id="signOutItem" mnemonicParsing="false" onAction="#handleSignoutItem" text="注销" />
                     </items>
                   </MenuButton>
-                  <MenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="订单记录">
+                  <MenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="订单记录" textFill="#f2eded">
                     <items>
                       <MenuItem fx:id="personalListItem" mnemonicParsing="false" onAction="#showPersonalLists" text="我的订单" />
                       <MenuItem fx:id="personalHotelItem" mnemonicParsing="false" onAction="#showPersonalHotels" text="我的酒店" />

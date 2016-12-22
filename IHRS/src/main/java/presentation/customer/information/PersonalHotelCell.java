@@ -21,18 +21,23 @@ public class PersonalHotelCell extends GridCell<HotelVO> {
 	@Override
 	public void updateItem(HotelVO item, boolean empty) {
 		super.updateItem(item, empty);
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(PersonalHotelCell.class.getResource("PresonalHotelInformationCell.fxml"));
-		AnchorPane anchorPane = null;
-		try {
-			anchorPane = (AnchorPane) loader.load();
-			PersonalHotelCellController controller = loader.getController();
-			controller.setMainApp(mainApp);
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (empty || item == null) {
+			setGraphic(null);
+		} else {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(PersonalHotelCell.class.getResource("PresonalHotelInformationCell.fxml"));
+			AnchorPane anchorPane = null;
+			try {
+				anchorPane = (AnchorPane) loader.load();
+				PersonalHotelCellController controller = loader.getController();
+				controller.setMainApp(mainApp);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			setGraphic(anchorPane);
+			
 		}
-
-		setGraphic(anchorPane);
 
 	}
 }

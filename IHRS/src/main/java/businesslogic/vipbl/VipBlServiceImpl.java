@@ -55,6 +55,4 @@ public class VipBlServiceImpl implements VipBlService{
 			return null;
 		}
 	}
-
 }
-

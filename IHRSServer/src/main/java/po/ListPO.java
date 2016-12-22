@@ -1,7 +1,23 @@
 package po;
 
-public class ListPO {
+import java.io.Serializable;
 
+/**
+ * listId                订单编号
+ * hotelId               酒店编号
+ * userId                用户编号
+ * status                订单状态
+ * entryTime             入住时间（yyyy/MM/dd HH:mm:ss）
+ * lastTime              离店时间
+ * lastListExecutedTime  最晚订单执行时间
+ * price                 价格
+ * ifHaveChild           是否携带小孩
+ */
+public class ListPO implements Serializable {
+	
+	private static final long serialVersionUID = 4502870063553836090L;
+
+	
 	private int listId;
 	
 	private int hotelId;
@@ -14,7 +30,7 @@ public class ListPO {
 	
 	private String lastTime;
 	
-	private String lastListExecutedTime;  //最晚订单执行时间
+	private String lastListExecutedTime;
 	
 	private int price;
 	
@@ -105,4 +121,9 @@ public class ListPO {
 		this.listId = listId;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		ListPO listPO = (ListPO) o;
+		return (listPO.getListId()==listId && listPO.getHotelId()==hotelId && listPO.getUserId()==userId);
+    }
 }

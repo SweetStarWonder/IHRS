@@ -38,7 +38,7 @@ public class CreditBlServiceImpl implements CreditBlService{
 		int resultValue=getCreditResult();
 		int price=listVO.getPrice();
 		resultValue-=0.5*price;
-		CreditChangePO creditChangePO=new CreditChangePO(customerVO.getId(), timeNow, listVO.getListId()+"",(int)-0.5*price, resultValue,CreditChangeMove.LISTREVOKE);
+		CreditChangePO creditChangePO=new CreditChangePO(customerVO.getId(), timeNow, listVO.getListId()+"",(int)(-0.5*price), resultValue,CreditChangeMove.LISTREVOKE);
 		creditChanges.add(creditChangePO);
 		try {
 			add = creditChangeDao.addCreditChange(creditChangePO);
@@ -57,7 +57,7 @@ public class CreditBlServiceImpl implements CreditBlService{
 		int resultValue=getCreditResult();
 		int price=listVO.getPrice();
 		resultValue-=price;
-		CreditChangePO creditChangePO=new CreditChangePO(customerVO.getId(), timeNow, listVO.getListId()+"",(int)-price, resultValue,CreditChangeMove.LISTABNORMAL);
+		CreditChangePO creditChangePO=new CreditChangePO(customerVO.getId(), timeNow, listVO.getListId()+"",(int)(-price), resultValue,CreditChangeMove.LISTABNORMAL);
 		creditChanges.add(creditChangePO);
 		try {
 			add = creditChangeDao.addCreditChange(creditChangePO);
@@ -76,7 +76,7 @@ public class CreditBlServiceImpl implements CreditBlService{
 		int resultValue=getCreditResult();
 		int price=listVO.getPrice();
 		resultValue+=0.5*price;
-		CreditChangePO creditChangePO=new CreditChangePO(customerVO.getId(), timeNow, listVO.getListId()+"",(int)0.5*price, resultValue,CreditChangeMove.LISTEXECUTE);
+		CreditChangePO creditChangePO=new CreditChangePO(customerVO.getId(), timeNow, listVO.getListId()+"",(int)(0.5*price), resultValue,CreditChangeMove.LISTEXECUTE);
 		creditChanges.add(creditChangePO);
 		try {
 			recover = creditChangeDao.addCreditChange(creditChangePO);
@@ -121,7 +121,7 @@ public class CreditBlServiceImpl implements CreditBlService{
 		String time="";
 		int resultValue=0;
 		for (CreditChangePO creditChangePO : creditChanges) {
-			if(creditChangePO.getTime().compareToIgnoreCase(time)==1){
+			if(creditChangePO.getTime().compareToIgnoreCase(time)>0){
 				time=creditChangePO.getTime();
 				resultValue=creditChangePO.getResult();
 			}

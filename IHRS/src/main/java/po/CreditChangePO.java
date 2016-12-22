@@ -1,12 +1,30 @@
 package po;
 
-public class CreditChangePO {
+import java.io.Serializable;
+
+/**
+ * userId            用户编号
+ * time              发生时间（yyyy/MM/dd HH:mm:ss）
+ * listId            订单编号
+ * change            变化记录（有正有负）
+ * resultValue       变化后的结果值
+ * creditChangeMove  变化类型
+ */
+public class CreditChangePO implements Serializable {
+	
+	private static final long serialVersionUID = 8338216752132306690L;
+	
 	
 	private int userId;
+	
 	private String time;
+	
 	private String listId;
+	
 	private int change;  //变化记录，有负有正
+	
 	private int resultValue;
+	
 	private CreditChangeMove creditChangeMove;
 	
 	public CreditChangePO(int userId,String time,String listId,int change,int resultValue,CreditChangeMove creditChangeMove) {
@@ -66,6 +84,10 @@ public class CreditChangePO {
 		this.creditChangeMove = creditChangeMove;
 	}
 	
-	
-
+	@Override
+	public boolean equals(Object o) {
+		CreditChangePO creditChangePO = (CreditChangePO) o;
+		return (creditChangePO.getUserId()==userId && creditChangePO.getListId().equals(listId) && creditChangePO.getTime().equals(time)
+				&& creditChangePO.getCreditChangeMove().equals(creditChangeMove));
+    }
 }

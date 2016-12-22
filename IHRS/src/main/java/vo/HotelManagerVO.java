@@ -2,6 +2,12 @@ package vo;
 
 import po.HotelManagerPO;
 
+/**
+ * id                酒店管理人员编号
+ * hotelManagerName  用户名
+ * phone             手机号
+ * hotelId           所在酒店编号
+ */
 public class HotelManagerVO extends UserVO{
 	
 	private int hotelId;
@@ -23,5 +29,6 @@ public class HotelManagerVO extends UserVO{
 	public void setHotelId(int hotelId) {
 		this.hotelId = hotelId;
 	}
+	
 	
 }

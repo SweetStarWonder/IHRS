@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.rank.RankPaneController">
+   <children>
+      <GridPane layoutX="132.0" layoutY="125.0" prefHeight="325.0" prefWidth="536.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label text="一级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="oneTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1">
+               <children>
+                  <Label text="六级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="sixTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="1">
+               <children>
+                  <Label text="二级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="twoTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="2">
+               <children>
+                  <Label text="三级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="threeTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <Label text="七级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="sevenTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label text="八级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="eightTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="3">
+               <children>
+                  <Label text="四级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="fourTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <Label text="九级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="nineTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="4">
+               <children>
+                  <Label text="五级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="fiveTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <children>
+                  <Label text="十级：" />
+                  <HBox alignment="CENTER" spacing="5.0">
+                     <children>
+                        <TextField fx:id="tenTextField" prefHeight="36.0" prefWidth="103.0" />
+                        <Label text="分" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+      <HBox alignment="CENTER" layoutX="245.0" layoutY="495.0" prefHeight="36.0" prefWidth="310.0" spacing="50.0">
+         <children>
+            <Button fx:id="resetButton" mnemonicParsing="false" onAction="#handleResetButton" text="重置" />
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#handleConfirmButton" text="确定" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

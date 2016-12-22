@@ -43,8 +43,10 @@ public class HotelPromotionDataTxtHelper implements HotelPromotionDataHelper{
 				}else{
 					hotelPromotionType=HotelPromotionType.DOUBLE11;
 				}
+				String startTime= br.readLine().substring(1);
+				String endTime= br.readLine().substring(1);
 				
-				HotelPromotionPO HotelPromotionPO= new HotelPromotionPO(discount,discountName,HotelId,hotelPromotionType);
+				HotelPromotionPO HotelPromotionPO= new HotelPromotionPO(discount,discountName,HotelId,hotelPromotionType,startTime,endTime);
 						
 				if(Map.containsKey(HotelId)){
 					Map.get(HotelId).add(HotelPromotionPO);
@@ -73,7 +75,9 @@ public class HotelPromotionDataTxtHelper implements HotelPromotionDataHelper{
 			Iterator<Map.Entry<Integer, ArrayList<HotelPromotionPO>>> iterator = hotelPromotions.entrySet().iterator();
 			while(iterator.hasNext()){
 				Map.Entry<Integer, ArrayList<HotelPromotionPO>> entry = iterator.next();
-				ArrayList<HotelPromotionPO> creditarray = entry.getValue();
+				ArrayList<HotelPromotionPO> tmp = entry.getValue();
+				@SuppressWarnings("unchecked")
+				ArrayList<HotelPromotionPO> creditarray = (ArrayList<HotelPromotionPO>)tmp.clone();
 				while(!creditarray.isEmpty()){
 					HotelPromotionPO HotelPromotionPO = creditarray.get(0);
 					double discount = HotelPromotionPO.getDiscount();
@@ -91,8 +95,10 @@ public class HotelPromotionDataTxtHelper implements HotelPromotionDataHelper{
 					}else{
 						hotelPromotionType="THREEMORE";
 					}
+					String startTime=HotelPromotionPO.getStartTime();
+					String endTime=HotelPromotionPO.getEndTime();
 					
-					writer.write("<CreditChange>\r\n#" + discount + "\r\n#" +discountName + "\r\n#" + HotelId+ "\r\n#" + hotelPromotionType);
+					writer.write("<CreditChange>\r\n#" + discount + "\r\n#" +discountName + "\r\n#" + HotelId+ "\r\n#" + hotelPromotionType+ "\r\n#" +startTime+ "\r\n#" +endTime);
 					writer.write("\r\n");
 					creditarray.remove(0);
 				}

@@ -32,7 +32,7 @@ public class CreditRecordViewController {
 		creditChangeListView.setItems(creditChangeVOs);
 		creditChangeListView.setCellFactory((ListView<CreditChangeVO> i) -> new CreditCell());
 		for (int i = 0; i < 50; i++) {
-			creditChangeVOs.add(null);
+			creditChangeVOs.add(new CreditChangeVO(0, null, null, i, i, null));
 		}
 		
 				

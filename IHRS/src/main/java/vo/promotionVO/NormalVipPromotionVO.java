@@ -3,9 +3,15 @@ package vo.promotionVO;
 import po.promotionPO.NormalVipPromotionPO;
 import po.promotionPO.PromotionPO;
 
+/**
+ * discount          普通会员促销折扣
+ * discountName      折扣名
+ * rankValue         等级（信用值计算）
+ * businessDistrict  商圈
+ */
 public class NormalVipPromotionVO extends PromotionVO{
 	
-	private int rankValue;  //等级（信用值计算）
+	private int rankValue;
 	
 	private String businessDistrict;
 	
@@ -37,4 +43,5 @@ public class NormalVipPromotionVO extends PromotionVO{
 		this.businessDistrict = businessDistrict;
 	}
 
+	
 }

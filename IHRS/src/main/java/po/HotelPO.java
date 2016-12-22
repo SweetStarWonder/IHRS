@@ -1,40 +1,49 @@
 package po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class HotelPO {
+/**
+ * id                酒店编号
+ * partners          合作企业名
+ * hotelName         酒店名
+ * position          地址
+ * businessDistrict  商圈
+ * starRating        酒店星级
+ * introduction      简介
+ * facility          设施服务
+ */
+public class HotelPO implements Serializable {
 
+	private static final long serialVersionUID = 7789522734352247778L;
+
+	
 	private int id;
 	
 	private ArrayList<String> partners;
 	
 	private String hotelName;
 	
-	private String position;  //地址
+	private String position;
 	
-	private String businessDistrict;  //商圈
+	private String businessDistrict;
 	
-	private int starRating;  //星级
+	private int starRating;
 	
-	private String introduction;  //简介
+	private String introduction;
 	
-	private String facility;  //设施服务
-	
-	
+	private String facility;
 	
 	public HotelPO(int id,ArrayList<String> partners,String hotelName,
 			String position,String businessDistrict,int starRating,String introduction,String facility){
 		this.id=id;
 		this.hotelName=hotelName;
-		
 		this.partners=partners;
-		
 		this.position=position;
 		this.businessDistrict=businessDistrict;
 		this.starRating=starRating;
 		this.introduction=introduction;
 		this.facility=facility;
-		
 	}
 
 	public int getId() {
@@ -101,4 +110,9 @@ public class HotelPO {
 		this.facility = facility;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+        HotelPO hotelPO = (HotelPO) o;
+		return (hotelPO.getId() == id);
+    }
 }

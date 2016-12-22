@@ -20,7 +20,7 @@ public class HotelPromotionDataHelperTest {
 	public static void testUpdateHotelPromotionDataHelper(){
 		
         HotelPromotionType HotelPromotionType=po.promotionPO.HotelPromotionType.BIRTHDAY;
-        HotelPromotionPO HotelPromotionPO = new HotelPromotionPO(11.0,"123",123,HotelPromotionType);
+        HotelPromotionPO HotelPromotionPO = new HotelPromotionPO(11.0,"123",123,HotelPromotionType,"1","11");
 		ArrayList<HotelPromotionPO> list = new ArrayList<HotelPromotionPO>(); 
 		HashMap<Integer, ArrayList<HotelPromotionPO>> map=new HashMap<Integer, ArrayList<HotelPromotionPO>>();
 		list.add(HotelPromotionPO);
@@ -38,6 +38,8 @@ public class HotelPromotionDataHelperTest {
 		assertEquals("123",HotelPromotionPO.getDiscountName());
 		assertEquals(123,HotelPromotionPO.getHotelId());
 		assertEquals(HotelPromotionType,HotelPromotionPO.getHotelPromotionType());
+		assertEquals("1",HotelPromotionPO.getStartTime());
+		assertEquals("11",HotelPromotionPO.getEndTime());
 		
 		
 		

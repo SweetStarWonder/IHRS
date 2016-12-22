@@ -1,6 +1,15 @@
 package po.promotionPO;
 
-public class WebPromotionPO extends PromotionPO {
+/**
+ * discount      网站促销折扣
+ * discountName  折扣名
+ * startTime     开始时间（yyyy/MM/dd HH:mm:ss）
+ * endTime       结束时间
+ */
+public class WebPromotionPO extends PromotionPO{
+
+	private static final long serialVersionUID = 1513025785369912803L;
+
 	
 	private String startTime;
 	
@@ -28,4 +37,9 @@ public class WebPromotionPO extends PromotionPO {
 		this.endTime = endTime;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		WebPromotionPO webPromotionPO = (WebPromotionPO) o;
+        return (webPromotionPO.getStartTime().equals(startTime) && webPromotionPO.getEndTime().equals(endTime));
+    }
 }

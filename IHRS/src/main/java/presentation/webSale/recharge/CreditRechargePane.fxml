@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.recharge.CreditRechargePaneController">
+   <children>
+      <HBox layoutX="188.0" layoutY="169.0" spacing="20.0">
+         <children>
+            <TextField fx:id="userIdTextField" layoutX="152.0" layoutY="168.0" prefHeight="36.0" prefWidth="345.0" text="用户编号" />
+            <Button fx:id="searchButton" layoutX="514.0" layoutY="168.0" mnemonicParsing="false" onAction="#handleSearchButton" text="搜索" />
+         </children>
+      </HBox>
+      <AnchorPane fx:id="informationAnchorPane" layoutX="188.0" layoutY="246.0" prefHeight="220.0" prefWidth="425.0" />
+   </children>
+</AnchorPane>

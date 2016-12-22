@@ -74,7 +74,9 @@ public class CreditChangeDataTxtHelper implements CreditChangeDataHelper{
 			Iterator<Map.Entry<Integer, ArrayList<CreditChangePO>>> iterator = creditChangeMap.entrySet().iterator();
 			while(iterator.hasNext()){
 				Map.Entry<Integer, ArrayList<CreditChangePO>> entry = iterator.next();
-				ArrayList<CreditChangePO> creditarray = entry.getValue();
+				ArrayList<CreditChangePO> tmp = entry.getValue();
+				@SuppressWarnings("unchecked")
+				ArrayList<CreditChangePO> creditarray = (ArrayList<CreditChangePO>)tmp.clone();
 				while(!creditarray.isEmpty()){
 					CreditChangePO creditChangePO = creditarray.get(0);
 					int userId = creditChangePO.getUserId();

@@ -12,9 +12,17 @@ import po.CustomerPO;
 import po.ListPO;
 import rmi.RemoteHelper;
 
+/**
+ * id            客户编号
+ * customerName  客户名
+ * phone         客户手机号
+ * credits       客户所有信用变化记录
+ * myLists       客户所有订单
+ */
 public class CustomerVO extends UserVO{
 	
 	private ArrayList<CreditChangeVO> credits;
+	
 	private HashMap<Integer, ListVO> myLists;
 	
 	public CustomerVO(int id, String userName, String phone) {
@@ -64,8 +72,4 @@ public class CustomerVO extends UserVO{
 	}
 	
 	
-	
-
-	
-
 }

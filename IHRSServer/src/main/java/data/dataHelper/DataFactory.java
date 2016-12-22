@@ -18,8 +18,6 @@ public interface DataFactory {
 	
 	public NormalVipDataHelper getNormalVipDataHelper();
 	
-	public PromotionDataHelper getPromotionDataHelper();
-	
 	public RoomDataHelper getRoomDataHelper();
 	
 	public WebManagerDataHelper getWebManagerDataHelper();
@@ -31,5 +29,11 @@ public interface DataFactory {
 	public NormalVipPromotionDataHelper getNormalVipPromotionDataHelper();
 	
 	public WebPromotionDataHelper getWebPromotionDataHelper();
+	
+	public AddressDataHelper getAddressDataHelper();
+	
+	public RankSystemDataHelper getRankSystemDataHelper();
+	
+	public PasswordDataHelper getPasswordDataHelper();
 	
 }

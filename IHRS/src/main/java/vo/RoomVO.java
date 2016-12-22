@@ -3,11 +3,24 @@ package vo;
 import po.RoomPO;
 import po.RoomStatus;
 
+
+/**
+ * hotelId  酒店编号
+ * listId   订单编号
+ * roomNum  房间编号
+ * price    房间价格
+ * status   房间类型
+ */
 public class RoomVO {
+	
 	private int hotelId;
+	
 	private int listId;
+	
 	private int roomNum;
+	
 	private int price;
+	
 	private RoomStatus status;
 	
 	public RoomVO(RoomPO roomPO){

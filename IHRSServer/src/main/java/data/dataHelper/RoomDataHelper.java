@@ -6,7 +6,14 @@ import po.RoomPO;
 
 public interface RoomDataHelper {
 
-	public HashMap<Integer, HashMap<Integer, RoomPO>> getRoomData();	//左边的integer是hotelId, 右边的Integer是roomNumber
+	/**
+	 * @return  酒店所有房间信息（左酒店编号，右房间编号）
+	 */
+	public HashMap<Integer, HashMap<Integer, RoomPO>> getRoomData();
 		
+	/**
+	 * @param roomDataMap  酒店所有房间信息（左酒店编号，右房间编号）
+	 */
 	public void updateRoomData(HashMap<Integer, HashMap<Integer, RoomPO>> roomDataMap);
+	
 }

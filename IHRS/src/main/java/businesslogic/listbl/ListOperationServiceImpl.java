@@ -28,7 +28,9 @@ public class ListOperationServiceImpl implements ListOperationService{
 
 	public ListVO revokeList(ListVO listVO, String timeNow) {
 		listVO.setStatus(ListStatus.REVOKED);
-		updateList(listVO);
+		listVO.setLastListExecutedTime(timeNow);
+		boolean hhh=updateList(listVO);
+		System.out.println(hhh);
 		if (Math.abs(convertTime(timeNow)-convertTime(listVO.getLastListExecutedTime())) < 6) {
 			FindUserService findUserService = new FindUserServiceImpl();
 			CustomerVO customerVO = findUserService.getCustomer(listVO.getUserId());
@@ -82,6 +84,7 @@ public class ListOperationServiceImpl implements ListOperationService{
 
 	public ListVO revokeAbnormalList(ListVO listVO, String revokeTime, boolean isHalf) {
 		listVO.setStatus(ListStatus.REVOKED);
+		listVO.setLastListExecutedTime(revokeTime);
 		updateList(listVO);
 		FindUserService findUserService = new FindUserServiceImpl();
 		CustomerVO customerVO = findUserService.getCustomer(listVO.getUserId());

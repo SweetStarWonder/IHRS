@@ -11,16 +11,21 @@ public class CreditCell extends ListCell<CreditChangeVO>{
 	@Override
 	public void updateItem(CreditChangeVO item, boolean empty) {
 		super.updateItem(item, empty);
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(CreditCell.class.getResource("CreditChangeCell.fxml"));
-		AnchorPane anchorPane = null;
-		try {
-			anchorPane = loader.load();
+		if (empty || item == null) {
+			setGraphic(null);
+		} else {
 			
-		} catch (IOException e) {
-			e.printStackTrace();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(CreditCell.class.getResource("CreditChangeCell.fxml"));
+			AnchorPane anchorPane = null;
+			try {
+				anchorPane = loader.load();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			setGraphic(anchorPane);
 		}
-		
-		setGraphic(anchorPane);
 	}
 }

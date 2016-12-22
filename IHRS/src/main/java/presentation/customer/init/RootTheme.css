@@ -1,0 +1,96 @@
+.background {
+    -fx-background-color: #5264ae;
+}
+
+.header{
+
+    -fx-font-family: "微软雅黑";
+    -fx-text-fill: black;
+}
+
+.item-title{
+
+    -fx-font-family: "微软雅黑";
+    -fx-text-fill: black;
+}
+
+
+.button {
+
+    -fx-border-color: #5264ae;
+    -fx-background-radius: 0;
+    -fx-background-color: #5264ae;
+    -fx-font-family: "微软雅黑", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    -fx-background-color: #5c74d7;
+}
+
+.button:pressed, .button:default:hover:pressed {
+    -fx-background-color: #374ba1;
+    -fx-text-fill: white;
+}
+
+.button:default {
+    -fx-background-color: #5264ae;
+    -fx-text-fill: black;
+}
+
+.button:default:hover {
+    -fx-background-color: #5c74d7;
+}
+
+.menu-item {
+    -fx-background-color: transparent;
+}
+
+.menu-item .label {
+
+    -fx-text-fill: #212121;
+    -fx-font-family: "微软雅黑", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+}
+
+.menu-item:focused {
+    -fx-background: -fx-accent;
+    -fx-background-color: #5264ae;
+}
+
+.menu-item:pressed {
+    -fx-background-color: #5264ae;
+    -fx-text-fill: white;
+}
+
+.menu-item:pressed .label {
+    -fx-text-fill: white;
+}
+
+.menu-button {
+
+    -fx-border-color: #5264ae;
+    -fx-background-radius: 0;
+    -fx-background-color: #5264ae;
+    -fx-font-family: "微软雅黑", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
+}
+
+.menu-button:hover {
+    -fx-background-color: #5c74d7;
+}
+
+.menu-button:pressed, .button:default:hover:pressed {
+    -fx-background-color: #374ba1;
+
+}
+
+.menu-button:default {
+    -fx-background-color: #5264ae;
+
+}
+
+.menu-button:default:hover {
+    -fx-background-color: #5c74d7;
+}

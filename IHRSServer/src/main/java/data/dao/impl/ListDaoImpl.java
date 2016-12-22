@@ -75,7 +75,7 @@ public class ListDaoImpl extends java.rmi.server.UnicastRemoteObject implements 
 		if (mapByUser.containsKey(userId)) {
 			return mapByUser.get(userId);
 		} else {
-			return null;
+			return new HashMap<Integer, ListPO>();
 		}
 	}
 
@@ -83,7 +83,7 @@ public class ListDaoImpl extends java.rmi.server.UnicastRemoteObject implements 
 		if (mapByHotel.containsKey(hotelId)) {
 			return mapByHotel.get(hotelId);			
 		} else {
-			return null;
+			return new HashMap<Integer, ListPO>();
 		}
 	}
 

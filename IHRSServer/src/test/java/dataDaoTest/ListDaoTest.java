@@ -10,7 +10,7 @@ import po.ListStatus;
 
 public class ListDaoTest {
 	
-	ListPO listPO = new ListPO(1111,1234,2222,ListStatus.ABNORMAL,"20161001","20161002","20160930",100,true);
+	ListPO listPO = new ListPO(1111,2222,1234,ListStatus.ABNORMAL,"2016/10/01 08:00:00","2016/10/01 10:00:00","2016/09/01 08:00:00",100,true);
 	
 	@Test
 	public void testupdateList()throws Exception{
@@ -23,12 +23,12 @@ public class ListDaoTest {
 		ListDaoImpl List = ListDaoImpl.getInstance();
 		ListPO list = List.getList(1111);
 		assertEquals(1111,list.getListId());
-		assertEquals(1234,list.getHotelId());
-		assertEquals(2222,list.getUserId());
+		assertEquals(2222,list.getHotelId());
+		assertEquals(1234,list.getUserId());
 		assertEquals(ListStatus.ABNORMAL,list.getStatus());
-		assertEquals("20161001",list.getEntryTime());
-		assertEquals("20161002",list.getLastTime());
-		assertEquals("20160930",list.getLastListExecutedTime());
+		assertEquals("2016/10/01 08:00:00",list.getEntryTime());
+		assertEquals("2016/10/01 10:00:00",list.getLastTime());
+		assertEquals("2016/09/01 08:00:00",list.getLastListExecutedTime());
 		assertEquals(100,list.getPrice());
 		assertEquals(true,list.isIfHaveChild());
 	}
@@ -36,14 +36,14 @@ public class ListDaoTest {
 	@Test
 	public void testgetListhotel()throws Exception{
 		ListDaoImpl List = ListDaoImpl.getInstance();
-		ListPO list = List.getListsByHotel(1234).get(1111);
+		ListPO list = List.getListsByHotel(2222).get(1111);
 		assertEquals(1111,list.getListId());
-		assertEquals(1234,list.getHotelId());
-		assertEquals(2222,list.getUserId());
+		assertEquals(2222,list.getHotelId());
+		assertEquals(1234,list.getUserId());
 		assertEquals(ListStatus.ABNORMAL,list.getStatus());
-		assertEquals("20161001",list.getEntryTime());
-		assertEquals("20161002",list.getLastTime());
-		assertEquals("20160930",list.getLastListExecutedTime());
+		assertEquals("2016/10/01 08:00:00",list.getEntryTime());
+		assertEquals("2016/10/01 10:00:00",list.getLastTime());
+		assertEquals("2016/09/01 08:00:00",list.getLastListExecutedTime());
 		assertEquals(100,list.getPrice());
 		assertEquals(true,list.isIfHaveChild());
 	}
@@ -51,14 +51,14 @@ public class ListDaoTest {
 	@Test
 	public void testgetListuser()throws Exception{
 		ListDaoImpl List = ListDaoImpl.getInstance();
-		ListPO list = List.getListsByUser(2222).get(1111);
+		ListPO list = List.getListsByUser(1234).get(1111);
 		assertEquals(1111,list.getListId());
-		assertEquals(1234,list.getHotelId());
-		assertEquals(2222,list.getUserId());
+		assertEquals(2222,list.getHotelId());
+		assertEquals(1234,list.getUserId());
 		assertEquals(ListStatus.ABNORMAL,list.getStatus());
-		assertEquals("20161001",list.getEntryTime());
-		assertEquals("20161002",list.getLastTime());
-		assertEquals("20160930",list.getLastListExecutedTime());
+		assertEquals("2016/10/01 08:00:00",list.getEntryTime());
+		assertEquals("2016/10/01 10:00:00",list.getLastTime());
+		assertEquals("2016/09/01 08:00:00",list.getLastListExecutedTime());
 		assertEquals(100,list.getPrice());
 		assertEquals(true,list.isIfHaveChild());
 	}
@@ -68,12 +68,12 @@ public class ListDaoTest {
 		ListDaoImpl List = ListDaoImpl.getInstance();
 		ListPO list = List.getAllLists().get(1111);
 		assertEquals(1111,list.getListId());
-		assertEquals(1234,list.getHotelId());
-		assertEquals(2222,list.getUserId());
+		assertEquals(2222,list.getHotelId());
+		assertEquals(1234,list.getUserId());
 		assertEquals(ListStatus.ABNORMAL,list.getStatus());
-		assertEquals("20161001",list.getEntryTime());
-		assertEquals("20161002",list.getLastTime());
-		assertEquals("20160930",list.getLastListExecutedTime());
+		assertEquals("2016/10/01 08:00:00",list.getEntryTime());
+		assertEquals("2016/10/01 10:00:00",list.getLastTime());
+		assertEquals("2016/09/01 08:00:00",list.getLastListExecutedTime());
 		assertEquals(100,list.getPrice());
 		assertEquals(true,list.isIfHaveChild());
 	}

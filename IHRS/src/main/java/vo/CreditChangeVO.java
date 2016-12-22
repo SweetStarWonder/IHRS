@@ -3,13 +3,26 @@ package vo;
 import po.CreditChangeMove;
 import po.CreditChangePO;
 
+/**
+ * userId            用户编号
+ * time              发生时间（yyyy/MM/dd HH:mm:ss）
+ * listId            订单编号
+ * change            变化记录（有正有负）
+ * resultValue       变化后的结果值
+ * creditChangeMove  变化类型
+ */
 public class CreditChangeVO {
 	
 	private int userId;
+	
 	private String time;
+	
 	private String listId;
-	private int change;  //变化记录，有负有正
+	
+	private int change;
+	
 	private int result;
+	
 	private CreditChangeMove creditChangeMove;
 	
 	public CreditChangeVO(CreditChangePO creditChangePO){
@@ -79,5 +92,4 @@ public class CreditChangeVO {
 	}
 	
 	
-
 }

@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.AnchorPane;
 import po.ListStatus;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import vo.ListVO;
 
@@ -43,17 +44,16 @@ public class PersonalListViewController {
 	@FXML 
 	private void initialize() {
 		listVOs = FXCollections.observableArrayList();
-		for (int i = 0; i < 50; i++) {
-			listVOs.add(new ListVO(i, 22, 22, ListStatus.ABNORMAL, "1", "2", "2", 2, false));
+		for (int i = 0; i < 3; i++) {
+			listVOs.add(new ListVO(i, 22, 22, ListStatus.ABNORMAL, "1", "2", "2", 2, false,null));
 		}
 		listListView.setItems(listVOs);
-		listListView.setCellFactory((ListView<ListVO> e) -> new ListViewCell());
-		listListView.getSelectionModel().selectedItemProperty().addListener(
-				(observable, oldValue, newValue) -> showListDetail(newValue));
-		
+		listListView.setCellFactory((ListView<ListVO> e) -> new ListViewCell(this));
 	}
 		
-	private void showListDetail(ListVO listVO) {
+	public void showDetail(Label label, ListVO listVO) {
+		listListView.getSelectionModel().select(-1);
+		
 		FXMLLoader loader = new FXMLLoader();
 		AnchorPane anchorPane = null;
 		loader.setLocation(PersonalListViewController.class.getResource("ListCell.fxml"));
@@ -63,7 +63,7 @@ public class PersonalListViewController {
 			e.printStackTrace();
 		}
 		PopOver popOver = new PopOver(anchorPane);
-		popOver.show(listListView);
+		popOver.show(label);
 	}
 	
 	

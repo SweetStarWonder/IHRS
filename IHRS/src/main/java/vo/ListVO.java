@@ -9,6 +9,19 @@ import po.ListStatus;
 import po.RoomPO;
 import rmi.RemoteHelper;
 
+
+/**
+ * listId                订单编号
+ * hotelId               酒店编号
+ * userId                用户编号
+ * status                订单状态
+ * entryTime             入住时间（yyyy/MM/dd HH:mm:ss）
+ * lastTime              离店时间
+ * lastListExecutedTime  最晚订单执行时间
+ * price                 价格
+ * ifHaveChild           是否携带小孩
+ * rooms                 订单参与的所有房间信息
+ */
 public class ListVO {
 
 	private int listId;
@@ -54,7 +67,7 @@ public class ListVO {
 	}
 
 	public ListVO(int listId, int hotelId, int userId, ListStatus status,
-			String entryTime, String lastTime,String lastListExecutedTime,int price,boolean ifHaveChild) {
+			String entryTime, String lastTime,String lastListExecutedTime,int price,boolean ifHaveChild,ArrayList<RoomVO> rooms) {
 		this.listId=listId;
 		this.hotelId = hotelId;
 		this.userId = userId;
@@ -64,6 +77,7 @@ public class ListVO {
 		this.lastListExecutedTime=lastListExecutedTime;
 		this.price = price;
 		this.ifHaveChild=ifHaveChild;
+		this.rooms=rooms;
 	}
 
 	public int getHotelId() {
@@ -145,5 +159,6 @@ public class ListVO {
 	public void setIfHaveChild(boolean ifHaveChild) {
 		this.ifHaveChild = ifHaveChild;
 	}
+	
 	
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="220.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.login.LoginTextController">
+   <children>
+      <JFXButton fx:id="loginButton" buttonType="RAISED" layoutX="116.0" layoutY="134.0" onMouseClicked="#handleLoginButton" prefHeight="42.0" prefWidth="269.0" ripplerFill="#5264ae" text="登录" textFill="#344000" />
+      <TextField fx:id="nameTextField" layoutX="116.0" layoutY="23.0" prefHeight="36.0" prefWidth="269.0" promptText="用户名" />
+      <PasswordField fx:id="passwordField" layoutX="116.0" layoutY="88.0" prefHeight="36.0" prefWidth="269.0" promptText="密码" />
+   </children>
+</AnchorPane>

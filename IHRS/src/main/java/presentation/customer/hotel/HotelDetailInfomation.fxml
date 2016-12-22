@@ -7,7 +7,7 @@
 
 <!-- 酒店详细信息查看 -->
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.hotel.HotelDetailInformationController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.hotel.HotelDetailInformationController">
    <children>
       <Label layoutX="152.0" layoutY="32.0" prefHeight="61.0" prefWidth="70.0" text="酒店名" AnchorPane.leftAnchor="152.0" AnchorPane.topAnchor="32.0" />
       <Button fx:id="purchaseButton" layoutX="583.0" layoutY="45.0" mnemonicParsing="false" onAction="#handlePurchaseButton" text="下订单" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="45.0" />

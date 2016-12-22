@@ -1,10 +1,24 @@
 package po;
 
-public class EvaluatePO {
+import java.io.Serializable;
+
+/**
+ * hotelId       酒店编号
+ * customerName  用户名
+ * rankValue     评分
+ * contents      评价内容
+ */
+public class EvaluatePO implements Serializable {
+
+	private static final long serialVersionUID = -3112769942917761302L;
+	
 	
 	private int hotelId;
+	
 	private String customerName;
+	
 	private int rankValue;
+	
 	private String contents;
 	
 	public EvaluatePO(int hotelId,String customerName,int rankValue,String contents) {
@@ -22,13 +36,9 @@ public class EvaluatePO {
 		this.contents = contents;
 	}
 
-
-
 	public String getCustomerName() {
 		return customerName;
 	}
-
-
 
 	public void setCustomerName(String customerName) {
 		this.customerName = customerName;
@@ -50,4 +60,5 @@ public class EvaluatePO {
 		this.rankValue = rankValue;
 	}
 
+	
 }

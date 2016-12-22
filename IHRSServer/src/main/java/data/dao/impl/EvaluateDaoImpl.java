@@ -45,7 +45,7 @@ public class EvaluateDaoImpl extends java.rmi.server.UnicastRemoteObject impleme
 			ArrayList<EvaluatePO> evaluates=map.get(hotelId);
 			return evaluates;			
 		} else {
-			return null;
+			return new ArrayList<EvaluatePO>();
 		}
 	}
 

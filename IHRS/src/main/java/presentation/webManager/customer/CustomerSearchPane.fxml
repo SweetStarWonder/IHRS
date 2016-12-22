@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="314.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webManager.customer.CustomerSearchPaneController">
+   <children>
+      <TextField fx:id="userNameTextField" layoutX="117.0" layoutY="26.0" prefHeight="36.0" prefWidth="273.0" text="用户编号" />
+      <Button fx:id="searchButton" layoutX="410.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleSearchButton" text="搜索" />
+      <AnchorPane fx:id="informationAnchorPane" layoutX="113.0" layoutY="100.0" prefHeight="200.0" prefWidth="360.0" />
+   </children>
+</AnchorPane>

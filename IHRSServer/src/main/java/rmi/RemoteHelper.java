@@ -6,6 +6,7 @@ import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 
+import data.dao.AddressDao;
 import data.dao.CreditChangeDao;
 import data.dao.CustomerDao;
 import data.dao.EnterpriseVipDao;
@@ -16,10 +17,13 @@ import data.dao.HotelPromotionDao;
 import data.dao.ListDao;
 import data.dao.NormalVipDao;
 import data.dao.NormalVipPromotionDao;
+import data.dao.PasswordDao;
+import data.dao.RankSystemDao;
 import data.dao.RoomDao;
 import data.dao.WebManagerDao;
 import data.dao.WebPromotionDao;
 import data.dao.WebSaleDao;
+import data.dao.impl.AddressDaoImpl;
 import data.dao.impl.CreditChangeDaoImpl;
 import data.dao.impl.CustomerDaoImpl;
 import data.dao.impl.EnterpriseVipDaoImpl;
@@ -30,6 +34,8 @@ import data.dao.impl.HotelPromotionDaoImpl;
 import data.dao.impl.ListDaoImpl;
 import data.dao.impl.NormalVipDaoImpl;
 import data.dao.impl.NormalVipPromotionDaoImpl;
+import data.dao.impl.PasswordDaoImpl;
+import data.dao.impl.RankSystemDaoImpl;
 import data.dao.impl.RoomDaoImpl;
 import data.dao.impl.WebManagerDaoImpl;
 import data.dao.impl.WebPromotionDaoImpl;
@@ -40,6 +46,7 @@ public class RemoteHelper {
 	public RemoteHelper() {
 		initServer();
 	}
+	
 	public void initServer(){
 		CreditChangeDao creditChangeDao;
 		CustomerDao customerDao;
@@ -52,14 +59,14 @@ public class RemoteHelper {
 		RoomDao roomDao;
 		WebManagerDao webManagerDao;
 		WebSaleDao webSaleDao;
-		
 		HotelPromotionDao hotelPromotionDao;
 		WebPromotionDao webPromotionDao;
 		NormalVipPromotionDao normalVipPromotionDao;
-		
+		AddressDao addressDao;
+		RankSystemDao rankSystemDao;
+		PasswordDao passwordDao;
 		
 		try {
-			
 			creditChangeDao=CreditChangeDaoImpl.getInstance();
 			customerDao=CustomerDaoImpl.getInstance();
 			enterpriseVipDao=EnterpriseVipDaoImpl.getInstance();
@@ -71,10 +78,12 @@ public class RemoteHelper {
 			roomDao=RoomDaoImpl.getInstance();
 			webManagerDao=WebManagerDaoImpl.getInstance();
 			webSaleDao=WebSaleDaoImpl.getInstance();
-			
 			hotelPromotionDao=HotelPromotionDaoImpl.getInstance();
 			webPromotionDao=WebPromotionDaoImpl.getInstance();
 			normalVipPromotionDao=NormalVipPromotionDaoImpl.getInstance();
+			addressDao=AddressDaoImpl.getInstance();
+			rankSystemDao=RankSystemDaoImpl.getInstance();
+			passwordDao=PasswordDaoImpl.getInstance();
 			
 			LocateRegistry.createRegistry(6666);
 			
@@ -92,6 +101,9 @@ public class RemoteHelper {
 			Naming.bind("rmi://localhost:6666/HotelPromotionDao",hotelPromotionDao);
 			Naming.bind("rmi://localhost:6666/WebPromotionDao",webPromotionDao);
 			Naming.bind("rmi://localhost:6666/NormalVipPromotionDao",normalVipPromotionDao);
+			Naming.bind("rmi://localhost:6666/AddressDao",addressDao);
+			Naming.bind("rmi://localhost:6666/RankSystemDao",rankSystemDao);
+			Naming.bind("rmi://localhost:6666/PasswordDao",passwordDao);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -99,6 +111,7 @@ public class RemoteHelper {
 		} catch (AlreadyBoundException e) {
 			e.printStackTrace();
 		}
-		
 	}
+	
+	
 }

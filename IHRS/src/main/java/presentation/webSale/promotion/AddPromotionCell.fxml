@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane onMouseClicked="#handleClick" prefHeight="80.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.promotion.AddPromotionCellController">
+   <children>
+      <Label fx:id="addLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="252.0" layoutY="-15.0" prefHeight="65.0" prefWidth="76.0" text="+">
+         <font>
+            <Font size="86.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

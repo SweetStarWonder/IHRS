@@ -22,6 +22,9 @@ public class CustomerRootLayoutController {
 
 	@FXML
 	private MenuItem registerEnterpriseVipItem;
+	
+	@FXML
+	private MenuItem modifyPasswordItem;
 
 	@FXML
 	private MenuItem signOutItem;
@@ -77,6 +80,16 @@ public class CustomerRootLayoutController {
 	@FXML
 	private void showPersonalHotels() {
 		testCustomer.showPersonalHotels();
+	}
+	
+	@FXML
+	private void handleModifyPasswordItem() {
+		
+	}
+	
+	@FXML
+	private void handleSignoutItem() {
+		
 	}
 	
 	public void setMainApp(TestCustomer testCustomer) {

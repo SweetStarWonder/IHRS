@@ -1,8 +1,12 @@
 package po;
 
 public enum CreditChangeMove {
+	//订单执行
 	LISTEXECUTE,
+	//订单异常
 	LISTABNORMAL,
+	//订单撤销
 	LISTREVOKE,
-	RECHARGE  //充值
+	//充值
+	RECHARGE
 }

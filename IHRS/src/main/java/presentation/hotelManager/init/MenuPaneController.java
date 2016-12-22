@@ -37,17 +37,17 @@ public class MenuPaneController {
 	
 	@FXML
 	private void handlePromotionButton() {
-		
+		mainApp.showHotelPromotion();
 	}
 	
 	@FXML
 	private void handleRoomButton() {
-		
+		mainApp.showRoomInformation();
 	}
 	
 	@FXML
 	private void handleListButton() {
-		
+		mainApp.showLists();
 	}
 	
 	public void setMainApp(TestHotelManager mainApp) {

@@ -3,6 +3,13 @@ package vo.promotionVO;
 import po.promotionPO.PromotionPO;
 import po.promotionPO.WebPromotionPO;
 
+
+/**
+ * discount      网站促销折扣
+ * discountName  折扣名
+ * startTime     开始时间（yyyy/MM/dd HH:mm:ss）
+ * endTime       结束时间
+ */
 public class WebPromotionVO extends PromotionVO {
 	
 	private String startTime;
@@ -37,4 +44,5 @@ public class WebPromotionVO extends PromotionVO {
 		this.endTime = endTime;
 	}
 
+	
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<!-- 酒店工作人员界面的主布局界面 -->
+
+<BorderPane prefHeight="636.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.init.WebSaleRootLayoutController">
+   <top>
+      <AnchorPane>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="273.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="527.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label text="IHRS网站营销人员版">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButton" text="&lt;" BorderPane.alignment="CENTER" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" layoutX="494.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="306.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button fx:id="rankButton" mnemonicParsing="false" onAction="#handleRankButton" text="会员等级制度" />
+                  <Label text="头像" />
+                  <MenuButton fx:id="userNameLabel" mnemonicParsing="false" text="用户名">
+                    <items>
+                        <MenuItem fx:id="modifyPasswordMenuItem" mnemonicParsing="false" onAction="#handleModifyPasswordMenuItem" text="修改密码" />
+                        <MenuItem fx:id="signoutMenuItem" mnemonicParsing="false" onAction="#handleSignoutMenuItem" text="注销" />
+                    </items>
+                  </MenuButton>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

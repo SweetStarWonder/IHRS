@@ -1,0 +1,4 @@
+<RankSystem>
+#rank;creditValue
+#rank;creditValue
+#rank;creditValue

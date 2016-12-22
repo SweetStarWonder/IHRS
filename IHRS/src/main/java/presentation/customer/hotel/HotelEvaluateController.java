@@ -33,7 +33,7 @@ public class HotelEvaluateController {
 		evaluateListView.setItems(evaluates);
 		evaluateListView.setCellFactory((ListView<EvaluateVO> e) -> new EvaluateListCell());
 		for (int i = 0; i < 50; i++) {
-			evaluates.add(null);
+			evaluates.add(new EvaluateVO(null, 0, null));
 		}
 	}
 	

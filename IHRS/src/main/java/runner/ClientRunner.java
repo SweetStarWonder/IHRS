@@ -5,9 +5,14 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
+import controller.LoginController;
+import controller.impl.LoginControllerImpl;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import presentation.login.LoginView;
 import rmi.RemoteHelper;
 
-public class ClientRunner {
+public class ClientRunner extends Application{
 	
 	private RemoteHelper remoteHelper;
 	
@@ -32,23 +37,39 @@ public class ClientRunner {
 			remoteHelper.setHotelPromotionDao(Naming.lookup("rmi://localhost:6666/HotelPromotionDao"));
 			remoteHelper.setWebPromotionDao(Naming.lookup("rmi://localhost:6666/WebPromotionDao"));
 			remoteHelper.setNormalVipPromotionDao(Naming.lookup("rmi://localhost:6666/NormalVipPromotionDao"));
-			
+			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
+			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
+			remoteHelper.setPassword(Naming.lookup("rmi://localhost:6666/PasswordDao"));
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (NotBoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public static void main(String[] args) {
-		new ClientRunner();
 	
+	public static void main(String[] args) {
+		//ClientRunner runner = new ClientRunner();
+		System.out.println("Linked!");
+		launch(args);
+		
 	}
 
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		LoginController controller = new LoginControllerImpl(primaryStage);
+		LoginView view = new LoginView(controller);
+		controller.setView(view);
+		try {
+			view.start(primaryStage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+	
 }
 

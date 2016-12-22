@@ -4,11 +4,28 @@ import vo.ListVO;
 
 public interface CreditBlService {
 	
-	public boolean deductRevokeCredit(ListVO listVO);  //扣除信用值（撤销）
+	/**
+	 * @param listVO  订单信息
+	 * @return        信用值是否扣除成功（撤销订单）
+	 */
+	public boolean deductRevokeCredit(ListVO listVO);
 	
-	public boolean deductAbnormalCredit(ListVO listVO);  //扣除信用值（异常）
+	/**
+	 * @param listVO  订单信息
+	 * @return        信用值是否扣除成功（异常订单）
+	 */
+	public boolean deductAbnormalCredit(ListVO listVO);
 	
-	public boolean recoverCredit(ListVO listVO);  //恢复订单时恢复信用值
+	/**
+	 * @param listVO  订单信息
+	 * @return        信用值是否恢复成功（恢复订单）
+	 */
+	public boolean recoverCredit(ListVO listVO);
 	
-	public boolean rechargeCredit(int rechargeNum);  //用户信用充值
+	/**
+	 * @param rechargeNum  充值额度
+	 * @return             是否充值成功
+	 */
+	public boolean rechargeCredit(int rechargeNum);
+	
 }

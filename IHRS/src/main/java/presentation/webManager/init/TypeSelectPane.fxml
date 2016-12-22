@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webManager.init.TypeSelectPaneController">
+   <children>
+      <AnchorPane fx:id="chooseAnchorPane" layoutX="107.0" layoutY="98.0" prefHeight="67.0" prefWidth="218.0" />
+      <AnchorPane fx:id="searchAnchorPane" layoutX="107.0" layoutY="212.0" prefHeight="314.0" prefWidth="586.0" AnchorPane.leftAnchor="107.0" AnchorPane.rightAnchor="107.0" />
+   </children>
+</AnchorPane>

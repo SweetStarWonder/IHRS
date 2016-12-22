@@ -81,7 +81,9 @@ public class HotelDataTxtHelper implements HotelDataHelper{
 			
 				
 				int id= hotelPO.getId();
-				ArrayList<String> partners= hotelPO.getPartners();
+				ArrayList<String> temp = hotelPO.getPartners();
+				@SuppressWarnings("unchecked")
+				ArrayList<String> partners = (ArrayList<String>)temp.clone();
 				String partner = "";
 				while(!partners.isEmpty()){
 					String tmp = partners.get(0) + ";";

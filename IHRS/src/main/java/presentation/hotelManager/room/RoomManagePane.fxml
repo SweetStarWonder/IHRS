@@ -4,9 +4,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.hotelManager.room.RoomManageController">
    <children>
-      <AnchorPane layoutX="111.0" layoutY="75.0" prefHeight="450.0" prefWidth="578.0" AnchorPane.bottomAnchor="75.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="111.0" AnchorPane.topAnchor="75.0" />
+      <AnchorPane fx:id="roomAnchorPane" layoutX="111.0" layoutY="75.0" prefHeight="475.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="75.0" />
    </children>
 </AnchorPane>

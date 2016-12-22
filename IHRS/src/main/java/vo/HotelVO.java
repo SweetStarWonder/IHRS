@@ -4,20 +4,36 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 import data.dao.EvaluateDao;
+import data.dao.HotelPromotionDao;
 import data.dao.RoomDao;
 import po.EvaluatePO;
 import po.HotelPO;
 import po.RoomPO;
+import po.promotionPO.HotelPromotionPO;
 import rmi.RemoteHelper;
 import vo.promotionVO.HotelPromotionVO;
 
+/**
+ * id                酒店编号
+ * partners          合作企业名
+ * hotelName         酒店名
+ * position          地址
+ * businessDistrict  商圈
+ * starRating        酒店星级
+ * introduction      简介
+ * facility          设施服务
+ * rooms             酒店所有房间信息
+ * hotelPromotions   酒店所有促销策略
+ * evaluates         酒店所有评价信息
+ * averageRank       总评
+ */
 public class HotelVO {
 
 	private int id;
 	
 	private ArrayList<RoomVO> rooms;
 	
-	private ArrayList<HotelPromotionVO> promotions;
+	private ArrayList<HotelPromotionVO> hotelPromotions;
 	
 	private ArrayList<String> partners;
 	
@@ -25,35 +41,32 @@ public class HotelVO {
 	
 	private String hotelName;
 	
-	private String position;  //地址
+	private String position;
 	
-	private String businessDistrict;  //商圈
+	private String businessDistrict;
 	
-	private int starRating;  //星级
+	private int starRating;
 	
-	private String introduction;  //简介
+	private String introduction;
 	
-	private String facility;  //设施服务
+	private String facility;
 	
-	private double averageRank;  //总评
+	private double averageRank;
 	
-	public HotelVO(int id,ArrayList<RoomVO> rooms,ArrayList<HotelPromotionVO> promotions,ArrayList<String> partners,ArrayList<EvaluateVO> evaluates,
+	public HotelVO(int id,ArrayList<RoomVO> rooms,ArrayList<HotelPromotionVO> hotelPromotions,ArrayList<String> partners,ArrayList<EvaluateVO> evaluates,
 			String hotelName,String position,String businessDistrict,int starRating,String introduction,String facility,double averageRank){
 		this.id=id;
 		this.hotelName=hotelName;
-		
 		this.rooms=rooms;
-		this.setPromotions(promotions);
+		this.setHotelPromotions(hotelPromotions);
 		this.partners=partners;
 		this.evaluates=evaluates;
-		
 		this.position=position;
 		this.businessDistrict=businessDistrict;
 		this.starRating=starRating;
 		this.introduction=introduction;
 		this.facility=facility;
 		this.averageRank=averageRank;
-		
 	}
 	
 	public HotelVO(HotelPO hotelPO) {
@@ -89,6 +102,17 @@ public class HotelVO {
 			e.printStackTrace();
 		}
 		
+		HotelPromotionDao hotelPromotionDao=RemoteHelper.getInstance().getHotelPromotionDao();
+		ArrayList<HotelPromotionPO> hotelPromotionPOs;
+		try {
+			hotelPromotionPOs = hotelPromotionDao.getHotelPromotions(hotelPO.getId());
+			hotelPromotions=new ArrayList<HotelPromotionVO>();
+			for (HotelPromotionPO hotelPromotionPO : hotelPromotionPOs) {
+				hotelPromotions.add(new HotelPromotionVO(hotelPromotionPO));
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
 	}
 
 	public int getId() {
@@ -178,7 +202,14 @@ public class HotelVO {
 	public void setAverageRank(double averageRank) {
 		this.averageRank = averageRank;
 	}
-	
+
+	public ArrayList<HotelPromotionVO> getHotelPromotions() {
+		return hotelPromotions;
+	}
+
+	public void setHotelPromotions(ArrayList<HotelPromotionVO> hotelPromotions) {
+		this.hotelPromotions = hotelPromotions;
+	}
 	
 	private double calculateRank(ArrayList<EvaluatePO> evaluates){
 		double total = 0.0;
@@ -190,12 +221,5 @@ public class HotelVO {
 		return total / (double)num;
 	}
 
-	public ArrayList<HotelPromotionVO> getPromotions() {
-		return promotions;
-	}
-
-	public void setPromotions(ArrayList<HotelPromotionVO> promotions) {
-		this.promotions = promotions;
-	}
 	
 }

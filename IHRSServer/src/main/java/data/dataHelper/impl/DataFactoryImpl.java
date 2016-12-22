@@ -1,5 +1,6 @@
 package data.dataHelper.impl;
 
+import data.dataHelper.AddressDataHelper;
 import data.dataHelper.CreditChangeDataHelper;
 import data.dataHelper.CustomerDataHelper;
 import data.dataHelper.DataFactory;
@@ -11,7 +12,8 @@ import data.dataHelper.HotelPromotionDataHelper;
 import data.dataHelper.ListDataHelper;
 import data.dataHelper.NormalVipDataHelper;
 import data.dataHelper.NormalVipPromotionDataHelper;
-import data.dataHelper.PromotionDataHelper;
+import data.dataHelper.PasswordDataHelper;
+import data.dataHelper.RankSystemDataHelper;
 import data.dataHelper.RoomDataHelper;
 import data.dataHelper.WebManagerDataHelper;
 import data.dataHelper.WebPromotionDataHelper;
@@ -59,11 +61,6 @@ public class DataFactoryImpl implements DataFactory{
 		return NormalVipDao;
 	}
 
-	public PromotionDataHelper getPromotionDataHelper() {
-		
-		return null;
-	}
-
 	public RoomDataHelper getRoomDataHelper() {
 		 RoomDataHelper  RoomDao=new  RoomDataTxtHelper();
 		return RoomDao;
@@ -92,5 +89,20 @@ public class DataFactoryImpl implements DataFactory{
 	public WebPromotionDataHelper getWebPromotionDataHelper() {
 		WebPromotionDataHelper webPromotionDataHelper = new WebPromotionDataTxtHelper();
 		return webPromotionDataHelper;
+	}
+
+	public AddressDataHelper getAddressDataHelper() {
+		AddressDataHelper addressDataHelper=new AddressDataTxtHelper();
+		return addressDataHelper;
+	}
+
+	public RankSystemDataHelper getRankSystemDataHelper() {
+		RankSystemDataHelper rankSystemDataHelper=new RankSystemDataTxtHelper();
+		return rankSystemDataHelper;
+	}
+
+	public PasswordDataHelper getPasswordDataHelper() {
+		PasswordDataHelper passwordDataHelper=new PasswordDataTxtHelper();
+		return passwordDataHelper;
 	}
 }

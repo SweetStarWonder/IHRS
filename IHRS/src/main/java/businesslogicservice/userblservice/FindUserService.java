@@ -6,16 +6,34 @@ import vo.WebSaleVO;
 
 public interface FindUserService {
 	
-		//查询用户
+		/**
+		 * @param customerId  客户编号
+		 * @return            根据编号获取客户信息
+		 */
 		public CustomerVO getCustomer(int customerId);
 		
+		/**
+		 * @param customerName  客户名
+		 * @return              根据客户名回去客户信息
+		 */
 		public CustomerVO getCustomer(String customerName);
 		
-		//查询酒店工作人员
+		/**
+		 * @param hotelManagerId  酒店工作人员编号
+		 * @return                根据编号获取酒店工作人员信息
+		 */
 		public HotelManagerVO getHotelManagerByUserId(int hotelManagerId);
 		
+		/**
+		 * @param hotelId  酒店编号
+		 * @return         根据编号获取酒店工作人员信息
+		 */
 		public HotelManagerVO getHotelManagerByHotelId(int hotelId);
 		
-		//查询网站营销人员
+		/**
+		 * @param webSaleId  网站营销人员编号
+		 * @return           根据编号获取网站营销人员信息
+		 */
 		public WebSaleVO getWebSale(int webSaleId);
+		
 }

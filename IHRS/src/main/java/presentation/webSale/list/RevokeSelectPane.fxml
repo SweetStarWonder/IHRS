@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.list.RevokeSelectPaneController">
+   <children>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="67.0" layoutY="14.0" prefHeight="24.0" prefWidth="167.0" text="选择信用返还方式" />
+      <VBox alignment="CENTER" layoutX="67.0" layoutY="49.0" prefHeight="103.0" prefWidth="167.0" spacing="10.0">
+         <children>
+            <ToggleButton fx:id="halfToggleButton" mnemonicParsing="false" onAction="#handleHalfToggleButton" selected="true" text="返还一半信用">
+               <toggleGroup>
+                  <ToggleGroup fx:id="group" />
+               </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="allToggleButton" mnemonicParsing="false" onAction="#handleAllToggleButton" text="返还全部信用" toggleGroup="$group" />
+         </children>
+      </VBox>
+      <HBox alignment="CENTER" layoutX="50.0" layoutY="152.0" prefHeight="47.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#handleConfirmButton" text="确定" />
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleCancelButton" text="取消" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

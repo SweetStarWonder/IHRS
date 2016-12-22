@@ -40,7 +40,7 @@ public class PersonalHotelViewController {
 			}
 			});
 		for (int i = 0; i < 20; i++) {
-			hotels.add(null);
+			hotels.add(new HotelVO(0, null, null, null, null, null, null, null, i, null, null, i));
 		}
 		myGrid.setCellHeight(160);
 		myGrid.setCellWidth(160);

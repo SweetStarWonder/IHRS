@@ -8,7 +8,7 @@
 <!-- 除未执行订单外的订单详细信息界面 -->
 
 
-<AnchorPane prefHeight="300.0" prefWidth="460.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="300.0" prefWidth="460.0" stylesheets="@JMetroLightTheme.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
    <children>
       <GridPane layoutX="23.0" prefHeight="300.0" prefWidth="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="-23.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>

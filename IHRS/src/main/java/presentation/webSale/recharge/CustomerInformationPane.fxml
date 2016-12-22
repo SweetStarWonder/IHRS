@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="220.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.recharge.CustomerInformationPaneController">
+   <children>
+      <Label layoutX="101.0" layoutY="20.0" text="用户名：" AnchorPane.topAnchor="20.0" />
+      <Label layoutX="102.0" layoutY="72.0" text="用户编号：" AnchorPane.topAnchor="72.0" />
+      <Label layoutX="102.0" layoutY="124.0" text="手机：" AnchorPane.topAnchor="124.0" />
+      <Label fx:id="userNameLabel" layoutX="231.0" layoutY="20.0" text="用户名" />
+      <Label fx:id="userIdLabel" layoutX="231.0" layoutY="72.0" text="用户编号" />
+      <Label fx:id="phoneLabel" layoutX="231.0" layoutY="124.0" text="手机" />
+      <Button fx:id="rechargeButton" layoutX="183.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleRechargeButton" text="充值" />
+   </children>
+</AnchorPane>

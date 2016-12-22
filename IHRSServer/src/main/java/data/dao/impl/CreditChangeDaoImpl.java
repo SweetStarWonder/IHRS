@@ -45,7 +45,7 @@ public class CreditChangeDaoImpl extends java.rmi.server.UnicastRemoteObject imp
 			ArrayList<CreditChangePO> creditChange=map.get(userId);
 			return creditChange;
 		} else {
-			return null;
+			return new ArrayList<CreditChangePO>();
 		}
 	}
 

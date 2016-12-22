@@ -8,13 +8,35 @@ import vo.RoomVO;
 
 public interface HotelOperationService {
 	
-	public HotelVO evaluateHotel(EvaluatePO evaluatePO,HotelVO hotelVO);  //评价酒店
+	/**
+	 * @param evaluatePO  评价信息
+	 * @param hotelVO     对应酒店
+	 * @return            是否评价成功
+	 */
+	public boolean evaluateHotel(EvaluatePO evaluatePO,HotelVO hotelVO);
 	
-	public boolean modifyHotelInformation(HotelVO hotelVO);  //酒店工作人员修改酒店信息
+	/**
+	 * @param hotelVO  酒店信息
+	 * @return         是否修改成功
+	 */
+	public boolean modifyHotelInformation(HotelVO hotelVO);
 	
-	public boolean addRooms(ArrayList<RoomVO> roomVOs);  //酒店工作人员添加房间
+	/**
+	 * @param roomVOs  酒店所有房间信息
+	 * @return         是否添加成功
+	 */
+	public boolean addRooms(ArrayList<RoomVO> roomVOs);
 	
-	public boolean updateCheckOut(ArrayList<RoomVO> roomsVO);  //酒店工作人员更新退房信息
+	/**
+	 * @param roomsVO  酒店所有房间信息
+	 * @return         退房信息是否更新成功
+	 */
+	public boolean updateCheckOut(ArrayList<RoomVO> roomsVO);
 	
-	public boolean addHotel(HotelVO hotelVO);  //添加酒店
+	/**
+	 * @param hotelVO  酒店信息
+	 * @return         是否添加成功
+	 */
+	public boolean addHotel(HotelVO hotelVO);
+	
 }

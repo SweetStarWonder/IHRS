@@ -7,7 +7,14 @@ import po.CreditChangePO;
 
 public interface CreditChangeDataHelper {
 	
-	public HashMap<Integer, ArrayList<CreditChangePO>> getCreditChangeData();	//左边是userId
+	/**
+	 * @return  用户所有信用记录（左用户编号）
+	 */
+	public HashMap<Integer, ArrayList<CreditChangePO>> getCreditChangeData();
 
+	/**
+	 * @param creditChangeMap 用户所有信用记录（左用户编号）
+	 */
 	public void updateCreditChangeData(HashMap<Integer, ArrayList<CreditChangePO>> creditChangeMap);
+	
 }

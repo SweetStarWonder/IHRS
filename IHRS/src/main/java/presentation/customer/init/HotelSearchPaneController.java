@@ -99,7 +99,7 @@ public class HotelSearchPaneController {
 			}
 			});
 		for (int i = 0; i < 20; i++) {
-			list.add(null);
+			list.add(new HotelVO(i, null, null, null, null, null, null, null, i, null, null, i));
 		}
 		myGrid.setCellHeight(160);
 		myGrid.setCellWidth(160);
@@ -122,9 +122,9 @@ public class HotelSearchPaneController {
 		ObservableList<Node> children = sortAnchorPane.getChildren();
 		if (children.isEmpty()) {			
 			ObservableList<ToggleButton> buttons = FXCollections.observableArrayList();
-			ToggleButton priceToggleButton = new ToggleButton("价格");
-			ToggleButton starToggleButton = new ToggleButton("星级");
-			ToggleButton rankToggleButton = new ToggleButton("评分");
+			ToggleButton priceToggleButton = new ToggleButton("浠锋牸");
+			ToggleButton starToggleButton = new ToggleButton("鏄熺骇");
+			ToggleButton rankToggleButton = new ToggleButton("璇勫垎");
 			buttons.add(priceToggleButton);
 			buttons.add(starToggleButton);
 			buttons.add(rankToggleButton);

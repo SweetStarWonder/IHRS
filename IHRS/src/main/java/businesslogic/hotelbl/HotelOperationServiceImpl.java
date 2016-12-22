@@ -6,11 +6,9 @@ import java.util.ArrayList;
 import businesslogicservice.hotelblservice.HotelOperationService;
 import data.dao.EvaluateDao;
 import data.dao.HotelDao;
-import data.dao.ListDao;
 import data.dao.RoomDao;
 import po.EvaluatePO;
 import po.HotelPO;
-import po.ListPO;
 import po.RoomPO;
 import rmi.RemoteHelper;
 import vo.EvaluateVO;
@@ -24,8 +22,6 @@ public class HotelOperationServiceImpl implements HotelOperationService{
 	private HotelDao hotelDao;
 	
 	private RoomDao roomDao;
-	
-	private ListDao listDao;
 	
 	public HotelOperationServiceImpl(){
 		this.evaluateDao=RemoteHelper.getInstance().getEvaluateDao();
@@ -44,16 +40,17 @@ public class HotelOperationServiceImpl implements HotelOperationService{
 		return add;
 	}
 	
-	public HotelVO evaluateHotel(EvaluatePO evaluatePO, HotelVO hotelVO) {
+	public boolean evaluateHotel(EvaluatePO evaluatePO, HotelVO hotelVO) {
 		try {
 			evaluateDao.addEvaluate(evaluatePO);
 		} catch (RemoteException e) {
 			e.printStackTrace();
+			return false;
 		}
 		ArrayList<EvaluateVO> evaluateVOs=hotelVO.getEvaluates();
 		evaluateVOs.add(new EvaluateVO(evaluatePO));
 		hotelVO.setEvaluates(evaluateVOs);
-		return hotelVO;
+		return true;
 	}
 
 	public boolean modifyHotelInformation(HotelVO hotelVO) {
