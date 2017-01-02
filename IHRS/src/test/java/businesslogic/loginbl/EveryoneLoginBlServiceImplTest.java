@@ -15,9 +15,9 @@ import rmi.RemoteHelper;
 public class EveryoneLoginBlServiceImplTest {
 
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -44,13 +44,15 @@ public class EveryoneLoginBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testlogin() {
 		EveryoneLoginBlServiceImpl everyoneLoginBlServiceImpl = new EveryoneLoginBlServiceImpl();
 		assertEquals(00001, everyoneLoginBlServiceImpl.login(00001, "userName", "userpassword").getId());
-		assertEquals(00002, everyoneLoginBlServiceImpl.login(00002, "EnterpriseVipName", "EnterpriseVippassword").getId());
-		assertEquals(00003, everyoneLoginBlServiceImpl.login(00003, "HotelManagerName", "HotelManagerpassword").getId());
+		assertEquals(00002,
+				everyoneLoginBlServiceImpl.login(00002, "EnterpriseVipName", "EnterpriseVippassword").getId());
+		assertEquals(00003,
+				everyoneLoginBlServiceImpl.login(00003, "HotelManagerName", "HotelManagerpassword").getId());
 		assertEquals(00004, everyoneLoginBlServiceImpl.login(00004, "NormalVipName", "NormalVippassword").getId());
 		assertEquals(00005, everyoneLoginBlServiceImpl.login(00005, "WebManagerName", "WebManagerpassword").getId());
 		assertEquals(00006, everyoneLoginBlServiceImpl.login(00006, "WebSaleName", "WebSalepassword").getId());

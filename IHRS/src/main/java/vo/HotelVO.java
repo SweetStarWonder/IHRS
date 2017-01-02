@@ -77,6 +77,7 @@ public class HotelVO {
 		this.starRating = hotelPO.getStarRating();
 		this.facility = hotelPO.getFacility();
 		this.partners = hotelPO.getPartners();
+		this.introduction = hotelPO.getIntroduction();
 		
 		RoomDao roomDao = RemoteHelper.getInstance().getRoomDao();
 		try {
@@ -214,11 +215,15 @@ public class HotelVO {
 	private double calculateRank(ArrayList<EvaluatePO> evaluates){
 		double total = 0.0;
 		int num = 0;
-		for (EvaluatePO evaluatePO : evaluates) {
-			total += evaluatePO.getRankValue();
-			num++;
+		if (evaluates.isEmpty()) {
+			return total;
+		} else {
+			for (EvaluatePO evaluatePO : evaluates) {
+				total += evaluatePO.getRankValue();
+				num++;
+			}
+			return total / (double)num;
 		}
-		return total / (double)num;
 	}
 
 	

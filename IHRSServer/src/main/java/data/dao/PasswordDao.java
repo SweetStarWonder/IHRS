@@ -34,4 +34,12 @@ public interface PasswordDao extends java.rmi.Remote{
 	 */
 	public boolean updatePassword(PasswordPO passwordPO) throws RemoteException;
 	
+	/**
+	 * @param userId    用户编号
+	 * @param userName  用户名
+	 * @return          用户名是否修改成功
+	 * @throws RemoteException
+	 */
+	public boolean updateName(int userId,String userName) throws RemoteException;
+	
 }

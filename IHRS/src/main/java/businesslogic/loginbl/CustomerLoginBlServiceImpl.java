@@ -96,4 +96,5 @@ public class CustomerLoginBlServiceImpl implements CustomerLoginBlService{
 		}
 	}
 
+
 }

@@ -14,7 +14,7 @@ import data.dataHelper.RankSystemDataHelper;
 public class RankSystemDataTxtHelper implements RankSystemDataHelper{
 
 	public HashMap<Integer, Integer> getRanks() {
-		File file = new File("TxtData//RankSystem.txt");
+		File file = new File("src//main//resources//RankSystem.txt");
 		HashMap<Integer,Integer> map = new HashMap<Integer, Integer>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -36,7 +36,7 @@ public class RankSystemDataTxtHelper implements RankSystemDataHelper{
 	}
 
 	public boolean updateRank(HashMap<Integer, Integer> ranks) {
-		File file = new File("TxtData//RankSystem.txt");
+		File file = new File("src//main//resources//RankSystem.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

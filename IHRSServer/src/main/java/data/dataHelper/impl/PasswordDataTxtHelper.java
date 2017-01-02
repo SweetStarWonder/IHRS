@@ -16,7 +16,7 @@ import po.PasswordPO;
 public class PasswordDataTxtHelper implements PasswordDataHelper{
 
 	public HashMap<Integer,PasswordPO> getPasswordById(){
-		File file = new File("TxtData//Password.txt");
+		File file = new File("src//main//resources//Password.txt");
 		HashMap<Integer,PasswordPO> passwordPOs=new HashMap<Integer,PasswordPO>();
 		//自定义密钥
 		DesUtils des = new DesUtils("sswzdhsa");
@@ -44,7 +44,7 @@ public class PasswordDataTxtHelper implements PasswordDataHelper{
 	}
 	
 	public HashMap<String,PasswordPO> getPasswordByName(){
-		File file = new File("TxtData//Password.txt");
+		File file = new File("src//main//resources//Password.txt");
 		HashMap<String,PasswordPO> passwordPOs=new HashMap<String,PasswordPO>();
 		//自定义密钥
 		DesUtils des = new DesUtils("sswzdhsa");
@@ -72,7 +72,7 @@ public class PasswordDataTxtHelper implements PasswordDataHelper{
 	}
 	
 	public void updatePasswordById(HashMap<Integer,PasswordPO> passwordMap){
-		File file = new File("TxtData//Password.txt");
+		File file = new File("src//main//resources//Password.txt");
 		//自定义密钥
 		DesUtils des = new DesUtils("sswzdhsa");
 		try {		
@@ -100,7 +100,7 @@ public class PasswordDataTxtHelper implements PasswordDataHelper{
 	}
 	
 	public void updatePasswordByName(HashMap<String,PasswordPO> passwordMap){
-		File file = new File("TxtData//Password.txt");
+		File file = new File("src//main//resources//Password.txt");
 		//自定义密钥
 		DesUtils des = new DesUtils("sswzdhsa");
 		try {		

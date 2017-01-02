@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="200.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webManager.customer.CustomerModifyPaneControlelr">
+<AnchorPane prefHeight="200.0" prefWidth="360.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webManager.customer.CustomerModifyPaneController">
    <children>
       <GridPane hgap="20.0" layoutX="64.0" layoutY="26.0" prefHeight="102.0" prefWidth="233.0" vgap="20.0">
          <columnConstraints>
@@ -21,9 +21,9 @@
             <Label layoutX="54.0" layoutY="64.0" text="用户名：" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <Label layoutX="54.0" layoutY="20.0" text="用户编号：" GridPane.halignment="CENTER" />
             <Label layoutX="54.0" layoutY="106.0" text="手机：" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <TextField fx:id="idTextField" GridPane.columnIndex="1" />
             <TextField fx:id="nameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextField fx:id="phoneTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="idLabel" alignment="CENTER" text="用户编号" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
          </children>
       </GridPane>
       <HBox alignment="CENTER" layoutX="72.0" layoutY="150.0" prefHeight="36.0" prefWidth="217.0" spacing="30.0">

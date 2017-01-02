@@ -71,7 +71,7 @@ public class HotelDaoImpl extends java.rmi.server.UnicastRemoteObject implements
 		while (iterator.hasNext()) {
 			Integer id = (Integer) iterator.next();
 			HotelPO hotelPO = hotelMap.get(id);
-			if (hotelPO.getPosition().equals(position) && hotelPO.getBusinessDistrict().equals(businessDistrict) && hotelPO.getStarRating() == starRating) {
+			if (hotelPO.getPosition().equals(position) && hotelPO.getBusinessDistrict().equals(businessDistrict) && hotelPO.getStarRating() >= starRating) {
 				hotelList.add(hotelPO);
 			}
 		}
@@ -87,7 +87,7 @@ public class HotelDaoImpl extends java.rmi.server.UnicastRemoteObject implements
 			HotelPO hotelPO = hotelMap.get(id);
 			if (hotelPO.getPosition().equals(position) && hotelPO.getBusinessDistrict().equals(businessDistrict)) {
 				double rankOfHotel = calculateRank(evaluateMap.get(id));
-				if (rankOfHotel >= highValue) {
+				if (rankOfHotel <= highValue  && rankOfHotel >=lowValue) {
 					hotelList.add(hotelPO);
 				}
 			}
@@ -159,11 +159,15 @@ public class HotelDaoImpl extends java.rmi.server.UnicastRemoteObject implements
 	private double calculateRank(ArrayList<EvaluatePO> evaluates) throws RemoteException {
 		double rank = 0.0;
 		int num = 0;
-		for (EvaluatePO evaluatePO : evaluates) {
-			rank += evaluatePO.getRankValue();
-			num++;
+		if (evaluates.isEmpty()) {
+			return rank;
+		} else {
+			for (EvaluatePO evaluatePO : evaluates) {
+				rank += evaluatePO.getRankValue();
+				num++;
+			}
+			return rank / (double)num;
 		}
-		return rank / (double)num;
 	}
 
 }

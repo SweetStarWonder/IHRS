@@ -15,6 +15,7 @@ import data.dataHelper.NormalVipPromotionDataHelper;
 import data.dataHelper.PasswordDataHelper;
 import data.dataHelper.RankSystemDataHelper;
 import data.dataHelper.RoomDataHelper;
+import data.dataHelper.RoomInListDataHelper;
 import data.dataHelper.WebManagerDataHelper;
 import data.dataHelper.WebPromotionDataHelper;
 import data.dataHelper.WebSaleDataHelper;
@@ -105,4 +106,12 @@ public class DataFactoryImpl implements DataFactory{
 		PasswordDataHelper passwordDataHelper=new PasswordDataTxtHelper();
 		return passwordDataHelper;
 	}
+
+	@Override
+	public RoomInListDataHelper getRoomInListDataHelper() {
+		RoomInListDataHelper roomInListDataHelper = new RoomInListDataTxtHelper();
+		return roomInListDataHelper;
+	}
+	
+	
 }

@@ -17,14 +17,13 @@ import vo.promotionVO.WebPromotionVO;
 
 public class WebPromotionBlServiceImplTest {
 
-	
-	WebPromotionBlServiceImpl WebPromotionBlServiceImpl=new WebPromotionBlServiceImpl();
-	WebPromotionVO webPromotionVO=new WebPromotionVO(1.0,"1","11","111");
-	
+	WebPromotionBlServiceImpl WebPromotionBlServiceImpl = new WebPromotionBlServiceImpl();
+	WebPromotionVO webPromotionVO = new WebPromotionVO(1.0, "1", "11", "111");
+
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -42,7 +41,7 @@ public class WebPromotionBlServiceImplTest {
 			remoteHelper.setNormalVipPromotionDao(Naming.lookup("rmi://localhost:6666/NormalVipPromotionDao"));
 			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
 			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
-			
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -52,32 +51,31 @@ public class WebPromotionBlServiceImplTest {
 		}
 	}
 
-	
 	@Test
-	public void getWebPromotionsTest(){
-		ArrayList<WebPromotionVO> list=new ArrayList<WebPromotionVO>();
-		list=WebPromotionBlServiceImpl.getWebPromotions();
-		WebPromotionVO WebPromotionVO=list.get(0);
+	public void getWebPromotionsTest() {
+		ArrayList<WebPromotionVO> list = new ArrayList<WebPromotionVO>();
+		list = WebPromotionBlServiceImpl.getWebPromotions();
+		WebPromotionVO WebPromotionVO = list.get(0);
 
-		assertEquals(1.0,WebPromotionVO.getDiscount(),0.0);
-		assertEquals("1",WebPromotionVO.getDiscountName());
-		assertEquals("11",WebPromotionVO.getStartTime());
-		assertEquals("111",WebPromotionVO.getEndTime());
+		assertEquals(1.0, WebPromotionVO.getDiscount(), 0.0);
+		assertEquals("1", WebPromotionVO.getDiscountName());
+		assertEquals("11", WebPromotionVO.getStartTime());
+		assertEquals("111", WebPromotionVO.getEndTime());
 	}
-	
+
 	@Test
-	public void addWebPromoitonTest(){
-		assertEquals(true,WebPromotionBlServiceImpl.addWebPromotion(webPromotionVO));
+	public void addWebPromoitonTest() {
+		assertEquals(true, WebPromotionBlServiceImpl.addWebPromotion(webPromotionVO));
 	}
-	
+
 	@Test
-	public void deleteWebPromoitonTest(){
-		assertEquals(true,WebPromotionBlServiceImpl.deleteWebPromotion(webPromotionVO));
+	public void deleteWebPromoitonTest() {
+		assertEquals(true, WebPromotionBlServiceImpl.deleteWebPromotion(webPromotionVO));
 	}
-	
-	@Test 
-	public void getMinDiscountInWebTest(){
-		assertEquals(1.0,WebPromotionBlServiceImpl.getMinDiscountInWeb("1111"),0.0);
+
+	@Test
+	public void getMinDiscountInWebTest() {
+		assertEquals(1.0, WebPromotionBlServiceImpl.getMinDiscountInWeb("1111"), 0.0);
 	}
-	
+
 }

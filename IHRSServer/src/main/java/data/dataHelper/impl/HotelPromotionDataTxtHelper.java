@@ -20,7 +20,7 @@ public class HotelPromotionDataTxtHelper implements HotelPromotionDataHelper{
 
 	public HashMap<Integer, ArrayList<HotelPromotionPO>> getHotelPromotionData() {
 	
-		File file = new File("TxtData//HotelPromotion.txt");
+		File file = new File("src//main//resources//HotelPromotion.txt");
 		HashMap<Integer, ArrayList<HotelPromotionPO>> Map = new HashMap<Integer, ArrayList<HotelPromotionPO>>();
 		
 		try{
@@ -66,7 +66,7 @@ public class HotelPromotionDataTxtHelper implements HotelPromotionDataHelper{
 	}
 
 	public void updateHotelPromotionData(HashMap<Integer, ArrayList<HotelPromotionPO>> hotelPromotions) {
-		File file = new File("TxtData//HotelPromotion.txt");
+		File file = new File("src//main//resources//HotelPromotion.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

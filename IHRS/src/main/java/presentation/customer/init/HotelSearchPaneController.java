@@ -1,11 +1,13 @@
 package presentation.customer.init;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
-import org.controlsfx.control.GridCell;
 import org.controlsfx.control.GridView;
 import org.controlsfx.control.SegmentedButton;
 
+import controller.CustomerController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -20,51 +22,80 @@ import javafx.scene.control.TreeView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Callback;
-import presentation.customer.TestCustomer;
+import utility.VerifyUtility;
 import vo.HotelVO;
+import vo.RoomVO;
 
 public class HotelSearchPaneController {
-	
-	
-	
+
 	@FXML
 	private ComboBox<String> businessDistrictComboBox;
-	
+
 	@FXML
 	private ComboBox<String> addressComboBox;
-	
-	@FXML 
+
+	@FXML
 	private TextField nameSearchTextField;
-	
-	@FXML 
+
+	@FXML
 	private Button searchButton;
-	
-	@FXML 
+
+	@FXML
 	private TreeView<GridPane> detailSearchTreeView;
-	
+
 	@FXML
 	private AnchorPane sortAnchorPane;
-	
-	@FXML 
+
+	@FXML
 	private AnchorPane searchResultAnchorPane;
-	
-	private TestCustomer mainApp;
-	
+
+	private CustomerController mainApp;
+
 	private DetailSearchPaneController detailSearchPaneController;
-	
+
 	private GridView<HotelVO> hotelGridView;
-	
+
 	private SegmentedButton sortSegmentedButton;
 	
-	public HotelSearchPaneController() {
-
-	}
+	private ObservableList<String> businessDistrictList;
 	
+	private ObservableList<String> addressList;
+	
+	private HashMap<String, ArrayList<String>> addressMap;
+	
+	private ToggleButton priceToggleButton = new ToggleButton("价格");
+	private ToggleButton starToggleButton = new ToggleButton("星级");
+	private ToggleButton rankToggleButton = new ToggleButton("评分");
+	
+
+	ObservableList<HotelVO> listByPrice = FXCollections.observableArrayList();
+	
+	ObservableList<HotelVO> listByStar = FXCollections.observableArrayList();
+	
+	ObservableList<HotelVO> listByRate = FXCollections.observableArrayList();
+	
+	GridView<HotelVO> myGrid;
+	
+	public HotelSearchPaneController() {
+		priceToggleButton.setOnAction(e -> myGrid.setItems(listByPrice));
+		starToggleButton.setOnAction(e -> myGrid.setItems(listByStar));
+		rankToggleButton.setOnAction(e -> myGrid.setItems(listByRate));
+	}
+
 	@FXML
 	private void initialize() {
+		businessDistrictList = FXCollections.observableArrayList();
+		addressList = FXCollections.observableArrayList();
+		businessDistrictComboBox.getSelectionModel().selectedItemProperty()
+				.addListener((observable, oldValue, newValue) -> {
+					addressList.clear();
+					addressList.addAll(addressMap.get(newValue));
+					addressComboBox.setItems(addressList);
+				});
+		
 		showDetailSearch();
 	}
-	
+
 	@FXML
 	private void showDetailSearch() {
 		GridPane rootPane = null;
@@ -73,7 +104,7 @@ public class HotelSearchPaneController {
 		rootLoader.setLocation(HotelSearchPaneController.class.getResource("DetailSearchRoot.fxml"));
 		FXMLLoader childLoader = new FXMLLoader();
 		childLoader.setLocation(HotelSearchPaneController.class.getResource("DetailSearchPane.fxml"));
-		
+
 		try {
 			rootPane = (GridPane) rootLoader.load();
 			detailSearchPane = (GridPane) childLoader.load();
@@ -86,55 +117,75 @@ public class HotelSearchPaneController {
 		rootItem.getChildren().add(childItem);
 		detailSearchTreeView.setRoot(rootItem);
 	}
-	
-	@FXML 
+
+	@FXML
 	private void showSearchResult() {
-		ObservableList<HotelVO> list = FXCollections.observableArrayList();
-		GridView<HotelVO> myGrid = new GridView<HotelVO>(list);
-		myGrid.setCellFactory(new Callback<GridView<HotelVO>, GridCell<HotelVO>>() {
-			
-			public GridCell<HotelVO> call(GridView<HotelVO> param) {
-				// TODO Auto-generated method stub
-				return new HotelCell(mainApp);
-			}
-			});
-		for (int i = 0; i < 20; i++) {
-			list.add(new HotelVO(i, null, null, null, null, null, null, null, i, null, null, i));
+		ObservableList<HotelVO> result = FXCollections.observableArrayList();
+		
+		if (businessDistrictComboBox.getSelectionModel().getSelectedItem()==null || addressComboBox.getSelectionModel().getSelectedItem()==null
+				|| businessDistrictComboBox.getSelectionModel().getSelectedItem().isEmpty() || addressComboBox.getSelectionModel().getSelectedItem().isEmpty()) {
+			VerifyUtility.showWarning("信息不完整", "请选择商圈和地址");
+		} else {
+			result.addAll(mainApp.getSearchResults(addressComboBox.getSelectionModel().getSelectedItem(), businessDistrictComboBox.getSelectionModel().getSelectedItem(), nameSearchTextField.getText(), detailSearchPaneController.getRoomNumber(), detailSearchPaneController.getMinRank(), 20, detailSearchPaneController.getRate(), detailSearchPaneController.getRoomStatus(), detailSearchPaneController.getMinPrice(), detailSearchPaneController.getMaxPrice(), detailSearchPaneController.hasOrdered()));
 		}
+		
+		listByPrice.clear();
+		listByRate.clear();
+		listByStar.clear();
+		listByPrice.addAll(result);
+		listByRate.addAll(result);
+		listByStar.addAll(result);
+		
+		listByRate.sort((a, b) -> a.getAverageRank() >= b.getAverageRank() ? -1 : 1);
+		listByStar.sort((a, b) -> a.getStarRating() >= b.getStarRating() ? -1 : 1);
+		listByPrice.sort((a, b) -> getPrice(a) >= getPrice(b) ? 1 : -1);
+		
+		myGrid = new GridView<HotelVO>(result);
+		myGrid.setCellFactory(e -> new HotelCell(mainApp));
+		
 		myGrid.setCellHeight(160);
 		myGrid.setCellWidth(160);
 		myGrid.setHorizontalCellSpacing(5);
 		myGrid.setPrefHeight(325);
 		myGrid.setPrefWidth(700);
-		
+
 		hotelGridView = myGrid;
 		ObservableList<Node> children = searchResultAnchorPane.getChildren();
 		if (!children.isEmpty()) {
 			children.remove(0);
 		}
 		children.add(myGrid);
-		
-		
+
 		showSortButtons();
 	}
-	
+
 	private void showSortButtons() {
 		ObservableList<Node> children = sortAnchorPane.getChildren();
-		if (children.isEmpty()) {			
+		if (children.isEmpty()) {
 			ObservableList<ToggleButton> buttons = FXCollections.observableArrayList();
-			ToggleButton priceToggleButton = new ToggleButton("价格");
-			ToggleButton starToggleButton = new ToggleButton("星级");
-			ToggleButton rankToggleButton = new ToggleButton("评分");
 			buttons.add(priceToggleButton);
 			buttons.add(starToggleButton);
 			buttons.add(rankToggleButton);
 			sortSegmentedButton = new SegmentedButton(buttons);
-			children.add(sortSegmentedButton);	
+			children.add(sortSegmentedButton);
 		}
-		
+
+	}
+
+	public void setMainApp(CustomerController mainApp) {
+		this.mainApp = mainApp;
+		addressMap = mainApp.getAddressMap();
+		businessDistrictList.addAll(addressMap.keySet());
+		businessDistrictComboBox.setItems(businessDistrictList);
 	}
 	
-	public void setMainApp(TestCustomer mainApp) {
-		this.mainApp = mainApp;
+	private int getPrice(HotelVO hotelVO) {
+		int price = -1;
+		for (RoomVO roomVO : hotelVO.getRooms()) {
+			if (price<0 || (price>=0&&roomVO.getPrice()>price)) {
+				price = roomVO.getPrice();
+			}
+		}
+		return price;
 	}
 }

@@ -25,7 +25,7 @@
             <HBox alignment="CENTER_RIGHT" layoutX="494.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="306.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="494.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label text="头像" />
-                  <MenuButton alignment="CENTER_RIGHT" mnemonicParsing="false" text="用户" textFill="#f5f5f5">
+                  <MenuButton fx:id="nameMenuButton" alignment="CENTER_RIGHT" mnemonicParsing="false" text="用户" textFill="#f5f5f5">
                     <items>
                       <MenuItem fx:id="personalInformationItem" mnemonicParsing="false" onAction="#showPersonalInformation" text="个人信息" />
                       <MenuItem fx:id="creditRecordItem" mnemonicParsing="false" onAction="#showCreditRecord" text="信用记录" />

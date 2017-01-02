@@ -1,43 +1,48 @@
 package presentation.hotelManager.promotion;
 
+import controller.HotelManagerController;
 import javafx.fxml.FXML;
-import presentation.hotelManager.TestHotelManager;
 
 public class TypeChoosePaneController {
-	
-	
-	private TestHotelManager mainApp;
-	
+
+	private HotelManagerController mainApp;
+
+	private HotelPromotionListController upperController;
+
 	public TypeChoosePaneController() {
-		
+
 	}
-	
+
 	@FXML
 	private void initialize() {
-		
+
 	}
-	
+
 	@FXML
 	private void handleBirthdayClick() {
-		mainApp.addNormalPromotionPane("生日特惠折扣");
+		mainApp.addNormalPromotionPane(upperController, "BIRTHDAY");
 	}
-	
+
 	@FXML
 	private void handleThreeClick() {
-		mainApp.addNormalPromotionPane("三间及以上折扣");
+		mainApp.addNormalPromotionPane(upperController, "THREE");
 	}
-	
+
 	@FXML
 	private void handleEnterpriseClick() {
-		mainApp.addNormalPromotionPane("合作企业客户折扣");
+		mainApp.addNormalPromotionPane(upperController, "ENTERPRISE");
 	}
-	
+
 	@FXML
 	private void handleTimeClick() {
-		mainApp.addTimePromotionPane();
+		mainApp.addTimePromotionPane(upperController);
 	}
-	
-	public void setMainApp(TestHotelManager mainApp) {
+
+	public void setMainApp(HotelManagerController mainApp) {
 		this.mainApp = mainApp;
+	}
+
+	public void setUpperController(HotelPromotionListController upperController) {
+		this.upperController = upperController;
 	}
 }

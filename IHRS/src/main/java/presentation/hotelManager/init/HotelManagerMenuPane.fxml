@@ -7,7 +7,7 @@
 
 <!-- 酒店工作人员初始界面 -->
 
-<AnchorPane minHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.hotelManager.init.MenuPaneController">
+<AnchorPane minHeight="600.0" prefWidth="800.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.hotelManager.init.MenuPaneController">
    <children>
       <GridPane layoutX="242.0" layoutY="220.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>

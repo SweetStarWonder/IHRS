@@ -17,7 +17,7 @@ import po.EvaluatePO;
 public class EvaluateDataTxtHelper implements EvaluateDataHelper{
 
     public HashMap<Integer, ArrayList<EvaluatePO>> getEvaluateData(){
-    	File file = new File("TxtData//Evaluate.txt");
+    	File file = new File("src//main//resources//Evaluate.txt");
     	HashMap<Integer, ArrayList<EvaluatePO>> Map = new HashMap<Integer, ArrayList<EvaluatePO>>();
 		
 		try{
@@ -51,7 +51,7 @@ public class EvaluateDataTxtHelper implements EvaluateDataHelper{
     }
 	
 	public void updateEvaluateData(HashMap<Integer, ArrayList<EvaluatePO>> evaluateDataMap){
-		File file = new File("TxtData//Evaluate.txt");
+		File file = new File("src//main//resources//Evaluate.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

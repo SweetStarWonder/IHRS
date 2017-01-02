@@ -90,5 +90,24 @@ public class PasswordDaoImpl extends java.rmi.server.UnicastRemoteObject impleme
 			return false;
 		}
 	}
-
+	
+	public boolean updateName(int userId, String userName) throws RemoteException{
+		if (idMap.containsKey(userId)) {
+			String formerName = idMap.get(userId).getUserName();
+			if (formerName.equals(userName) || (nameMap.containsKey(formerName) && !nameMap.containsKey(userName))) {
+				idMap.get(userId).setUserName(userName);
+				PasswordPO po = idMap.get(userId);
+				nameMap.remove(formerName);
+				nameMap.put(userName, po);
+				passwordDataHelper.updatePasswordById(idMap);
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
+	
 }

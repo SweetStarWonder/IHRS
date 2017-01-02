@@ -20,12 +20,10 @@ import vo.ListVO;
 
 public class CreditBlServiceImplTest {
 
-	
-	
 	@BeforeClass
-	public static void before(){
+	public static void before() {
 		RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -41,7 +39,7 @@ public class CreditBlServiceImplTest {
 			remoteHelper.setHotelPromotionDao(Naming.lookup("rmi://localhost:6666/HotelPromotionDao"));
 			remoteHelper.setWebPromotionDao(Naming.lookup("rmi://localhost:6666/WebPromotionDao"));
 			remoteHelper.setNormalVipPromotionDao(Naming.lookup("rmi://localhost:6666/NormalVipPromotionDao"));
-			
+
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,11 +51,12 @@ public class CreditBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
+
 	@Test
 	public void testdeductRevokeCredit() {
-		CustomerPO customer = new CustomerPO(1234,"username","phone");
+		CustomerPO customer = new CustomerPO(1234, "username", "phone");
 		CustomerVO customerVO = new CustomerVO(customer);
-		CreditBlServiceImpl credit = new CreditBlServiceImpl(customerVO,"2016/10/01 23:00:00");
+		CreditBlServiceImpl credit = new CreditBlServiceImpl(customerVO, "2016/10/01 23:00:00");
 		int listid = 1111;
 		int hotelid = 2222;
 		int userid = 1234;
@@ -67,16 +66,16 @@ public class CreditBlServiceImplTest {
 		String lastlist = "lastlist";
 		int price = 200;
 		boolean ifhavechild = true;
-		ListPO listpo = new ListPO(listid,hotelid,userid,status,entrytime,lasttime,lastlist,price,ifhavechild);
+		ListPO listpo = new ListPO(listid, hotelid, userid, status, entrytime, lasttime, lastlist, price, ifhavechild);
 		ListVO listvo = new ListVO(listpo);
-		assertEquals(credit.deductRevokeCredit(listvo),true);
+		assertEquals(credit.deductRevokeCredit(listvo), true);
 	}
 
 	@Test
-	public void testdeductAbnormalCredit(){
-		CustomerPO customer = new CustomerPO(1234,"username","phone");
+	public void testdeductAbnormalCredit() {
+		CustomerPO customer = new CustomerPO(1234, "username", "phone");
 		CustomerVO customerVO = new CustomerVO(customer);
-		CreditBlServiceImpl credit = new CreditBlServiceImpl(customerVO,"2016/10/01 23:00:01");
+		CreditBlServiceImpl credit = new CreditBlServiceImpl(customerVO, "2016/10/01 23:00:01");
 		int listid = 1111;
 		int hotelid = 2222;
 		int userid = 1234;
@@ -86,16 +85,16 @@ public class CreditBlServiceImplTest {
 		String lastlist = "lastlist";
 		int price = 200;
 		boolean ifhavechild = true;
-		ListPO listpo = new ListPO(listid,hotelid,userid,status,entrytime,lasttime,lastlist,price,ifhavechild);
+		ListPO listpo = new ListPO(listid, hotelid, userid, status, entrytime, lasttime, lastlist, price, ifhavechild);
 		ListVO listvo = new ListVO(listpo);
-		assertEquals(credit.deductAbnormalCredit(listvo),true);
+		assertEquals(credit.deductAbnormalCredit(listvo), true);
 	}
-	
+
 	@Test
-	public void testrecoverCredit(){
-		CustomerPO customer = new CustomerPO(1234,"username","phone");
+	public void testrecoverCredit() {
+		CustomerPO customer = new CustomerPO(1234, "username", "phone");
 		CustomerVO customerVO = new CustomerVO(customer);
-		CreditBlServiceImpl credit = new CreditBlServiceImpl(customerVO,"2016/10/01 23:00:01");
+		CreditBlServiceImpl credit = new CreditBlServiceImpl(customerVO, "2016/10/01 23:00:01");
 		int listid = 1111;
 		int hotelid = 2222;
 		int userid = 1234;
@@ -105,16 +104,16 @@ public class CreditBlServiceImplTest {
 		String lastlist = "lastlist";
 		int price = 200;
 		boolean ifhavechild = true;
-		ListPO listpo = new ListPO(listid,hotelid,userid,status,entrytime,lasttime,lastlist,price,ifhavechild);
+		ListPO listpo = new ListPO(listid, hotelid, userid, status, entrytime, lasttime, lastlist, price, ifhavechild);
 		ListVO listvo = new ListVO(listpo);
-		assertEquals(credit.recoverCredit(listvo),true);
+		assertEquals(credit.recoverCredit(listvo), true);
 	}
-	
+
 	@Test
-	public void testrechargeCredit(){
-		CustomerPO customer = new CustomerPO(1234,"username","phone");
+	public void testrechargeCredit() {
+		CustomerPO customer = new CustomerPO(1234, "username", "phone");
 		CustomerVO customerVO = new CustomerVO(customer);
-		CreditBlServiceImpl credit = new CreditBlServiceImpl(customerVO,"2016/10/01 23:00:01");
-		assertEquals(credit.rechargeCredit(1),true);
+		CreditBlServiceImpl credit = new CreditBlServiceImpl(customerVO, "2016/10/01 23:00:01");
+		assertEquals(credit.rechargeCredit(1), true);
 	}
 }

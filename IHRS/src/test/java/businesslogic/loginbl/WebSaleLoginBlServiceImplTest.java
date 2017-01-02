@@ -17,9 +17,9 @@ import vo.WebSaleVO;
 public class WebSaleLoginBlServiceImplTest {
 
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -46,7 +46,7 @@ public class WebSaleLoginBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testlogin() {
 		WebSaleLoginBlServiceImpl webSaleLoginBlServiceImpl = new WebSaleLoginBlServiceImpl();
@@ -57,11 +57,11 @@ public class WebSaleLoginBlServiceImplTest {
 		assertEquals(null, webSaleLoginBlServiceImpl.login(0, "WebSaleName", "WebSalepassword1"));
 		assertEquals(null, webSaleLoginBlServiceImpl.login(00006, null, "WebSalepassword1"));
 		assertEquals(null, webSaleLoginBlServiceImpl.login(0, "WebSaleName", null));
-		
+
 	}
 
 	@Test
-	public void testmodify(){
+	public void testmodify() {
 		WebSalePO webSalePO = new WebSalePO(00006, "WebSaleName", "WebSalephone");
 		WebSaleVO webSaleVO = new WebSaleVO(webSalePO);
 		WebSaleLoginBlServiceImpl webSaleLoginBlServiceImpl = new WebSaleLoginBlServiceImpl();

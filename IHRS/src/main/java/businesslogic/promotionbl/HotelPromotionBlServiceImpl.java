@@ -13,7 +13,7 @@ import vo.promotionVO.HotelPromotionVO;
 
 public class HotelPromotionBlServiceImpl implements HotelPromotionBlService{
 	
-	HotelPromotionDao hotelPromotionDao;
+	private HotelPromotionDao hotelPromotionDao;
 	
 	public HotelPromotionBlServiceImpl(){
 		RemoteHelper remoteHelper=RemoteHelper.getInstance();
@@ -157,7 +157,7 @@ public class HotelPromotionBlServiceImpl implements HotelPromotionBlService{
 	}
 	
 	private int convertTime(String time) {
-		String timeNow = time.substring(0, 4) + time.substring(5, 7) + time.substring(8, 10) + time.substring(11, 13);
+		String timeNow = time.substring(0, 4) + time.substring(5, 7) + time.substring(8, 10);
 		int intTime = Integer.valueOf(timeNow);
 		return intTime;
 	}

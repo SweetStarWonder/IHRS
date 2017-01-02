@@ -1,6 +1,8 @@
 package presentation.webManager;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import controller.WebManagerController;
 import javafx.application.Application;
@@ -15,11 +17,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import presentation.webManager.customer.CustomerModifyPaneControlelr;
+import presentation.webManager.customer.CustomerModifyPaneController;
+import presentation.webManager.hotel.AddHotelPaneController;
 import presentation.webManager.hotel.HotelManagerModifyPaneController;
 import presentation.webManager.init.TypeSelectPaneController;
 import presentation.webManager.init.WebManagerRootLayoutController;
+import presentation.webManager.webSale.WebSaleAddPaneController;
 import presentation.webManager.webSale.WebSaleModifyPaneController;
+import vo.CustomerVO;
+import vo.HotelManagerVO;
+import vo.WebSaleVO;
 
 public class WebManagerView extends Application {
 	ObservableList<Node> sceneStack = FXCollections.observableArrayList();
@@ -27,13 +34,13 @@ public class WebManagerView extends Application {
 	private Stage primaryStage;
 
 	private BorderPane rootLayout;
-	
+
 	private WebManagerController controller;
 
 	public WebManagerView(WebManagerController controller) {
 		this.controller = controller;
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
@@ -71,7 +78,7 @@ public class WebManagerView extends Application {
 		}
 	}
 
-	public void modifyCustomerDialog() {
+	public void modifyCustomerDialog(CustomerVO customerVO) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(WebManagerView.class.getResource("customer/CustomerModifyPane.fxml"));
 		AnchorPane anchorPane = null;
@@ -88,13 +95,14 @@ public class WebManagerView extends Application {
 		Scene scene = new Scene(anchorPane);
 		dialogStage.setScene(scene);
 
-		CustomerModifyPaneControlelr controller = loader.getController();
+		CustomerModifyPaneController controller = loader.getController();
 		controller.setStage(dialogStage);
-
+		controller.setMainApp(this.controller);
+		controller.setCustomerVO(customerVO);
 		dialogStage.showAndWait();
 	}
 
-	public void modifyHotelManagerDialog() {
+	public void modifyHotelManagerDialog(HotelManagerVO hotelManagerVO) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(WebManagerView.class.getResource("hotel/HotelManagerModifyPane.fxml"));
 		AnchorPane anchorPane = null;
@@ -113,11 +121,12 @@ public class WebManagerView extends Application {
 
 		HotelManagerModifyPaneController controller = loader.getController();
 		controller.setStage(dialogStage);
-
+		controller.setMainApp(this.controller);
+		controller.setHotelManager(hotelManagerVO);
 		dialogStage.showAndWait();
 	}
 
-	public void modifyWebSaleDialog() {
+	public void modifyWebSaleDialog(WebSaleVO webSaleVO) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(WebManagerView.class.getResource("webSale/WebSaleModifyPane.fxml"));
 		AnchorPane anchorPane = null;
@@ -135,6 +144,8 @@ public class WebManagerView extends Application {
 		dialogStage.setScene(scene);
 
 		WebSaleModifyPaneController controller = loader.getController();
+		controller.setMainApp(this.controller);
+		controller.setWebSale(webSaleVO);
 		controller.setStage(dialogStage);
 
 		dialogStage.showAndWait();
@@ -142,7 +153,7 @@ public class WebManagerView extends Application {
 
 	public void addWebSaleDialog() {
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(WebManagerView.class.getResource("webSale/WebSaleModifyPane.fxml"));
+		loader.setLocation(WebManagerView.class.getResource("webSale/WebSaleAddPane.fxml"));
 		AnchorPane anchorPane = null;
 		try {
 			anchorPane = (AnchorPane) loader.load();
@@ -157,18 +168,22 @@ public class WebManagerView extends Application {
 		Scene scene = new Scene(anchorPane);
 		dialogStage.setScene(scene);
 
-		WebSaleModifyPaneController controller = loader.getController();
+		WebSaleAddPaneController controller = loader.getController();
 		controller.setStage(dialogStage);
+		controller.setMainApp(this.controller);
 
 		dialogStage.showAndWait();
 	}
 
-	public void addHotelPane() {
+	public void addHotelPane(HashMap<String, ArrayList<String>> adressMap) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(WebManagerView.class.getResource("hotel/AddHotelPane.fxml"));
 		ScrollPane scrollPane;
 		try {
 			scrollPane = (ScrollPane) loader.load();
+			AddHotelPaneController controller = loader.getController();
+			controller.setMainApp(this.controller);
+			controller.setAddressMap(adressMap);
 			changeView(scrollPane);
 
 			rootLayout.setCenter(scrollPane);

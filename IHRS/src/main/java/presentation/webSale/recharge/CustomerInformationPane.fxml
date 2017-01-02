@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="220.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.recharge.CustomerInformationPaneController">
+<AnchorPane prefHeight="220.0" prefWidth="425.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.recharge.CustomerInformationPaneController">
    <children>
       <Label layoutX="101.0" layoutY="20.0" text="用户名：" AnchorPane.topAnchor="20.0" />
       <Label layoutX="102.0" layoutY="72.0" text="用户编号：" AnchorPane.topAnchor="72.0" />

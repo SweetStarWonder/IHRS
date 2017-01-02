@@ -8,7 +8,7 @@
 
 <!-- 订单生成界面 -->
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.list.ListGenerateViewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.list.ListGenerateViewController">
    <children>
       <ScrollPane hbarPolicy="NEVER" prefHeight="600.0" prefWidth="800.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
@@ -95,10 +95,10 @@
                      <children>
                         <GridPane layoutX="200.0" layoutY="12.0" prefHeight="168.0" prefWidth="401.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="199.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                                  <children>
                                     <Label text="预计入住人数：" />
-                                    <TextField fx:id="personNumTextField" prefHeight="36.0" prefWidth="193.0" />
+                                    <Label fx:id="personNumLabel" prefHeight="24.0" prefWidth="109.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="81.0" prefWidth="401.0" spacing="30.0" GridPane.rowIndex="1">
@@ -125,30 +125,6 @@
                      <children>
                         <VBox layoutY="18.0" prefHeight="162.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <children>
-                              <HBox alignment="CENTER" prefHeight="112.0" prefWidth="518.0" spacing="30.0">
-                                 <children>
-                                    <Label text="优惠策略：" />
-                                    <Label fx:id="promotionNameLabel" text="优惠策略" />
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Label text="(省" />
-                                          <Label fx:id="promotionPriceLabel" text="金额" />
-                                          <Label text="元)" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-                                 <children>
-                                    <Label text="总计：" />
-                                    <HBox alignment="CENTER">
-                                       <children>
-                                          <Label fx:id="totalPriceLabel" text="金额" />
-                                          <Label text="元" />
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </HBox>
                               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                  <children>
                                     <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#handleConfirmButton" text="提交订单" />

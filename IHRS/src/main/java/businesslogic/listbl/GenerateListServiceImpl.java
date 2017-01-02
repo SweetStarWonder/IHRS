@@ -4,40 +4,49 @@ package businesslogic.listbl;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import businesslogic.hotelbl.HotelOperationServiceImpl;
 import businesslogic.promotionbl.HotelPromotionBlServiceImpl;
 import businesslogic.promotionbl.NormalVipPromotionBlServiceImpl;
 import businesslogic.promotionbl.WebPromotionBlServiceImpl;
+import businesslogicservice.hotelblservice.HotelOperationService;
 import businesslogicservice.listblservice.GenerateListService;
 import businesslogicservice.promotionblservice.HotelPromotionBlService;
 import businesslogicservice.promotionblservice.NormalVipPromotionBlService;
 import businesslogicservice.promotionblservice.WebPromotionBlService;
 import data.dao.CreditChangeDao;
 import data.dao.ListDao;
+import data.dao.RoomDao;
 import po.CreditChangePO;
+import po.ListPO;
 import po.ListStatus;
+import po.RoomPO;
 import rmi.RemoteHelper;
 import vo.CustomerVO;
 import vo.EnterpriseVipVO;
 import vo.ListVO;
 import vo.NormalVipVO;
+import vo.RoomVO;
 
-public class GenerateListServiceImpl implements GenerateListService{  //三种用户下单
+public class GenerateListServiceImpl implements GenerateListService{
 	
-	ListDao listDao;
+	private ListDao listDao;
 	
-	CreditChangeDao creditChangeDao;
+	private CreditChangeDao creditChangeDao;
 	
+	private RoomDao roomDao;
 	
-
+	private HotelOperationService hotelOperationService;
+	
 	public GenerateListServiceImpl() {
 		RemoteHelper remoteHelper=RemoteHelper.getInstance();
 		listDao=remoteHelper.getListDao();
 		creditChangeDao=remoteHelper.getCreditChangeDao();
+		roomDao = remoteHelper.getRoomDao();
 	}
 	
-	public boolean generateList(ListVO listVO, CustomerVO customerVO,String timeNow) {
+	public int generateList(ListVO listVO, CustomerVO customerVO,String timeNow) {
 		if(getCreditResult(customerVO.getId())<0){
-			return false;
+			return -1;
 		}
 		else{
 			listVO.setStatus(ListStatus.NOTEXECUTED);
@@ -57,14 +66,28 @@ public class GenerateListServiceImpl implements GenerateListService{  //三种�
 				minDiscount=minDiscountByWeb;
 			}
 			listVO.setPrice((int)(listVO.getPrice()*minDiscount));
-			listVO.setListid(convertTime(timeNow));
-			return true;
+			listVO.setListid(convertTime(timeNow)+(int)(Math.random()*900)+100);
+			hotelOperationService = new HotelOperationServiceImpl();
+			hotelOperationService.updateCheckIn(listVO.getRooms(), listVO.getListId());
+			ListPO listPO = new ListPO(listVO.getListId(), listVO.getHotelId(), listVO.getUserId(), listVO.getStatus(), listVO.getEntryTime(), listVO.getLastTime(), listVO.getLastListExecutedTime(), listVO.getPrice(), listVO.isIfHaveChild());
+			try {
+				listDao.addList(listPO);
+				ArrayList<RoomPO> roomPOs = new ArrayList<RoomPO>();
+				ArrayList<RoomVO> roomVOs = listVO.getRooms();
+				for (RoomVO roomVO : roomVOs) {
+					roomPOs.add(new RoomPO(roomVO.getHotelId(), roomVO.getListId(), roomVO.getRoomNum(), roomVO.getPrice(), roomVO.getStatus()));
+				}
+				roomDao.updateRoom(listPO,roomPOs);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+			return listVO.getPrice();
 		}
 	}
 
-	public boolean generateList(ListVO listVO, NormalVipVO normalVipVO, String timeNow) {
+	public int generateList(ListVO listVO, NormalVipVO normalVipVO, String timeNow) {
 		if(getCreditResult(normalVipVO.getId())<0){
-			return false;
+			return -1;
 		}
 		else{
 			listVO.setStatus(ListStatus.NOTEXECUTED);
@@ -93,14 +116,28 @@ public class GenerateListServiceImpl implements GenerateListService{  //三种�
 				minDiscount=minDiscountBySelf;
 			}
 			listVO.setPrice((int)(listVO.getPrice()*minDiscount));
-			listVO.setListid(convertTime(timeNow));
-			return true;
+			listVO.setListid(convertTime(timeNow)+(int)(Math.random()*900)+100);
+			hotelOperationService = new HotelOperationServiceImpl();
+			hotelOperationService.updateCheckIn(listVO.getRooms(), listVO.getListId());
+			ListPO listPO = new ListPO(listVO.getListId(), listVO.getHotelId(), listVO.getUserId(), listVO.getStatus(), listVO.getEntryTime(), listVO.getLastTime(), listVO.getLastListExecutedTime(), listVO.getPrice(), listVO.isIfHaveChild());
+			try {
+				listDao.addList(listPO);
+				ArrayList<RoomPO> roomPOs = new ArrayList<RoomPO>();
+				ArrayList<RoomVO> roomVOs = listVO.getRooms();
+				for (RoomVO roomVO : roomVOs) {
+					roomPOs.add(new RoomPO(roomVO.getHotelId(), roomVO.getListId(), roomVO.getRoomNum(), roomVO.getPrice(), roomVO.getStatus()));
+				}
+				roomDao.updateRoom(listPO,roomPOs);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+			return listVO.getPrice();
 		}
 	}
 
-	public boolean generateList(ListVO listVO, EnterpriseVipVO enterpriseVipVO, String timeNow) {
+	public int generateList(ListVO listVO, EnterpriseVipVO enterpriseVipVO, String timeNow) {
 		if(getCreditResult(enterpriseVipVO.getId())<0){
-			return false;
+			return -1;
 		}
 		else{
 			listVO.setStatus(ListStatus.NOTEXECUTED);
@@ -120,8 +157,22 @@ public class GenerateListServiceImpl implements GenerateListService{  //三种�
 				minDiscount=minDiscountByWeb;
 			}
 			listVO.setPrice((int)(listVO.getPrice()*minDiscount));
-			listVO.setListid(convertTime(timeNow));
-			return true;
+			listVO.setListid(convertTime(timeNow)+(int)(Math.random()*900)+100);
+			hotelOperationService = new HotelOperationServiceImpl();
+			hotelOperationService.updateCheckIn(listVO.getRooms(), listVO.getListId());
+			ListPO listPO = new ListPO(listVO.getListId(), listVO.getHotelId(), listVO.getUserId(), listVO.getStatus(), listVO.getEntryTime(), listVO.getLastTime(), listVO.getLastListExecutedTime(), listVO.getPrice(), listVO.isIfHaveChild());
+			try {
+				listDao.addList(listPO);
+				ArrayList<RoomPO> roomPOs = new ArrayList<RoomPO>();
+				ArrayList<RoomVO> roomVOs = listVO.getRooms();
+				for (RoomVO roomVO : roomVOs) {
+					roomPOs.add(new RoomPO(roomVO.getHotelId(), roomVO.getListId(), roomVO.getRoomNum(), roomVO.getPrice(), roomVO.getStatus()));
+				}
+				roomDao.updateRoom(listPO,roomPOs);
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+			return listVO.getPrice();
 		}
 	}
 	
@@ -135,7 +186,7 @@ public class GenerateListServiceImpl implements GenerateListService{  //三种�
 		String time="";
 		int resultValue=0;
 		for (CreditChangePO creditChangePO : creditChanges) {
-			if(creditChangePO.getTime().compareToIgnoreCase(time)==1){
+			if(creditChangePO.getTime().compareToIgnoreCase(time) > 0){
 				time=creditChangePO.getTime();
 				resultValue=creditChangePO.getResult();
 			}

@@ -20,7 +20,7 @@ public class EnterpriseVipDataTxtHelper implements EnterpriseVipDataHelper{
 	}
 
 	public HashMap<Integer, EnterpriseVipPO> getEnterpriseVipData() {
-		File file = new File("TxtData//EnterpriseVip.txt");
+		File file = new File("src//main//resources//EnterpriseVip.txt");
 		HashMap<Integer, EnterpriseVipPO> Map = new HashMap<Integer, EnterpriseVipPO>();
 		
 		try{
@@ -48,7 +48,7 @@ public class EnterpriseVipDataTxtHelper implements EnterpriseVipDataHelper{
 	}
 
 	public void updateEnterpriseVipData(HashMap<Integer, EnterpriseVipPO> enterpriseVipMap) {
-		File file = new File("TxtData//EnterpriseVip.txt");
+		File file = new File("src//main//resources//EnterpriseVip.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="460.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.information.ListCellController">
+   <children>
+      <GridPane layoutX="23.0" prefHeight="300.0" prefWidth="460.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="-23.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="99.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="128.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="94.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="131.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="订单号：" />
+            <Label fx:id="listIdLabel" text="订单号" GridPane.columnIndex="1" />
+            <Label text="酒店编号：" GridPane.rowIndex="1" />
+            <Label fx:id="hotelNameLabel" text="酒店名" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="开始时间：" GridPane.rowIndex="2" />
+            <Label fx:id="beginTimeLabel" prefHeight="24.0" prefWidth="349.0" text="开始时间" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="结束时间：" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Label fx:id="endTimeLabel" prefHeight="24.0" prefWidth="288.0" text="结束时间" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Label text="撤销时间：" GridPane.rowIndex="3" />
+            <Label fx:id="lastExcecutedTimeLabel" prefHeight="24.0" prefWidth="306.0" text="撤销时间" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="房间类型及数量：" GridPane.rowIndex="4" />
+            <Label text="单人间" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label fx:id="singleNumLabel" text="数量" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Label text="双人间" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="doubleNumLabel" text="数量" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Label text="三人间" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="tripleNumLabel" text="数量" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Label text="预计入住人数：" GridPane.rowIndex="7" />
+            <Label fx:id="peopleNumLabel" text="人数" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="金额：" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label fx:id="priceLabel" text="金额" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Label text="有无儿童：" GridPane.rowIndex="8" />
+            <Label fx:id="haveChildLabel" text="无" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

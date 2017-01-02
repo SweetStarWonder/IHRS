@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="310.0" prefWidth="468.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.list.UnexecutedListCellController">
+<AnchorPane prefHeight="310.0" prefWidth="468.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.list.UnexecutedListCellController">
    <children>
       <GridPane prefHeight="300.0" prefWidth="460.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="99.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="101.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="107.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="141.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.0" minWidth="10.0" prefWidth="81.0" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="131.0" minWidth="10.0" prefWidth="131.0" />
         </columnConstraints>
         <rowConstraints>
@@ -28,14 +28,14 @@
          <children>
             <Label text="订单号：" />
             <Label fx:id="listIdLabel" text="订单号" GridPane.columnIndex="1" />
-            <Label text="酒店名：" GridPane.rowIndex="1" />
+            <Label text="酒店编号:" GridPane.rowIndex="1" />
             <Label fx:id="hotelNameLabel" text="酒店名" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Label text="开始时间：" GridPane.rowIndex="2" />
-            <Label fx:id="beginTimeLabel" text="开始时间" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="beginTimeLabel" prefHeight="24.0" prefWidth="208.0" text="开始时间" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="结束时间：" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Label fx:id="endTimeLabel" text="结束时间" GridPane.columnIndex="3" GridPane.rowIndex="2" />
             <Label text="最晚订单执行时间：" GridPane.rowIndex="3" />
-            <Label fx:id="lastExcecutedTimeLabel" text="最晚订单执行时间" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="lastExcecutedTimeLabel" prefHeight="24.0" prefWidth="200.0" text="最晚订单执行时间" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="房间类型及数量：" GridPane.rowIndex="4" />
             <Label text="单人间" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label fx:id="singleNumLabel" text="数量" GridPane.columnIndex="2" GridPane.rowIndex="4" />

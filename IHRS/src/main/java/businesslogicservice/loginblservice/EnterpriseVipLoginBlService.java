@@ -1,6 +1,5 @@
 package businesslogicservice.loginblservice;
 
-import vo.CustomerVO;
 import vo.EnterpriseVipVO;
 
 public interface EnterpriseVipLoginBlService {
@@ -20,12 +19,5 @@ public interface EnterpriseVipLoginBlService {
 	 * @return                 密码是否修改成功
 	 */
 	public boolean modify(EnterpriseVipVO enterpriseVipVO,String oldPassword,String newPassword);
-	
-	/**
-	 * @param customerVO      客户信息
-	 * @param enterpriseName  企业名
-	 * @return                客户升级为企业会员
-	 */
-	public EnterpriseVipVO upgrade(CustomerVO customerVO,String enterpriseName);  //从客户升级成企业会员
 
 }

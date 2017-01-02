@@ -7,10 +7,10 @@
 
 <!-- 酒店评论显示单元 -->
 
-<AnchorPane prefHeight="250.0" prefWidth="300.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="250.0" prefWidth="300.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.hotel.EvaluateCellController">
    <children>
-      <Label layoutX="40.0" layoutY="30.0" text="用户名" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="30.0" />
-      <AnchorPane layoutX="40.0" layoutY="69.0" prefHeight="41.0" prefWidth="222.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="69.0" />
-      <TextArea editable="false" layoutX="35.0" layoutY="123.0" prefHeight="113.0" prefWidth="291.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="34.0" />
+      <Label fx:id="nameLabel" layoutX="40.0" layoutY="30.0" text="用户名" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="30.0" />
+      <TextArea fx:id="contentTextArea" editable="false" layoutX="35.0" layoutY="123.0" prefHeight="113.0" prefWidth="291.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="34.0" />
+      <Label fx:id="rankLabel" layoutX="44.0" layoutY="77.0" prefHeight="24.0" prefWidth="74.0" text="分数" />
    </children>
 </AnchorPane>

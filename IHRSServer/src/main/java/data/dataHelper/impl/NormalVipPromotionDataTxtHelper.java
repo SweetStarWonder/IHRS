@@ -16,7 +16,7 @@ public class NormalVipPromotionDataTxtHelper implements NormalVipPromotionDataHe
 
 	public ArrayList<NormalVipPromotionPO> getNormalVipPromotionData() {
 		
-		File file = new File("TxtData//NormalVipPromotion.txt");
+		File file = new File("src//main//resources//NormalVipPromotion.txt");
 		ArrayList<NormalVipPromotionPO> list=new ArrayList<NormalVipPromotionPO>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -43,7 +43,7 @@ public class NormalVipPromotionDataTxtHelper implements NormalVipPromotionDataHe
 		
 	}
 	public void updateNormalVipPromotionData(ArrayList<NormalVipPromotionPO> normalVipPOs) {
-		File file = new File("TxtData//NormalVipPromotion.txt");
+		File file = new File("src//main//resources//NormalVipPromotion.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

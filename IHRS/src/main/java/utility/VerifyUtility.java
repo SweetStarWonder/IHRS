@@ -1,5 +1,7 @@
 package utility;
 
+import java.util.regex.Pattern;
+
 import com.github.plushaze.traynotification.animations.Animations;
 import com.github.plushaze.traynotification.notification.Notification;
 import com.github.plushaze.traynotification.notification.Notifications;
@@ -27,5 +29,10 @@ public class VerifyUtility {
         tray.setNotification(notification);
         tray.setAnimation(Animations.POPUP);
         tray.showAndDismiss(Duration.seconds(2));
+	}
+	
+	public static boolean isInteger(String s) {
+		Pattern pattern = Pattern.compile("^[-\\+]?[\\d]*$");    
+	    return pattern.matcher(s).matches();    
 	}
 }

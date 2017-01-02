@@ -37,4 +37,8 @@ public class PasswordDaoTest {
 		assertEquals(userType, passwordDaoImpl.getPasswordByName(userName).getUserType());
 		
 	}
+	
+	@Test
+	public void testuploadpassword(){
+	}
 }

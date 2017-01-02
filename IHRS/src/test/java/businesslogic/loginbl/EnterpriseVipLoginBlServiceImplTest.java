@@ -17,11 +17,11 @@ import vo.CustomerVO;
 import vo.EnterpriseVipVO;
 
 public class EnterpriseVipLoginBlServiceImplTest {
-	
+
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -40,7 +40,7 @@ public class EnterpriseVipLoginBlServiceImplTest {
 			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
 			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
 			remoteHelper.setPassword(Naming.lookup("rmi://localhost:6666/PasswordDao"));
-			
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -49,33 +49,41 @@ public class EnterpriseVipLoginBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testlogin() {
 		EnterpriseVipLoginBlServiceImpl enterpriseVipLoginBlServiceImpl = new EnterpriseVipLoginBlServiceImpl();
 		assertEquals(null, enterpriseVipLoginBlServiceImpl.login(00002, "EnterpriseVipName", "EnterpriseVippassword1"));
 		assertEquals(null, enterpriseVipLoginBlServiceImpl.login(0, "EnterpriseVipName", "EnterpriseVippassword1"));
 		assertEquals(00002, enterpriseVipLoginBlServiceImpl.login(00002, null, "EnterpriseVippassword").getId());
-		assertEquals(00002, enterpriseVipLoginBlServiceImpl.login(0, "EnterpriseVipName", "EnterpriseVippassword").getId());
-		assertEquals(00002, enterpriseVipLoginBlServiceImpl.login(00002, "EnterpriseVipName", "EnterpriseVippassword").getId());
+		assertEquals(00002,
+				enterpriseVipLoginBlServiceImpl.login(0, "EnterpriseVipName", "EnterpriseVippassword").getId());
+		assertEquals(00002,
+				enterpriseVipLoginBlServiceImpl.login(00002, "EnterpriseVipName", "EnterpriseVippassword").getId());
 	}
 
 	@Test
-	public void testmodify(){
+	public void testmodify() {
 		EnterpriseVipLoginBlServiceImpl enterpriseVipLoginBlServiceImpl = new EnterpriseVipLoginBlServiceImpl();
-		EnterpriseVipPO enterpriseVipPO = new EnterpriseVipPO(00002, "EnterpriseVipName", "EnterpriseVipphone", "EnterpriseVipName", 0);
+		EnterpriseVipPO enterpriseVipPO = new EnterpriseVipPO(00002, "EnterpriseVipName", "EnterpriseVipphone",
+				"EnterpriseVipName", 0);
 		EnterpriseVipVO enterpriseVipVO = new EnterpriseVipVO(enterpriseVipPO);
-		assertEquals(true, enterpriseVipLoginBlServiceImpl.modify(enterpriseVipVO, "EnterpriseVippassword", "newEnterpriseVippassword"));
-		assertEquals(false, enterpriseVipLoginBlServiceImpl.modify(enterpriseVipVO, "EnterpriseVippassword", "newEnterpriseVippassword"));
-		assertEquals(true, enterpriseVipLoginBlServiceImpl.modify(enterpriseVipVO, "newEnterpriseVippassword", "EnterpriseVippassword"));
-		assertEquals(false, enterpriseVipLoginBlServiceImpl.modify(enterpriseVipVO, "EnterpriseVippassword1", "EnterpriseVippassword"));
+		assertEquals(true, enterpriseVipLoginBlServiceImpl.modify(enterpriseVipVO, "EnterpriseVippassword",
+				"newEnterpriseVippassword"));
+		assertEquals(false, enterpriseVipLoginBlServiceImpl.modify(enterpriseVipVO, "EnterpriseVippassword",
+				"newEnterpriseVippassword"));
+		assertEquals(true, enterpriseVipLoginBlServiceImpl.modify(enterpriseVipVO, "newEnterpriseVippassword",
+				"EnterpriseVippassword"));
+		assertEquals(false, enterpriseVipLoginBlServiceImpl.modify(enterpriseVipVO, "EnterpriseVippassword1",
+				"EnterpriseVippassword"));
 	}
-	
+
 	@Test
-	public void testupgrade(){
+	public void testupgrade() {
 		EnterpriseVipLoginBlServiceImpl enterpriseVipLoginBlServiceImpl = new EnterpriseVipLoginBlServiceImpl();
 		CustomerPO customerPO = new CustomerPO(00002, "EnterpriseVipName", "EnterpriseVipphone");
 		CustomerVO customerVO = new CustomerVO(customerPO);
-		assertEquals("EnterpriseVipName", enterpriseVipLoginBlServiceImpl.upgrade(customerVO, "EnterpriseVipName").getEnterpriseName());
+		assertEquals("EnterpriseVipName",
+				enterpriseVipLoginBlServiceImpl.upgrade(customerVO, "EnterpriseVipName").getEnterpriseName());
 	}
 }

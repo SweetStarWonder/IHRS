@@ -1,6 +1,5 @@
 package presentation.webManager.init;
 
-
 import java.io.IOException;
 
 import org.controlsfx.control.SegmentedButton;
@@ -21,28 +20,27 @@ import presentation.webManager.webSale.WebSaleInformationPaneController;
 import presentation.webManager.webSale.WebSaleSearchPaneController;
 
 public class TypeSelectPaneController {
-	
-	
+
 	@FXML
 	private AnchorPane chooseAnchorPane;
-	
+
 	@FXML
 	private AnchorPane searchAnchorPane;
-	
+
 	private WebManagerController mainApp;
-	
+
 	private SegmentedButton typeChooseButton;
-	
+
 	public TypeSelectPaneController() {
-		
+
 	}
-	
+
 	@FXML
 	private void initialize() {
 		ToggleButton customerToggleButton = new ToggleButton("客户信息管理");
 		customerToggleButton.setSelected(true);
 		customerToggleButton.setOnAction(new EventHandler<ActionEvent>() {
-			
+
 			@Override
 			public void handle(ActionEvent event) {
 				searchCustomer();
@@ -50,7 +48,7 @@ public class TypeSelectPaneController {
 		});
 		ToggleButton hotelToggleButton = new ToggleButton("酒店信息管理");
 		hotelToggleButton.setOnAction(new EventHandler<ActionEvent>() {
-			
+
 			@Override
 			public void handle(ActionEvent event) {
 				searchHotelManager();
@@ -58,18 +56,17 @@ public class TypeSelectPaneController {
 		});
 		ToggleButton webSaleToggleButton = new ToggleButton("网站营销人员信息管理");
 		webSaleToggleButton.setOnAction(new EventHandler<ActionEvent>() {
-			
+
 			@Override
 			public void handle(ActionEvent event) {
-			searchWebSale();
+				searchWebSale();
 			}
 		});
 		typeChooseButton = new SegmentedButton(customerToggleButton, hotelToggleButton, webSaleToggleButton);
 		chooseAnchorPane.getChildren().add(typeChooseButton);
-		
+
 	}
-	
-	
+
 	private void searchCustomer() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(WebManagerView.class.getResource("customer/CustomerSearchPane.fxml"));
@@ -81,11 +78,11 @@ public class TypeSelectPaneController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		searchAnchorPane.getChildren().clear();
 		searchAnchorPane.getChildren().add(anchorPane);
 	}
-	
+
 	private void searchHotelManager() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(WebManagerView.class.getResource("hotel/HotelManagerSearchPane.fxml"));
@@ -97,11 +94,11 @@ public class TypeSelectPaneController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		searchAnchorPane.getChildren().clear();
 		searchAnchorPane.getChildren().add(anchorPane);
 	}
-	
+
 	private void searchWebSale() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(WebManagerView.class.getResource("webSale/WebSaleSearchPane.fxml"));
@@ -113,16 +110,14 @@ public class TypeSelectPaneController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		searchAnchorPane.getChildren().clear();
 		searchAnchorPane.getChildren().add(anchorPane);
 	}
-	
-	
+
 	public void setMainApp(WebManagerController mainApp) {
 		this.mainApp = mainApp;
 		searchCustomer();
 	}
-	
-	
+
 }

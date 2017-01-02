@@ -65,8 +65,12 @@ public class WebPromotionBlServiceImpl implements WebPromotionBlService{
 			
 				if(webPromotionVO.getStartTime() != null){
 				int nowTime=convertTime(timeNow);
+				System.out.println(nowTime);
+				System.out.println(webPromotionVO.getStartTime());
 				int startTime=convertTime(webPromotionVO.getStartTime());
+				System.out.println(startTime);
 				int endTime=convertTime(webPromotionVO.getEndTime());
+				System.out.println(endTime);
 				if(nowTime>=startTime || nowTime<=endTime){
 					webPromotions.add(webPromotionVO);
 			}
@@ -83,7 +87,7 @@ public class WebPromotionBlServiceImpl implements WebPromotionBlService{
 	}
 
 	private int convertTime(String time) {
-		String timeNow = time.substring(0, 4) + time.substring(5, 7) + time.substring(8, 10) + time.substring(11, 13);
+		String timeNow = time.substring(0, 4) + time.substring(5, 7) + time.substring(8, 10);
 		int intTime = Integer.valueOf(timeNow);
 		return intTime;
 	}

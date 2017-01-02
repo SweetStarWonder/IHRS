@@ -19,9 +19,9 @@ import vo.CustomerVO;
 public class GetListsServiceImplTest {
 
 	@BeforeClass
-	public static void before(){
+	public static void before() {
 		RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -40,7 +40,7 @@ public class GetListsServiceImplTest {
 			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
 			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
 			remoteHelper.setPassword(Naming.lookup("rmi://localhost:6666/PasswordDao"));
-			
+
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,7 +52,7 @@ public class GetListsServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testgetPersonalListsInHotel() {
 		GetListsServiceImpl getListsServiceImpl = new GetListsServiceImpl();
@@ -61,7 +61,8 @@ public class GetListsServiceImplTest {
 		ArrayList<String> partners = new ArrayList<>();
 		partners.add("partner1");
 		partners.add("partner2");
-		HotelPO hotelPO = new HotelPO(2222, partners, "hotelName", "position", "businessDistrict", 4, "introduction", "facility");
+		HotelPO hotelPO = new HotelPO(2222, partners, "hotelName", "position", "businessDistrict", 4, "introduction",
+				"facility");
 		vo.HotelVO hotelVO = new vo.HotelVO(hotelPO);
 		assertEquals(1234, getListsServiceImpl.getPersonalListsInHotel(customerVO, hotelVO).get(1111).getUserId());
 	}
@@ -72,9 +73,9 @@ public class GetListsServiceImplTest {
 		int hotelId = 2222;
 		assertEquals(1234, getListsServiceImpl.getHotelLists(hotelId).get(1111).getUserId());
 	}
-	
+
 	@Test
-	public void testgetDailyUnexecutedLists(){
+	public void testgetDailyUnexecutedLists() {
 		GetListsServiceImpl getListsServiceImpl = new GetListsServiceImpl();
 		assertEquals(1234, getListsServiceImpl.getDailyUnexecutedLists().get(1111).getUserId());
 	}

@@ -18,9 +18,9 @@ import vo.HotelVO;
 public class GetHotelsSeviceImplTest {
 
 	@BeforeClass
-	public static void before(){
+	public static void before() {
 		RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -36,7 +36,7 @@ public class GetHotelsSeviceImplTest {
 			remoteHelper.setHotelPromotionDao(Naming.lookup("rmi://localhost:6666/HotelPromotionDao"));
 			remoteHelper.setWebPromotionDao(Naming.lookup("rmi://localhost:6666/WebPromotionDao"));
 			remoteHelper.setNormalVipPromotionDao(Naming.lookup("rmi://localhost:6666/NormalVipPromotionDao"));
-			
+
 		} catch (MalformedURLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -48,7 +48,7 @@ public class GetHotelsSeviceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testgetReservedHotels() {
 		CustomerPO customerPO = new CustomerPO(1234, "username", "phone");
@@ -62,9 +62,10 @@ public class GetHotelsSeviceImplTest {
 		CustomerPO customerPO = new CustomerPO(1234, "username", "phone");
 		CustomerVO customerVO = new CustomerVO(customerPO);
 		GetHotelsSeviceImpl getHotelsSeviceImpl = new GetHotelsSeviceImpl(customerVO);
-		HotelVO hotelVO = getHotelsSeviceImpl.searchHotels("position", "businessDistrict", "hotelName", 0, 0, 0, 5, null, 0, 0, true).get(2222);
+		HotelVO hotelVO = getHotelsSeviceImpl
+				.searchHotels("position", "businessDistrict", "hotelName", 0, 0, 0, 5, null, 0, 0, true).get(2222);
 		assertEquals(2222, hotelVO.getId());
 		assertEquals(hotelVO.getBusinessDistrict(), "businessDistrict");
 	}
-	
+
 }

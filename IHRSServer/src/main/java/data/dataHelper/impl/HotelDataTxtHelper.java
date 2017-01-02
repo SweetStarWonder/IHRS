@@ -22,7 +22,7 @@ public class HotelDataTxtHelper implements HotelDataHelper{
 	}
 
 	public HashMap<Integer, HotelPO> getHotelData() {
-		File file = new File("TxtData//Hotel.txt");
+		File file = new File("src//main//resources//Hotel.txt");
 		HashMap<Integer,  HotelPO> Map = new HashMap<Integer, HotelPO>();
 		
 		try{
@@ -68,7 +68,7 @@ public class HotelDataTxtHelper implements HotelDataHelper{
 	}
 
 	public void updateHotelData(HashMap<Integer, HotelPO> hotelDataMap) {
-		File file = new File("TxtData//Hotel.txt");
+		File file = new File("src//main//resources//Hotel.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="320.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.promotion.AddTimePromotionDialogController">
+<AnchorPane prefHeight="320.0" prefWidth="300.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.promotion.AddTimePromotionDialogController">
    <children>
       <Label layoutX="78.0" layoutY="14.0" text="特定期间住宿折扣" />
       <GridPane layoutX="36.0" layoutY="66.0" prefHeight="182.0" prefWidth="228.0" vgap="20.0">

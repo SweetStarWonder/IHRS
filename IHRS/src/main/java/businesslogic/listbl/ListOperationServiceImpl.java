@@ -28,15 +28,14 @@ public class ListOperationServiceImpl implements ListOperationService{
 
 	public ListVO revokeList(ListVO listVO, String timeNow) {
 		listVO.setStatus(ListStatus.REVOKED);
-		listVO.setLastListExecutedTime(timeNow);
-		boolean hhh=updateList(listVO);
-		System.out.println(hhh);
 		if (Math.abs(convertTime(timeNow)-convertTime(listVO.getLastListExecutedTime())) < 6) {
 			FindUserService findUserService = new FindUserServiceImpl();
 			CustomerVO customerVO = findUserService.getCustomer(listVO.getUserId());
 			CreditBlService creditBlService = new CreditBlServiceImpl(customerVO, timeNow);
 			creditBlService.deductRevokeCredit(listVO);
 		}
+		listVO.setLastListExecutedTime(timeNow);
+		updateList(listVO);
 		return listVO;
 	}
 
@@ -57,7 +56,7 @@ public class ListOperationServiceImpl implements ListOperationService{
 	}
 
 	public ListVO executeList(ListVO listVO, String timeNow) {
-		listVO.setStatus(ListStatus.EXECUTED);
+		listVO = updateCheckIn(listVO, timeNow);
 		updateList(listVO);
 		FindUserService findUserService = new FindUserServiceImpl();
 		CustomerVO customerVO = findUserService.getCustomer(listVO.getUserId());

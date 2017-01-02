@@ -86,4 +86,16 @@ public class EveryoneLoginBlServiceImpl implements EveryoneLoginBlService{
 			return null;
 	}
 
+	@Override
+	public boolean modify(int userId, String newUserName) {
+		boolean modify=false;
+		try {
+			modify=passwordDao.updateName(userId, newUserName);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return modify;
+	}
+
 }

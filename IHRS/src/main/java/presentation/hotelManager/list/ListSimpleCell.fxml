@@ -7,7 +7,7 @@
 
 <!-- 订单简略显示 -->
 
-<AnchorPane onMouseClicked="#handleClick" prefHeight="50.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.hotelManager.list.ListSimpleCellController">
+<AnchorPane onMouseClicked="#handleClick" prefHeight="50.0" prefWidth="480.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.hotelManager.list.ListSimpleCellController">
    <children>
       <GridPane alignment="CENTER" prefHeight="100.0" prefWidth="480.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -22,7 +22,7 @@
          <children>
             <Label fx:id="listIdLabel" text="订单号" />
             <Label fx:id="userNameLabel" text="用户名" GridPane.columnIndex="1" />
-            <Label fx:id="timeLabel" text="时间" GridPane.columnIndex="2" />
+            <Label fx:id="timeLabel" prefHeight="24.0" prefWidth="225.0" text="时间" GridPane.columnIndex="2" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="3">
                <children>
                   <Label fx:id="priceLabel" text="金额" />

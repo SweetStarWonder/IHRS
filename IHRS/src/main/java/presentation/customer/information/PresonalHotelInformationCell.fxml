@@ -7,13 +7,13 @@
 
 <!-- 个人酒店列表中的酒店单元格 -->
 
-<AnchorPane minHeight="160.0" prefWidth="160.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.information.PersonalHotelCellController">
+<AnchorPane minHeight="160.0" prefWidth="160.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.information.PersonalHotelCellController">
    <children>
       <Hyperlink fx:id="showHotelHyperLink" layoutY="8.0" onAction="#showHotelDetailInformation" prefHeight="37.0" prefWidth="80.0" text="酒店名" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="8.0" />
       <Label fx:id="listStatusLabel" layoutX="114.0" layoutY="2.0" text="订单状态" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="2.0" />
       <Label fx:id="priceLabel" layoutX="123.0" layoutY="56.0" text="价格" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0" />
       <Label fx:id="rankLabel" layoutX="17.0" layoutY="122.0" text="评分" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="17.0" />
       <Button fx:id="orderButton" layoutX="82.0" layoutY="116.0" mnemonicParsing="false" onAction="#handleOrderButton" text="下订单" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="0.0" />
-      <Label fx:id="starLabel" layoutY="68.0" prefHeight="24.0" prefWidth="80.0" text="星级" />
+      <Label fx:id="starLabel" layoutX="17.0" layoutY="68.0" prefHeight="24.0" prefWidth="80.0" text="星级" />
    </children>
 </AnchorPane>

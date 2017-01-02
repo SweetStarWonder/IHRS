@@ -8,7 +8,6 @@ import data.dao.PasswordDao;
 import po.NormalVipPO;
 import po.PasswordPO;
 import rmi.RemoteHelper;
-import vo.CustomerVO;
 import vo.NormalVipVO;
 
 public class NormalVipLoginBlServiceImpl implements NormalVipLoginBlService{
@@ -78,23 +77,5 @@ public class NormalVipLoginBlServiceImpl implements NormalVipLoginBlService{
 		}
 	}
 
-	@Override
-	public NormalVipVO upgrade(CustomerVO customerVO, String birthday) {
-		NormalVipPO normalVipPO=new NormalVipPO(customerVO.getId(), customerVO.getUserName(), customerVO.getPhone(), 0, birthday);
-		PasswordPO passwordPO=null;
-		try {
-			passwordPO=passwordDao.getPasswordById(customerVO.getId());
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		passwordPO.setUserType("NormalVip");
-		try {
-			passwordDao.updatePassword(passwordPO);
-			normalVipDao.addNormalVip(normalVipPO);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return new NormalVipVO(normalVipPO);
-	}
-
+	
 }

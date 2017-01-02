@@ -19,10 +19,12 @@ public class EvaluateListCell extends ListCell<EvaluateVO> {
 			AnchorPane anchorPane = null;
 			try {
 				anchorPane = (AnchorPane) loader.load();
+				EvaluateCellController controller = loader.getController();
+				controller.setEvaluate(item);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			setGraphic(anchorPane);			
+			setGraphic(anchorPane);
 		}
 
 	}

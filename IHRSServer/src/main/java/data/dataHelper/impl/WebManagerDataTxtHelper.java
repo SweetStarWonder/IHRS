@@ -22,7 +22,7 @@ public class WebManagerDataTxtHelper implements WebManagerDataHelper{
 
 	public HashMap<Integer, WebManagerPO> getWebManagerData() {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//WebManager.txt");
+		File file = new File("src//main//resources//WebManager.txt");
 		HashMap<Integer,WebManagerPO> map = new HashMap<Integer, WebManagerPO>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -46,7 +46,7 @@ public class WebManagerDataTxtHelper implements WebManagerDataHelper{
 
 	public void updateWebManagerData(HashMap<Integer, WebManagerPO> webManagerDataMap) {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//WebManager.txt");
+		File file = new File("src//main//resources//WebManager.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

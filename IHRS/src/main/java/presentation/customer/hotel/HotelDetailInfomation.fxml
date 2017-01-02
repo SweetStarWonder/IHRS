@@ -7,9 +7,9 @@
 
 <!-- 酒店详细信息查看 -->
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.hotel.HotelDetailInformationController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.hotel.HotelDetailInformationController">
    <children>
-      <Label layoutX="152.0" layoutY="32.0" prefHeight="61.0" prefWidth="70.0" text="酒店名" AnchorPane.leftAnchor="152.0" AnchorPane.topAnchor="32.0" />
+      <Label fx:id="nameLabel" layoutX="152.0" layoutY="32.0" prefHeight="61.0" prefWidth="300.0" text="酒店名" AnchorPane.leftAnchor="152.0" AnchorPane.topAnchor="32.0" />
       <Button fx:id="purchaseButton" layoutX="583.0" layoutY="45.0" mnemonicParsing="false" onAction="#handlePurchaseButton" text="下订单" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="45.0" />
       <GridPane layoutX="179.0" layoutY="128.0" prefHeight="370.0" prefWidth="443.0" AnchorPane.leftAnchor="179.0" AnchorPane.rightAnchor="178.0" AnchorPane.topAnchor="128.0">
         <columnConstraints>
@@ -76,6 +76,11 @@
             </GridPane>
          </children>
       </GridPane>
-      <Button fx:id="viewEvaluateButton" layoutX="359.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleViewEvaluateButton" text="查看评论" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="359.0" AnchorPane.rightAnchor="345.0" />
+      <HBox alignment="CENTER" layoutX="247.0" layoutY="537.0" prefHeight="40.0" prefWidth="308.0" spacing="30.0">
+         <children>
+            <Button fx:id="viewEvaluateButton" layoutX="359.0" layoutY="550.0" mnemonicParsing="false" onAction="#handleViewEvaluateButton" text="查看评论" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="359.0" AnchorPane.rightAnchor="345.0" />
+            <Button fx:id="viewListButton" mnemonicParsing="false" onAction="#handleViewListButton" text="查看订单" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

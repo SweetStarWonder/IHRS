@@ -1,7 +1,9 @@
 package businesslogicservice.userblservice;
 
 import vo.CustomerVO;
+import vo.EnterpriseVipVO;
 import vo.HotelManagerVO;
+import vo.NormalVipVO;
 import vo.WebManagerVO;
 import vo.WebSaleVO;
 
@@ -30,5 +32,17 @@ public interface ModifyInformationService {
 	 * @return           网站营销人员维护自己的信息
 	 */
 	public boolean modifyInformation(WebSaleVO webSaleVO);
+	
+	/**
+	 * @param normalVipVO  普通会员
+	 * @return             普通会员维护自己的信息
+	 */
+	public boolean modifyInformation(NormalVipVO normalVipVO);
+	
+	/**
+	 * @param enterpriseVipVO  企业会员
+	 * @return                 企业会员维护自己的信息
+	 */
+	public boolean modifyInformation(EnterpriseVipVO enterpriseVipVO);
 	
 }

@@ -17,7 +17,7 @@ import po.CreditChangePO;
 
 public class CreditChangeDataTxtHelper implements CreditChangeDataHelper{
 	public HashMap<Integer, ArrayList<CreditChangePO>> getCreditChangeData(){
-		File file = new File("TxtData//CreditChange.txt");
+		File file = new File("src//main//resources//CreditChange.txt");
 		HashMap<Integer, ArrayList<CreditChangePO>> Map = new HashMap<Integer, ArrayList<CreditChangePO>>();
 		
 		try{
@@ -34,7 +34,7 @@ public class CreditChangeDataTxtHelper implements CreditChangeDataHelper{
 				CreditChangeMove creditChangeMove;
 				if(str1.equals("LISTEXECUTE")){
 					creditChangeMove=CreditChangeMove.LISTEXECUTE;
-				}else if(str1.equals("LISTABNORMA")){
+				}else if(str1.equals("LISTABNORMAL")){
 					creditChangeMove=CreditChangeMove.LISTABNORMAL;
 				}else if(str1.equals("LISTREVOKE")){
 					creditChangeMove=CreditChangeMove.LISTREVOKE;
@@ -65,7 +65,7 @@ public class CreditChangeDataTxtHelper implements CreditChangeDataHelper{
 			
     }
 	public void updateCreditChangeData(HashMap<Integer, ArrayList<CreditChangePO>> creditChangeMap){
-		File file = new File("TxtData//CreditChange.txt");
+		File file = new File("src//main//resources//CreditChange.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

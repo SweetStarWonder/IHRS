@@ -16,7 +16,7 @@ import po.promotionPO.WebPromotionPO;
 public class WebPromotionDataTxtHelper implements WebPromotionDataHelper {
 
 	public ArrayList<WebPromotionPO> getWebPromotionData() {
-		File file = new File("TxtData//WebPromotion.txt");
+		File file = new File("src//main//resources//WebPromotion.txt");
 		ArrayList<WebPromotionPO> list=new ArrayList<WebPromotionPO>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -41,7 +41,7 @@ public class WebPromotionDataTxtHelper implements WebPromotionDataHelper {
 
 	public void updateWebPromotionData(ArrayList<WebPromotionPO> webPromotionPOs) {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//WebPromotion.txt");
+		File file = new File("src//main//resources//WebPromotion.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

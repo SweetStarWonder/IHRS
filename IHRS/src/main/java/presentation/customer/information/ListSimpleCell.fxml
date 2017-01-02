@@ -7,7 +7,7 @@
 
 <!-- 订单简略显示 -->
  
-<AnchorPane onMouseClicked="#handleClick" prefHeight="50.0" prefWidth="480.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.information.ListSimpleCellController">
+<AnchorPane onMouseClicked="#handleClick" prefHeight="50.0" prefWidth="480.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.information.ListSimpleCellController">
    <children>
       <GridPane alignment="CENTER" prefHeight="100.0" prefWidth="480.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>

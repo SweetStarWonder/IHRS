@@ -77,7 +77,7 @@ public class GetHotelsSeviceImpl implements GetHotelsService{
 			allHotels = tempMap;
 		}
 		
-		if(highValue > 0) {
+		if(lowValue > 0) {
 			HashMap<Integer, HotelVO> hotelsByValue = searchHotelByRankValue(address, businessDistrict, lowValue, highValue);
 			HashMap<Integer, HotelVO> tempMap = new HashMap<Integer, HotelVO>();
 			Iterator<Integer> iterator = hotelsByValue.keySet().iterator();
@@ -112,21 +112,22 @@ public class GetHotelsSeviceImpl implements GetHotelsService{
 	
 	
 	private HashMap<Integer, HotelVO> searchHotelByPrice(HashMap<Integer, HotelVO> hotelMap, RoomStatus roomStatus, int lowPrice, int highPrice) {
+		HashMap<Integer, HotelVO> map = new HashMap<Integer, HotelVO>();
 		Iterator<Integer> iterator = hotelMap.keySet().iterator();
 		while (iterator.hasNext()) {
 			Integer hotelId = (Integer) iterator.next();
 			ArrayList<RoomVO> rooms = hotelMap.get(hotelId).getRooms();
 			roomLoop: for (RoomVO roomVO : rooms) {
 				if (roomVO.getStatus().equals(roomStatus)) {
-					if (roomVO.getPrice()<lowPrice && roomVO.getPrice()>highPrice) {
-						hotelMap.remove(hotelId);
+					if (roomVO.getPrice()>=lowPrice && roomVO.getPrice()<=highPrice) {
+						map.put(hotelId, hotelMap.get(hotelId));
 					}
 					break roomLoop;
 				}
 			}
 		}
 		
-		return hotelMap;
+		return map;
 	}
 	
 	private HashMap<Integer, HotelVO> searchHotelByName(String address, String businessDistrict, String hotelName) {
@@ -180,4 +181,17 @@ public class GetHotelsSeviceImpl implements GetHotelsService{
 		}
 		return hotelMap;
 	}
+
+	@Override
+	public HotelVO getHotel(int hotelId) {
+		HotelPO hotelPO = null;
+		try {
+			hotelPO = hotelDao.getHotel(hotelId);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return new HotelVO(hotelPO);
+	}
+	
+	
 }

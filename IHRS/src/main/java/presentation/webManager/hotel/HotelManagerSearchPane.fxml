@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="314.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webManager.hotel.HotelManagerSearchPaneController">
+<AnchorPane prefHeight="314.0" prefWidth="586.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webManager.hotel.HotelManagerSearchPaneController">
    <children>
-      <TextField fx:id="userNameTextField" layoutX="165.0" layoutY="25.0" prefHeight="36.0" prefWidth="273.0" text="用户编号" />
+      <TextField fx:id="userNameTextField" layoutX="165.0" layoutY="25.0" prefHeight="36.0" prefWidth="273.0" promptText="用户编号" />
       <Button fx:id="searchButton" layoutX="458.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleSearchButton" text="搜索" />
       <Button fx:id="addButton" layoutX="36.0" layoutY="25.0" mnemonicParsing="false" onAction="#handleAddButton" text="添加酒店" />
       <AnchorPane fx:id="informationAnchorPane" layoutX="113.0" layoutY="89.0" prefHeight="225.0" prefWidth="360.0" />

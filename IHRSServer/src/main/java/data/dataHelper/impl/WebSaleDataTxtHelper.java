@@ -23,7 +23,7 @@ public class WebSaleDataTxtHelper implements WebSaleDataHelper{
 
 	public HashMap<Integer, WebSalePO> getWebSaleDataById() {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//WebSale.txt");
+		File file = new File("src//main//resources//WebSale.txt");
 		HashMap<Integer,WebSalePO> map = new HashMap<Integer, WebSalePO>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -47,7 +47,7 @@ public class WebSaleDataTxtHelper implements WebSaleDataHelper{
 
 	public HashMap<String, WebSalePO> getWebSaleDataByName() {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//WebSale.txt");
+		File file = new File("src//main//resources//WebSale.txt");
 		HashMap<String,WebSalePO> map = new HashMap<String, WebSalePO>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -71,7 +71,7 @@ public class WebSaleDataTxtHelper implements WebSaleDataHelper{
 
 	public void updateWebSaleDataById(HashMap<Integer, WebSalePO> webSaleDataMap) {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//WebSale.txt");
+		File file = new File("src//main//resources//WebSale.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
@@ -95,7 +95,7 @@ public class WebSaleDataTxtHelper implements WebSaleDataHelper{
 
 	public void updateWebSaleDataByName(HashMap<String, WebSalePO> webSaleDataMap) {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//WebSale.txt");
+		File file = new File("src//main//resources//WebSale.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

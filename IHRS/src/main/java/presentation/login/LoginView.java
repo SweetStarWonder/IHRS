@@ -14,11 +14,11 @@ public class LoginView extends Application {
 	private Stage primaryStage;
 
 	private LoginController controller;
-	
+
 	public LoginView(LoginController controller) {
 		this.controller = controller;
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		this.primaryStage = primaryStage;

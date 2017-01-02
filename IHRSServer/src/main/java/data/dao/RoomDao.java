@@ -3,6 +3,7 @@ package data.dao;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
+import po.ListPO;
 import po.RoomPO;
 
 public interface RoomDao extends java.rmi.Remote {
@@ -30,9 +31,16 @@ public interface RoomDao extends java.rmi.Remote {
 	
 	/**
 	 * @param roomPO  房间信息
-	 * @return        是否修改成功
+	 * @return        是否修改成功（在RoomTxt中）
 	 * @throws RemoteException
 	 */
 	public boolean updateRoom(RoomPO roomPO) throws RemoteException;
+	
+	/**
+	 * @param listPO  订单信息
+	 * @param rooms   订单中的房间信息
+	 * @return        是否修改成功（在RoomInListTxt中）
+	 */
+	public boolean updateRoom(ListPO listPO,ArrayList<RoomPO> rooms) throws RemoteException;
 	
 }

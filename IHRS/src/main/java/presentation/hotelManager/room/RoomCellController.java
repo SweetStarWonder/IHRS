@@ -1,15 +1,15 @@
 package presentation.hotelManager.room;
 
-import presentation.hotelManager.TestHotelManager;
+import controller.HotelManagerController;
 
 public class RoomCellController {
-	protected TestHotelManager mainApp;
-	
+	protected HotelManagerController mainApp;
+
 	public RoomCellController() {
-		
+
 	}
-	
-	public void setMainApp(TestHotelManager mainApp) {
+
+	public void setMainApp(HotelManagerController mainApp) {
 		this.mainApp = mainApp;
 	}
 }

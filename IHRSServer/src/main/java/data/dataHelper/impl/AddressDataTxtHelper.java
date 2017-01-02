@@ -12,29 +12,27 @@ import data.dataHelper.AddressDataHelper;
 public class AddressDataTxtHelper implements AddressDataHelper{
 
 	public HashMap<String, ArrayList<String>> getAddresses() {
-		File file = new File("TxtData//Address.txt");
+		File file = new File("src//main//resources//Address.txt");
 		HashMap<String, ArrayList<String>> Map = new HashMap<String, ArrayList<String>>();
+	
 		
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
 					file), "UTF-8");
 			BufferedReader br = new BufferedReader(reader);
-			String str = br.readLine();
-			while(str != null){
-				String bussiness = br.readLine().substring(1);
-				String address = br.readLine();
-				for(;(address != null)&&!address.equals("<Address>")&&(!address.equals(""));
-						address = br.readLine()){
-					address = address.substring(1);
-					if(Map.containsKey(bussiness)){
-						Map.get(bussiness).add(address);
-					}else{
-						ArrayList<String> ad=new ArrayList<String>(); 
-						ad.add(address);
-						Map.put(bussiness, ad);
+			for(String str = br.readLine(); str != null;){
+				ArrayList<String> list=new ArrayList<String>();
+				String business= br.readLine().substring(1);
+				
+					String nextAddress = br.readLine().substring(1);
+					while(!nextAddress.equals("+")){
+						list.add(nextAddress);
+						nextAddress = br.readLine().substring(1);
+						
 					}
-				}
-				str = address;
+					Map.put(business, list);
+				
+				str = br.readLine();
 			}
 			br.close();
 			return Map;
@@ -42,6 +40,7 @@ public class AddressDataTxtHelper implements AddressDataHelper{
 			e.printStackTrace();
 		}
 		return null;
+	    
 	}
 
 }

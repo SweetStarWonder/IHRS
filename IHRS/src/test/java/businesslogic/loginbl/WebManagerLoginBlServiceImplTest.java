@@ -17,9 +17,9 @@ import vo.WebManagerVO;
 public class WebManagerLoginBlServiceImplTest {
 
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -46,7 +46,7 @@ public class WebManagerLoginBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testlogin() {
 		WebManagerLoginBlServiceImpl webManagerLoginBlServiceImpl = new WebManagerLoginBlServiceImpl();
@@ -59,12 +59,15 @@ public class WebManagerLoginBlServiceImplTest {
 	}
 
 	@Test
-	public void testmodify(){
+	public void testmodify() {
 		WebManagerPO webManagerPO = new WebManagerPO(00005, "WebManagerName", "WebManagerphone");
 		WebManagerVO webManagerVO = new WebManagerVO(webManagerPO);
 		WebManagerLoginBlServiceImpl webManagerLoginBlServiceImpl = new WebManagerLoginBlServiceImpl();
-		assertEquals(true, webManagerLoginBlServiceImpl.modify(webManagerVO, "WebManagerpassword", "newWebManagerpassword"));
-		assertEquals(false, webManagerLoginBlServiceImpl.modify(webManagerVO, "WebManagerpassword", "newWebManagerpassword"));
-		assertEquals(true, webManagerLoginBlServiceImpl.modify(webManagerVO, "newWebManagerpassword", "WebManagerpassword"));
+		assertEquals(true,
+				webManagerLoginBlServiceImpl.modify(webManagerVO, "WebManagerpassword", "newWebManagerpassword"));
+		assertEquals(false,
+				webManagerLoginBlServiceImpl.modify(webManagerVO, "WebManagerpassword", "newWebManagerpassword"));
+		assertEquals(true,
+				webManagerLoginBlServiceImpl.modify(webManagerVO, "newWebManagerpassword", "WebManagerpassword"));
 	}
 }

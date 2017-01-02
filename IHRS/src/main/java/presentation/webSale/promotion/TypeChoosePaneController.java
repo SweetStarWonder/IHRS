@@ -1,33 +1,38 @@
 package presentation.webSale.promotion;
 
+import controller.WebSaleController;
 import javafx.fxml.FXML;
-import presentation.webSale.TestWebSale;
 
 public class TypeChoosePaneController {
-	
-	
-	private TestWebSale mainApp;
-	
+
+	private WebSaleController mainApp;
+
+	private WebPromotionListController upperController;
+
 	public TypeChoosePaneController() {
-		
+
 	}
-	
+
 	@FXML
 	private void initialize() {
-		
+
 	}
-	
+
 	@FXML
 	private void handleBusinessDistrictClick() {
-		mainApp.addNormalVipPromotionPane();
+		mainApp.addNormalVipPromotionPane(upperController);
 	}
-	
+
 	@FXML
 	private void handleTimeClick() {
-		mainApp.addTimePromotionPane();
+		mainApp.addTimePromotionPane(upperController);
 	}
-	
-	public void setMainApp(TestWebSale mainApp) {
+
+	public void setMainApp(WebSaleController mainApp) {
 		this.mainApp = mainApp;
+	}
+
+	public void setUpperController(WebPromotionListController upperController) {
+		this.upperController = upperController;
 	}
 }

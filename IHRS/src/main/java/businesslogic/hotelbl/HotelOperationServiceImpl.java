@@ -96,6 +96,24 @@ public class HotelOperationServiceImpl implements HotelOperationService{
 		
 		return update;
 	}
+
+	@Override
+	public boolean updateCheckIn(ArrayList<RoomVO> roomVOs, int listId) {
+		boolean update = true;
+		for (RoomVO roomVO : roomVOs) {
+			try {
+			roomVO.setListId(listId);
+			boolean room = false;
+			room = roomDao.updateRoom(new RoomPO(roomVO.getHotelId(), roomVO.getListId(), roomVO.getRoomNum(), roomVO.getPrice(), roomVO.getStatus()));
+			update = update && room;
+			} catch (RemoteException e) {
+				e.printStackTrace();
+				return false;
+			}
+		}
+	
+		return update;
+	}
 	
 	
 }

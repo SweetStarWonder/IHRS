@@ -22,7 +22,7 @@ public class RoomDataTxtHelper implements RoomDataHelper{
 
 	public HashMap<Integer, HashMap<Integer, RoomPO>> getRoomData() {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//Room.txt");
+		File file = new File("src//main//resources//Room.txt");
 		HashMap<Integer,HashMap<Integer,RoomPO>> Map = new HashMap<Integer,HashMap<Integer,RoomPO>>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -62,7 +62,7 @@ public class RoomDataTxtHelper implements RoomDataHelper{
 
 	public void updateRoomData(HashMap<Integer, HashMap<Integer, RoomPO>> roomDataMap) {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//Room.txt");
+		File file = new File("src//main//resources//Room.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
@@ -85,7 +85,7 @@ public class RoomDataTxtHelper implements RoomDataHelper{
 					if(roomstatus.equals(RoomStatus.SINGLE)){
 						status = "SINGLE";
 					}else if(roomstatus.equals(RoomStatus.DOUBLE)){
-						status = "Double";
+						status = "DOUBLE";
 					}else{
 						status = "TRIPLE";
 					}

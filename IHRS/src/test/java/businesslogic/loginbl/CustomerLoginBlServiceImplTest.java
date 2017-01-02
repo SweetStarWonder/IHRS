@@ -16,11 +16,10 @@ import vo.CustomerVO;
 
 public class CustomerLoginBlServiceImplTest {
 
-	
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -47,13 +46,14 @@ public class CustomerLoginBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testlogin1() {
 		CustomerLoginBlServiceImpl customerLoginBlServiceImpl = new CustomerLoginBlServiceImpl();
 		CustomerPO customerPO = new CustomerPO(00001, "userName", "userphone");
 		CustomerVO customerVO = new CustomerVO(customerPO);
-		assertEquals(customerLoginBlServiceImpl.login(00001, "userName", "userpassword").getPhone(), customerVO.getPhone());
+		assertEquals(customerLoginBlServiceImpl.login(00001, "userName", "userpassword").getPhone(),
+				customerVO.getPhone());
 		assertEquals(customerLoginBlServiceImpl.login(0, "userName", "userpassword").getPhone(), customerVO.getPhone());
 		assertEquals(customerLoginBlServiceImpl.login(00001, null, "userpassword").getPhone(), customerVO.getPhone());
 		assertEquals(customerLoginBlServiceImpl.login(00001, null, "userpassword1"), null);
@@ -63,7 +63,7 @@ public class CustomerLoginBlServiceImplTest {
 	}
 
 	@Test
-	public void testmodify(){
+	public void testmodify() {
 		CustomerPO customerPO = new CustomerPO(00001, "userName", "userphone");
 		CustomerVO customerVO = new CustomerVO(customerPO);
 		CustomerLoginBlServiceImpl customerLoginBlServiceImpl = new CustomerLoginBlServiceImpl();
@@ -71,9 +71,9 @@ public class CustomerLoginBlServiceImplTest {
 		assertEquals(customerLoginBlServiceImpl.modify(customerVO, "userpassword", "newuserpassword"), false);
 		assertEquals(customerLoginBlServiceImpl.modify(customerVO, "newuserpassword", "userpassword"), true);
 	}
-	
+
 	@Test
-	public void testregister(){
+	public void testregister() {
 		CustomerLoginBlServiceImpl customerLoginBlServiceImpl = new CustomerLoginBlServiceImpl();
 		assertEquals(customerLoginBlServiceImpl.register("customerName", "customerpassword", "userphone"), false);
 		assertEquals(customerLoginBlServiceImpl.register("userName", "userpassword", "userphone"), false);

@@ -20,4 +20,12 @@ public interface WebSaleLoginBlService {
 	 */
 	public boolean modify(WebSaleVO webSaleVO,String oldPassword,String newPassword);
 	
+	/**
+	 * @param webSaleName  需要添加的网站营销人员名
+	 * @param password     为添加的网站营销人员设置密码
+	 * @param phone        手机
+	 * @return             是否添加成功
+	 */
+	public boolean add(String webSaleName,String password,String phone);
+	
 }

@@ -1,11 +1,11 @@
 package presentation.customer.information;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.controlsfx.control.PopOver;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import controller.CustomerController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,47 +18,104 @@ import javafx.scene.control.ListView;
 import vo.ListVO;
 
 public class PersonalListViewController {
-	
-	
-	
+
 	@FXML
 	private ToggleButton unexecutedListToggleButton;
-	
-	@FXML 
+
+	@FXML
 	private ToggleButton executedListToggleButton;
-	
+
 	@FXML
 	private ToggleButton abnormalListToggleButton;
-	
+
 	@FXML
 	private ToggleButton revokedListToggleButton;
-	
-	@FXML 
+
+	@FXML
 	private ListView<ListVO> listListView;
 	
-	private ObservableList<ListVO> listVOs;
+	private CustomerController controller;
+
+	private int type = 0;
 	
+	private ObservableList<ListVO> unexecutedLists;
+
+	private ObservableList<ListVO> executedLists;
+
+	private ObservableList<ListVO> abnormalLists;
+
+	private ObservableList<ListVO> revokedLists;
+
 	public PersonalListViewController() {
 	}
-	
-	@FXML 
+
+	@FXML
 	private void initialize() {
-		listVOs = FXCollections.observableArrayList();
-		for (int i = 0; i < 3; i++) {
-			listVOs.add(new ListVO(i, 22, 22, ListStatus.ABNORMAL, "1", "2", "2", 2, false,null));
-		}
-		listListView.setItems(listVOs);
-		listListView.setCellFactory((ListView<ListVO> e) -> new ListViewCell(this));
-	}
 		
+		unexecutedLists = FXCollections.observableArrayList();
+		executedLists = FXCollections.observableArrayList();
+		abnormalLists = FXCollections.observableArrayList();
+		revokedLists = FXCollections.observableArrayList();
+		
+		listListView.setCellFactory((ListView<ListVO> e) -> new ListViewCell(this));
+		
+	}
+	
+	@FXML
+	private void showUnexecutedLists() {
+
+		listListView.setItems(unexecutedLists);
+		type = 0;
+	}
+
+	@FXML
+	private void showExecutedLists() {
+		listListView.setItems(executedLists);
+		type = 1;
+	}
+
+	@FXML
+	private void showAbnormalLists() {
+		listListView.setItems(abnormalLists);
+		type = 2;
+	}
+
+	@FXML
+	private void showRevokedLists() {
+		listListView.setItems(revokedLists);
+		type = 3;
+	}
+
 	public void showDetail(Label label, ListVO listVO) {
 		listListView.getSelectionModel().select(-1);
-		
 		FXMLLoader loader = new FXMLLoader();
 		AnchorPane anchorPane = null;
-		loader.setLocation(PersonalListViewController.class.getResource("ListCell.fxml"));
 		try {
-			anchorPane = (AnchorPane) loader.load();
+			switch (type) {
+			case 0:
+				loader.setLocation(PersonalListViewController.class.getResource("UnExecutedListCell.fxml"));
+				anchorPane = (AnchorPane) loader.load();
+				UnexecutedListCellController uController = loader.getController();
+				uController.setController(controller);
+				uController.setUpperController(this);
+				uController.setList(listVO);
+				break;
+			case 1:
+				
+			case 2:
+				loader.setLocation(PersonalListViewController.class.getResource("ListCell.fxml"));
+				anchorPane = (AnchorPane) loader.load();
+				ListCellController aController = loader.getController();
+				aController.setList(listVO);
+				break;
+			case 3:
+				loader.setLocation(PersonalListViewController.class.getResource("RevokedListCell.fxml"));
+				anchorPane = (AnchorPane) loader.load();
+				ListCellController controller = loader.getController();
+				controller.setList(listVO);
+			default:
+				break;
+			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -66,5 +123,28 @@ public class PersonalListViewController {
 		popOver.show(label);
 	}
 	
+	public void setController(CustomerController controller) {
+		this.controller = controller;
+	}
 	
+	public void revoke(ListVO listVO) {
+		unexecutedLists.remove(listVO);
+		revokedLists.add(listVO);
+	}
+	
+	public void setLists(ArrayList<ListVO> listVOs) {
+		for (ListVO listVO : listVOs) {
+			if (listVO.getStatus().equals(ListStatus.NOTEXECUTED)) {
+				unexecutedLists.add(listVO);
+			} else if (listVO.getStatus().equals(ListStatus.EXECUTED)) {
+				executedLists.add(listVO);
+			} else if (listVO.getStatus().equals(ListStatus.ABNORMAL)) {
+				abnormalLists.add(listVO);
+			} else if (listVO.getStatus().equals(ListStatus.REVOKED)) {
+				revokedLists.add(listVO);
+			}
+		}
+		showUnexecutedLists();
+	}
+
 }

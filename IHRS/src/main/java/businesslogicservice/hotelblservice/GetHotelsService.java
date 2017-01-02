@@ -29,4 +29,10 @@ public interface GetHotelsService {
 	public HashMap<Integer,HotelVO> searchHotels(String address,String businessDistrict,String hotelName,int roomNum,
 			int lowValue,int highValue,int starRating,RoomStatus roomStatus,int lowPrice,int highPrice,boolean ifReserved);
 	
+	/**
+	 * @param hotelId  酒店编号
+	 * @return         根据编号获取酒店
+	 */
+	public HotelVO getHotel(int hotelId);
+	
 }

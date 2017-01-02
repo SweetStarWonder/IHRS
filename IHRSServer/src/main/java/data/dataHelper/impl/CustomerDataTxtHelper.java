@@ -16,7 +16,7 @@ import po.CustomerPO;
 public class CustomerDataTxtHelper implements CustomerDataHelper{
 
 	public HashMap<Integer, CustomerPO> getCustomerDataById() {
-		File file = new File("TxtData//Customer.txt");
+		File file = new File("src//main//resources//Customer.txt");
 		HashMap<Integer,  CustomerPO> Map = new HashMap<Integer, CustomerPO>();
 		
 		try{
@@ -41,7 +41,7 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 	}
 
 	public HashMap<String, CustomerPO> getCustomerDataByName() {
-		File file = new File("TxtData/Customer.txt");
+		File file = new File("src//main//resources//Customer.txt");
 		HashMap<String,  CustomerPO> Map = new HashMap<String, CustomerPO>();
 		
 		try{
@@ -66,7 +66,7 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 	}
 
 	public void updateCustomerDataById(HashMap<Integer, CustomerPO> customerMap) {
-		File file = new File("TxtData/Customer.txt");
+		File file = new File("src//main//resources//Customer.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
@@ -91,7 +91,7 @@ public class CustomerDataTxtHelper implements CustomerDataHelper{
 	}
 
 	public void updateCustomerDataByName(HashMap<String, CustomerPO> customerMap) {
-		File file = new File("TxtData/Customer.txt");
+		File file = new File("src//main//resources//Customer.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

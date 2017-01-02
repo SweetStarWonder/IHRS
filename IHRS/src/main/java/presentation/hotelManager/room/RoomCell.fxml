@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane onMouseClicked="#handleClick" prefHeight="80.0" prefWidth="80.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.hotelManager.room.ConcreteCellController">
+<AnchorPane onMouseClicked="#handleClick" prefHeight="80.0" prefWidth="80.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.hotelManager.room.ConcreteCellController">
    <children>
       <Label fx:id="roomNum" layoutX="23.0" layoutY="4.0" text="房间号" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="2.0" />
       <Label fx:id="roomStatus" layoutX="18.0" layoutY="30.0" text="房间类型" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="28.0" />

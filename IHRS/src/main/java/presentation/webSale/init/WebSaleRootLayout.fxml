@@ -8,7 +8,7 @@
 
 <!-- 酒店工作人员界面的主布局界面 -->
 
-<BorderPane prefHeight="636.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.init.WebSaleRootLayoutController">
+<BorderPane prefHeight="636.0" prefWidth="800.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.webSale.init.WebSaleRootLayoutController">
    <top>
       <AnchorPane>
          <children>

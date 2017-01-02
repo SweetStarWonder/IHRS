@@ -8,7 +8,6 @@ import data.dao.PasswordDao;
 import po.EnterpriseVipPO;
 import po.PasswordPO;
 import rmi.RemoteHelper;
-import vo.CustomerVO;
 import vo.EnterpriseVipVO;
 
 public class EnterpriseVipLoginBlServiceImpl implements EnterpriseVipLoginBlService{
@@ -77,24 +76,6 @@ public class EnterpriseVipLoginBlServiceImpl implements EnterpriseVipLoginBlServ
 			return false;
 		}
 	}
-	
-	@Override
-	public EnterpriseVipVO upgrade(CustomerVO customerVO, String enterpriseName) {
-		EnterpriseVipPO enterpriseVipPO=new EnterpriseVipPO(customerVO.getId(),customerVO.getUserName(), customerVO.getPhone(), enterpriseName, 0);
-		PasswordPO passwordPO=null;
-		try {
-			passwordPO = passwordDao.getPasswordById(customerVO.getId());
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		passwordPO.setUserType("EnterpriseVip");
-		try {
-			passwordDao.updatePassword(passwordPO);
-			enterpriseVipDao.addEnterpriseVip(enterpriseVipPO);
-		} catch (RemoteException e) {
-			e.printStackTrace();
-		}
-		return new EnterpriseVipVO(enterpriseVipPO);
-	}
+
 
 }

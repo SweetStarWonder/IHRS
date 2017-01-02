@@ -19,20 +19,20 @@ import vo.WebSaleVO;
 
 public class ModifyInformationServiceImplTest {
 
-	ModifyInformationServiceImpl ModifyInformationServiceImpl=new ModifyInformationServiceImpl();
+	ModifyInformationServiceImpl ModifyInformationServiceImpl = new ModifyInformationServiceImpl();
 	CustomerVO CustomerVO;
 	HotelManagerVO HotelManagerVO;
 	WebSaleVO WebSaleVO;
 	WebManagerVO WebManagerVO;
-	CustomerVO CustomerVOTest=new CustomerVO(1,"1","11");
-	HotelManagerVO HotelManagerVOTest=new HotelManagerVO(1,"1","11",11);
-	WebSaleVO WebSaleVOTest=new WebSaleVO(1,"1","11");
-	WebManagerVO WebManagerVOTest=new WebManagerVO(1,"1","11");
-	
+	CustomerVO CustomerVOTest = new CustomerVO(1, "1", "11");
+	HotelManagerVO HotelManagerVOTest = new HotelManagerVO(1, "1", "11", 11);
+	WebSaleVO WebSaleVOTest = new WebSaleVO(1, "1", "11");
+	WebManagerVO WebManagerVOTest = new WebManagerVO(1, "1", "11");
+
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -50,7 +50,7 @@ public class ModifyInformationServiceImplTest {
 			remoteHelper.setNormalVipPromotionDao(Naming.lookup("rmi://localhost:6666/NormalVipPromotionDao"));
 			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
 			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
-			
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -59,27 +59,26 @@ public class ModifyInformationServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	@Test
-	public void modifyInformationforCustomerTest(){
-		
-		assertEquals(true,ModifyInformationServiceImpl.modifyInformation(CustomerVOTest));
+	public void modifyInformationforCustomerTest() {
+
+		assertEquals(true, ModifyInformationServiceImpl.modifyInformation(CustomerVOTest));
 	}
-	
+
 	@Test
-	public void modifyInformationforHotelManagerTest(){
-		assertEquals(true,ModifyInformationServiceImpl.modifyInformation(HotelManagerVOTest));
+	public void modifyInformationforHotelManagerTest() {
+		assertEquals(true, ModifyInformationServiceImpl.modifyInformation(HotelManagerVOTest));
 	}
-	
+
 	@Test
-	public void modifyInformationforWebManagerTest(){
-		assertEquals(true,ModifyInformationServiceImpl.modifyInformation(WebManagerVOTest));
+	public void modifyInformationforWebManagerTest() {
+		assertEquals(true, ModifyInformationServiceImpl.modifyInformation(WebManagerVOTest));
 	}
-	
+
 	@Test
-	public void modifyInformationforWebSaleTest(){
-		assertEquals(true,ModifyInformationServiceImpl.modifyInformation(WebSaleVOTest));
+	public void modifyInformationforWebSaleTest() {
+		assertEquals(true, ModifyInformationServiceImpl.modifyInformation(WebSaleVOTest));
 	}
-	
+
 }

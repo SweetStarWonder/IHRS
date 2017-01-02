@@ -36,4 +36,6 @@ public interface DataFactory {
 	
 	public PasswordDataHelper getPasswordDataHelper();
 	
+	public RoomInListDataHelper getRoomInListDataHelper();
+	
 }

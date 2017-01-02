@@ -3,7 +3,9 @@ package businesslogic.loginbl;
 
 import java.rmi.RemoteException;
 
+import businesslogic.userbl.AddUserOperationServiceImpl;
 import businesslogicservice.loginblservice.HotelManagerLoginBlService;
+import businesslogicservice.userblservice.AddUserOperationService;
 import data.dao.HotelManagerDao;
 import data.dao.PasswordDao;
 import po.HotelManagerPO;
@@ -77,5 +79,22 @@ public class HotelManagerLoginBlServiceImpl implements HotelManagerLoginBlServic
 			return false;
 		}
 	}
+
+	@Override
+	public boolean add(String hotelManagerName, String password, String phone,int hotelId) {
+		boolean add=false;
+		int hotelManagerId=(int)(Math.random()*90000)+10000;
+		AddUserOperationService addUserOperationService=new AddUserOperationServiceImpl();
+		HotelManagerVO hotelManagerVO=new HotelManagerVO(hotelManagerId, hotelManagerName, phone, hotelId);
+		PasswordPO passwordPO=new PasswordPO(hotelManagerId, hotelManagerName, password, "HotelManager");
+		try {
+			add=passwordDao.addPassword(passwordPO) && addUserOperationService.addHotelManager(hotelManagerVO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return add;
+	}
+
 
 }

@@ -49,14 +49,33 @@ public class GetListsServiceImpl implements GetListsService{
 		return listMap;
 	}
 
-	public HashMap<Integer, ListVO> getDailyUnexecutedLists() {
+	public HashMap<Integer, ListVO> getDailyUnexecutedLists(String timeNow) {
 		HashMap<Integer,ListVO> listMap=new HashMap<Integer, ListVO>();
 		try {
 			HashMap<Integer,ListPO> allLists=listDao.getAllLists();
 			Iterator<Integer> iterator=allLists.keySet().iterator();
 			while(iterator.hasNext()){
 				Integer listId=(Integer)iterator.next();
-				if(allLists.get(listId).getStatus().equals(ListStatus.NOTEXECUTED)){
+				if(allLists.get(listId).getStatus().equals(ListStatus.NOTEXECUTED)  && allLists.get(listId).getLastListExecutedTime().startsWith(timeNow)){
+					listMap.put(listId,new ListVO(allLists.get(listId)));
+				}
+			}
+		} catch (RemoteException e) {
+			e.printStackTrace();
+		}
+		return listMap;
+	}
+
+	@Override
+	public HashMap<Integer, ListVO> getAbnormalLists() {
+		HashMap<Integer, ListVO> listMap = new HashMap<Integer,ListVO>();
+		try {
+			HashMap<Integer, ListPO> allLists = listDao.getAllLists();
+			allLists = listDao.getAllLists();
+			Iterator<Integer> iterator=allLists.keySet().iterator();
+			while(iterator.hasNext()){
+				Integer listId=(Integer)iterator.next();
+				if(allLists.get(listId).getStatus().equals(ListStatus.ABNORMAL)){
 					listMap.put(listId,new ListVO(allLists.get(listId)));
 				}
 			}

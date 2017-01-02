@@ -7,15 +7,15 @@ import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
 import vo.ListVO;
 
-public class ListViewCell extends ListCell<ListVO>{
-	
+public class ListViewCell extends ListCell<ListVO> {
+
 	private PersonalListViewController upperController;
-	
+
 	public ListViewCell(PersonalListViewController upperController) {
 		super();
 		this.upperController = upperController;
 	}
-	
+
 	@Override
 	public void updateItem(ListVO item, boolean empty) {
 		super.updateItem(item, empty);
@@ -27,14 +27,14 @@ public class ListViewCell extends ListCell<ListVO>{
 			AnchorPane anchorPane = null;
 			try {
 				anchorPane = loader.load();
-				
+
 				ListSimpleCellController controller = loader.getController();
 				controller.setUpperController(upperController);
-				
+				controller.setList(item);
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			
+
 			setGraphic(anchorPane);
 		}
 	}

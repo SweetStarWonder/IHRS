@@ -16,11 +16,10 @@ import vo.HotelManagerVO;
 
 public class HotelManagerLoginBlServiceImplTest {
 
-
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -39,7 +38,7 @@ public class HotelManagerLoginBlServiceImplTest {
 			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
 			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
 			remoteHelper.setPassword(Naming.lookup("rmi://localhost:6666/PasswordDao"));
-			
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -48,22 +47,27 @@ public class HotelManagerLoginBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testlogin() {
 		HotelManagerLoginBlServiceImpl hotelManagerLoginBlServiceImpl = new HotelManagerLoginBlServiceImpl();
-		assertEquals(00003, hotelManagerLoginBlServiceImpl.login(00003, "HotelManagerName", "HotelManagerpassword").getId());
-		assertEquals(00003, hotelManagerLoginBlServiceImpl.login(0, "HotelManagerName", "HotelManagerpassword").getId());
+		assertEquals(00003,
+				hotelManagerLoginBlServiceImpl.login(00003, "HotelManagerName", "HotelManagerpassword").getId());
+		assertEquals(00003,
+				hotelManagerLoginBlServiceImpl.login(0, "HotelManagerName", "HotelManagerpassword").getId());
 		assertEquals(00003, hotelManagerLoginBlServiceImpl.login(00003, null, "HotelManagerpassword").getId());
 	}
 
 	@Test
-	public void testmodify(){
+	public void testmodify() {
 		HotelManagerLoginBlServiceImpl hotelManagerLoginBlServiceImpl = new HotelManagerLoginBlServiceImpl();
 		HotelManagerPO hotelManagerPO = new HotelManagerPO(00003, "HotelManagerName", "HotelManagerphone", 2222);
 		HotelManagerVO hotelManagerVO = new HotelManagerVO(hotelManagerPO);
-		assertEquals(true, hotelManagerLoginBlServiceImpl.modify(hotelManagerVO, "HotelManagerpassword", "newHotelManagerPassword"));
-		assertEquals(false, hotelManagerLoginBlServiceImpl.modify(hotelManagerVO, "HotelManagerpassword", "newHotelManagerPassword"));
-		assertEquals(true, hotelManagerLoginBlServiceImpl.modify(hotelManagerVO, "newHotelManagerPassword", "HotelManagerpassword"));
+		assertEquals(true, hotelManagerLoginBlServiceImpl.modify(hotelManagerVO, "HotelManagerpassword",
+				"newHotelManagerPassword"));
+		assertEquals(false, hotelManagerLoginBlServiceImpl.modify(hotelManagerVO, "HotelManagerpassword",
+				"newHotelManagerPassword"));
+		assertEquals(true, hotelManagerLoginBlServiceImpl.modify(hotelManagerVO, "newHotelManagerPassword",
+				"HotelManagerpassword"));
 	}
 }

@@ -17,14 +17,10 @@ import vo.promotionVO.NormalVipPromotionVO;
 
 public class NormalVipPromotionBlServiceImplTest {
 
-
-	
-	
-	
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -43,7 +39,7 @@ public class NormalVipPromotionBlServiceImplTest {
 			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
 			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
 			remoteHelper.setPassword(Naming.lookup("rmi://localhost:6666/PasswordDao"));
-			
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -52,69 +48,50 @@ public class NormalVipPromotionBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	@Test
-	public void getNormalVipPromotionsTest(){
-		
-		ArrayList<NormalVipPromotionVO> list;
-		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl=new NormalVipPromotionBlServiceImpl();
-		list=NormalVipPromotionBlServiceImpl.getNormalVipPromotions(1);
-		assertEquals(1.0,list.get(0).getDiscount(),0.0);
-		assertEquals("11",list.get(0).getDiscountName());
-		assertEquals(1,list.get(0).getRankValue());
-		assertEquals("111",list.get(0).getBusinessDistrict());
-		
-	}
-	
-	
-	
-	@Test
-	public void addNormalVipPromotionTest(){
-		NormalVipPromotionVO normalVipPromotionVO=new NormalVipPromotionVO(1.0,"11",1,"111");
-		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl=new NormalVipPromotionBlServiceImpl();
-		assertEquals(true,NormalVipPromotionBlServiceImpl.addNormalVipPromotion(normalVipPromotionVO));
-		
-		
-		
-	}
-	
 
 	@Test
-	public void updateNormalVipPromotionTest(){
-		NormalVipPromotionVO normalVipPromotionVO=new NormalVipPromotionVO(1.0,"11",1,"111");
-		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl=new NormalVipPromotionBlServiceImpl();
-		assertEquals(true,NormalVipPromotionBlServiceImpl.updateNormalVipPromotion(normalVipPromotionVO));
-		
-		
-		
+	public void getNormalVipPromotionsTest() {
+
+		ArrayList<NormalVipPromotionVO> list;
+		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl = new NormalVipPromotionBlServiceImpl();
+		list = NormalVipPromotionBlServiceImpl.getNormalVipPromotions(1);
+		assertEquals(1.0, list.get(0).getDiscount(), 0.0);
+		assertEquals("11", list.get(0).getDiscountName());
+		assertEquals(1, list.get(0).getRankValue());
+		assertEquals("111", list.get(0).getBusinessDistrict());
+
 	}
-	
-	
-	
+
 	@Test
-	public void deleteNormalVipPromotionTest(){
-		NormalVipPromotionVO normalVipPromotionVO=new NormalVipPromotionVO(1.0,"11",1,"111");
-		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl=new NormalVipPromotionBlServiceImpl();
-		assertEquals(true,NormalVipPromotionBlServiceImpl.deleteNormalVipPromotion(normalVipPromotionVO));
-		
-		
-		
+	public void addNormalVipPromotionTest() {
+		NormalVipPromotionVO normalVipPromotionVO = new NormalVipPromotionVO(1.0, "11", 1, "111");
+		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl = new NormalVipPromotionBlServiceImpl();
+		assertEquals(true, NormalVipPromotionBlServiceImpl.addNormalVipPromotion(normalVipPromotionVO));
+
 	}
-	
+
 	@Test
-	public void getMinDiscountForNormalVipTest(){
-		
-		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl=new NormalVipPromotionBlServiceImpl();
-		assertEquals(1.0,NormalVipPromotionBlServiceImpl.getMinDiscountForNormalVip(11, 1),0.0);
-		
-		
-		
+	public void updateNormalVipPromotionTest() {
+		NormalVipPromotionVO normalVipPromotionVO = new NormalVipPromotionVO(1.0, "11", 1, "111");
+		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl = new NormalVipPromotionBlServiceImpl();
+		assertEquals(true, NormalVipPromotionBlServiceImpl.updateNormalVipPromotion(normalVipPromotionVO));
+
 	}
-	
-	
-	
-	
-	
-	
+
+	@Test
+	public void deleteNormalVipPromotionTest() {
+		NormalVipPromotionVO normalVipPromotionVO = new NormalVipPromotionVO(1.0, "11", 1, "111");
+		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl = new NormalVipPromotionBlServiceImpl();
+		assertEquals(true, NormalVipPromotionBlServiceImpl.deleteNormalVipPromotion(normalVipPromotionVO));
+
+	}
+
+	@Test
+	public void getMinDiscountForNormalVipTest() {
+
+		NormalVipPromotionBlServiceImpl NormalVipPromotionBlServiceImpl = new NormalVipPromotionBlServiceImpl();
+		assertEquals(1.0, NormalVipPromotionBlServiceImpl.getMinDiscountForNormalVip(11, 1), 0.0);
+
+	}
+
 }

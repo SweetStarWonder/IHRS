@@ -39,4 +39,11 @@ public interface HotelOperationService {
 	 */
 	public boolean addHotel(HotelVO hotelVO);
 	
+	/**
+	 * @param roomVOs  酒店房间信息
+	 * @param listId   对应订单编号
+	 * @return         入住信息是否更新成功
+	 */
+	public boolean updateCheckIn(ArrayList<RoomVO> roomVOs,int listId);
+	
 }

@@ -54,11 +54,12 @@ public class NormalVipPromotionDaoImpl extends UnicastRemoteObject implements No
 		boolean update = false;
 		int rank = normalVipPromotionPO.getRankValue();
 		String businessDistrict = normalVipPromotionPO.getBusinessDistrict();
-		for (NormalVipPromotionPO normalVipPromotionPO2 : promotionPOs) {
-			if (normalVipPromotionPO2.getRankValue()==rank && normalVipPromotionPO2.getBusinessDistrict()==businessDistrict) {
-				promotionPOs.remove(normalVipPromotionPO2);
-				promotionPOs.add(normalVipPromotionPO);
-				normalVipPromotionDataHelper.updateNormalVipPromotionData(promotionPOs);
+		ArrayList<NormalVipPromotionPO> normalVipPromotionPOs=promotionPOs;
+		for (NormalVipPromotionPO normalVipPromotionPO1 : promotionPOs) {
+			if (normalVipPromotionPO1.getRankValue()==rank && normalVipPromotionPO1.getBusinessDistrict()==businessDistrict) {
+				normalVipPromotionPOs.remove(normalVipPromotionPO1);
+				normalVipPromotionPOs.add(normalVipPromotionPO);
+				normalVipPromotionDataHelper.updateNormalVipPromotionData(normalVipPromotionPOs);
 				update = true;
 				break;
 			}

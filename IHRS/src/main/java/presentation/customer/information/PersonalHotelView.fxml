@@ -6,7 +6,7 @@
 
 <!-- 个人酒店信息查看界面 -->
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.information.PersonalHotelViewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../../../styles/JMetroLightTheme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.customer.information.PersonalHotelViewController">
    <children>
       <AnchorPane fx:id="hotelAnchorPane" layoutX="300.0" layoutY="63.0" prefHeight="481.0" prefWidth="700.0" AnchorPane.bottomAnchor="56.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="63.0" />
    </children>

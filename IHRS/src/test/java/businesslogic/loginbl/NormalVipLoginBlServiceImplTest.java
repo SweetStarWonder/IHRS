@@ -19,9 +19,9 @@ import vo.NormalVipVO;
 public class NormalVipLoginBlServiceImplTest {
 
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -40,7 +40,7 @@ public class NormalVipLoginBlServiceImplTest {
 			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
 			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
 			remoteHelper.setPassword(Naming.lookup("rmi://localhost:6666/PasswordDao"));
-			
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -49,7 +49,7 @@ public class NormalVipLoginBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testlogin() {
 		NormalVipLoginBlServiceImpl normalVipLoginBlServiceImpl = new NormalVipLoginBlServiceImpl();
@@ -62,17 +62,20 @@ public class NormalVipLoginBlServiceImplTest {
 	}
 
 	@Test
-	public void testmodify(){
+	public void testmodify() {
 		NormalVipPO normalVipPO = new NormalVipPO(00004, "NormalVipName", "NormalVipphone", 0, "birthday");
 		NormalVipVO normalVipVO = new NormalVipVO(normalVipPO);
 		NormalVipLoginBlServiceImpl normalVipLoginBlServiceImpl = new NormalVipLoginBlServiceImpl();
-		assertEquals(true, normalVipLoginBlServiceImpl.modify(normalVipVO, "NormalVippassword", "newNormalVippassword"));
-		assertEquals(false, normalVipLoginBlServiceImpl.modify(normalVipVO, "NormalVippassword", "newNormalVippassword"));
-		assertEquals(true, normalVipLoginBlServiceImpl.modify(normalVipVO, "newNormalVippassword", "NormalVippassword"));
+		assertEquals(true,
+				normalVipLoginBlServiceImpl.modify(normalVipVO, "NormalVippassword", "newNormalVippassword"));
+		assertEquals(false,
+				normalVipLoginBlServiceImpl.modify(normalVipVO, "NormalVippassword", "newNormalVippassword"));
+		assertEquals(true,
+				normalVipLoginBlServiceImpl.modify(normalVipVO, "newNormalVippassword", "NormalVippassword"));
 	}
-	
+
 	@Test
-	public void testupgrade(){
+	public void testupgrade() {
 		CustomerPO customerPO1 = new CustomerPO(00001, "userName", "userphone");
 		CustomerVO customerVO1 = new CustomerVO(customerPO1);
 		CustomerPO customerPO2 = new CustomerPO(00004, "NormalVipName", "NormalVipphone");
@@ -80,6 +83,7 @@ public class NormalVipLoginBlServiceImplTest {
 		NormalVipLoginBlServiceImpl normalVipLoginBlServiceImpl = new NormalVipLoginBlServiceImpl();
 		assertEquals(00001, normalVipLoginBlServiceImpl.upgrade(customerVO1, "birthday").getId());
 		assertEquals(00004, normalVipLoginBlServiceImpl.upgrade(customerVO2, "birthday").getId());
-		//assertEquals(null, normalVipLoginBlServiceImpl.upgrade(customerVO3, "birthday"));
+		// assertEquals(null, normalVipLoginBlServiceImpl.upgrade(customerVO3,
+		// "birthday"));
 	}
 }

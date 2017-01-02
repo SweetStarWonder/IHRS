@@ -25,24 +25,24 @@ import presentation.customer.vip.NormalVipPaneController;
 public class TestCustomer extends Application {
 
 	ObservableList<Node> sceneStack = FXCollections.observableArrayList();
-	
+
 	private Stage primaryStage;
-	
+
 	private BorderPane rootLayout;
-	
+
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		
+
 		initRoot();
 		showSearchPane();
 	}
-	
+
 	public void initRoot() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("init/CustomerRootLayout.fxml"));
 		try {
-			rootLayout = (BorderPane)loader.load();
+			rootLayout = (BorderPane) loader.load();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -52,7 +52,7 @@ public class TestCustomer extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	
+
 	public void showSearchPane() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("init/HotelSearchPane.fxml"));
@@ -67,7 +67,7 @@ public class TestCustomer extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void showPersonalInformation() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("information/PersonInformationOverview.fxml"));
@@ -75,7 +75,7 @@ public class TestCustomer extends Application {
 		try {
 			anchorPane = (AnchorPane) loader.load();
 			changeView(anchorPane);
-			
+
 			rootLayout.setCenter(anchorPane);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -83,7 +83,7 @@ public class TestCustomer extends Application {
 		PersonInformationController controller = loader.getController();
 		controller.setMainApp(this);
 	}
-	
+
 	public void modifyPersonalInformation() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("information/PersonInformationModify.fxml"));
@@ -91,15 +91,14 @@ public class TestCustomer extends Application {
 		try {
 			anchorPane = (AnchorPane) loader.load();
 			changeView(anchorPane);
-			
+
 			rootLayout.setCenter(anchorPane);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 	}
-	
+
 	public void showCreditRecord() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("information/CreditRecordView.fxml"));
@@ -107,14 +106,14 @@ public class TestCustomer extends Application {
 		try {
 			anchorPane = (AnchorPane) loader.load();
 			changeView(anchorPane);
-			
+
 			rootLayout.setCenter(anchorPane);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public void registerNormalVip() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("vip/RegisterNormalVipPane.fxml"));
@@ -124,20 +123,20 @@ public class TestCustomer extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		Stage dialogStage = new Stage();
 		dialogStage.initStyle(StageStyle.TRANSPARENT);
 		dialogStage.initModality(Modality.WINDOW_MODAL);
-        dialogStage.initOwner(primaryStage);
-        Scene scene = new Scene(anchorPane);
-        dialogStage.setScene(scene);
-        
-        NormalVipPaneController controller = loader.getController();
-        controller.setNormalVipStage(dialogStage);
-        
-        dialogStage.showAndWait();
+		dialogStage.initOwner(primaryStage);
+		Scene scene = new Scene(anchorPane);
+		dialogStage.setScene(scene);
+
+		NormalVipPaneController controller = loader.getController();
+		controller.setNormalVipStage(dialogStage);
+
+		dialogStage.showAndWait();
 	}
-	
+
 	public void registerEnterpriseVip() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("vip/RegisterEnterpriseVipPane.fxml"));
@@ -147,20 +146,20 @@ public class TestCustomer extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		Stage dialogStage = new Stage();
 		dialogStage.initStyle(StageStyle.TRANSPARENT);
 		dialogStage.initModality(Modality.WINDOW_MODAL);
-        dialogStage.initOwner(primaryStage);
-        Scene scene = new Scene(anchorPane);
-        dialogStage.setScene(scene);
-        
-        EnterpriseVipPaneController controller = loader.getController();
-        controller.setNormalVipStage(dialogStage);
-        
-        dialogStage.showAndWait();
+		dialogStage.initOwner(primaryStage);
+		Scene scene = new Scene(anchorPane);
+		dialogStage.setScene(scene);
+
+		EnterpriseVipPaneController controller = loader.getController();
+		controller.setNormalVipStage(dialogStage);
+
+		dialogStage.showAndWait();
 	}
-	
+
 	public void showPersonalLists() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("information/PersonalListView.fxml"));
@@ -168,14 +167,14 @@ public class TestCustomer extends Application {
 		try {
 			splitPane = (SplitPane) loader.load();
 			changeView(splitPane);
-			
+
 			rootLayout.setCenter(splitPane);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	public void showPersonalHotels() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("information/PersonalHotelView.fxml"));
@@ -183,34 +182,34 @@ public class TestCustomer extends Application {
 		try {
 			anchorPane = (AnchorPane) loader.load();
 			changeView(anchorPane);
-			
+
 			PersonalHotelViewController controller = loader.getController();
 			controller.setMainApp(this);
-			
+
 			rootLayout.setCenter(anchorPane);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void showHotelDetailInformation() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("hotel/HotelDetailInfomation.fxml"));
 		AnchorPane anchorPane = null;
 		try {
-			anchorPane = (AnchorPane) loader.load();				
-			
+			anchorPane = (AnchorPane) loader.load();
+
 			HotelDetailInformationController controller = loader.getController();
 			controller.setMainApp(this);
-			
+
 			changeView(anchorPane);
-			
+
 			rootLayout.setCenter(anchorPane);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void showGenerateList() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(TestCustomer.class.getResource("list/ListGenerateView.fxml"));
@@ -218,24 +217,22 @@ public class TestCustomer extends Application {
 		try {
 			anchorPane = (AnchorPane) loader.load();
 			changeView(anchorPane);
-			
+
 			rootLayout.setCenter(anchorPane);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
 	public void changeView(Node node) {
 		sceneStack.add(node);
 	}
-	
+
 	public void backView() {
 		if (sceneStack.size() > 1) {
 			int size = sceneStack.size();
-			sceneStack.remove(size-1);
-			rootLayout.setCenter(sceneStack.get(size-2));
+			sceneStack.remove(size - 1);
+			rootLayout.setCenter(sceneStack.get(size - 2));
 		}
 	}
 

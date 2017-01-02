@@ -22,7 +22,7 @@ public class ListDataTxtHelper implements ListDataHelper{
 
 	public  HashMap<Integer, HashMap<Integer, ListPO>> getListDataByUser() {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//List.txt");
+		File file = new File("src//main//resources//List.txt");
 		HashMap<Integer,HashMap<Integer,ListPO>> Map = new HashMap<Integer,HashMap<Integer,ListPO>>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -74,7 +74,7 @@ public class ListDataTxtHelper implements ListDataHelper{
 
 	public HashMap<Integer, HashMap<Integer, ListPO>> getListDataByHotel() {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//List.txt");
+		File file = new File("src//main//resources//List.txt");
 		HashMap<Integer,HashMap<Integer,ListPO>> Map = new HashMap<Integer,HashMap<Integer,ListPO>>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -126,7 +126,7 @@ public class ListDataTxtHelper implements ListDataHelper{
 
 	public void updateListDataByUser(HashMap<Integer, HashMap<Integer, ListPO>> listDataMap) {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//List.txt");
+		File file = new File("src//main//resources//List.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

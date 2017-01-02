@@ -17,18 +17,16 @@ import rmi.RemoteHelper;
 import businesslogic.vipbl.VipBlServiceImpl;;
 
 public class VipBlServiceImplTest {
-	
-	
-	VipBlServiceImpl VipBlServiceImpl=new VipBlServiceImpl();
+
+	VipBlServiceImpl VipBlServiceImpl = new VipBlServiceImpl();
 	EnterpriseVipVO EnterpriseVipVO;
 	NormalVipVO NormalVipVO;
-	CustomerVO CustomerVO=new CustomerVO(1,"1","11");
-	
-	
+	CustomerVO CustomerVO = new CustomerVO(1, "1", "11");
+
 	@BeforeClass
-	public static  void linkToServer(){
-	    RemoteHelper remoteHelper;
-		remoteHelper=RemoteHelper.getInstance();
+	public static void linkToServer() {
+		RemoteHelper remoteHelper;
+		remoteHelper = RemoteHelper.getInstance();
 		try {
 			remoteHelper.setCreditChangeDao(Naming.lookup("rmi://localhost:6666/CreditChangeDao"));
 			remoteHelper.setCustomerDao(Naming.lookup("rmi://localhost:6666/CustomerDao"));
@@ -46,7 +44,7 @@ public class VipBlServiceImplTest {
 			remoteHelper.setNormalVipPromotionDao(Naming.lookup("rmi://localhost:6666/NormalVipPromotionDao"));
 			remoteHelper.setAddressDao(Naming.lookup("rmi://localhost:6666/AddressDao"));
 			remoteHelper.setRankSystemDao(Naming.lookup("rmi://localhost:6666/RankSystemDao"));
-			
+
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (RemoteException e) {
@@ -55,28 +53,26 @@ public class VipBlServiceImplTest {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
-	public void registerEnterpriseVipTest(){
-		EnterpriseVipVO=VipBlServiceImpl.registerEnterpriseVip(CustomerVO, "111");
-		assertEquals(1,EnterpriseVipVO.getId());
-		assertEquals("1",EnterpriseVipVO.getUserName());
-		assertEquals("11",EnterpriseVipVO.getPhone());
-		assertEquals("111",EnterpriseVipVO.getEnterpriseName());
-		assertEquals(0,EnterpriseVipVO.getBonus());
+	public void registerEnterpriseVipTest() {
+		EnterpriseVipVO = VipBlServiceImpl.registerEnterpriseVip(CustomerVO, "111");
+		assertEquals(1, EnterpriseVipVO.getId());
+		assertEquals("1", EnterpriseVipVO.getUserName());
+		assertEquals("11", EnterpriseVipVO.getPhone());
+		assertEquals("111", EnterpriseVipVO.getEnterpriseName());
+		assertEquals(0, EnterpriseVipVO.getBonus());
 	}
-	
-	
+
 	@Test
-	public void registerNormalVipTest(){
-		NormalVipVO=VipBlServiceImpl.registerNormalVip(CustomerVO, "1111");
-		assertEquals(1,NormalVipVO.getId());
-		assertEquals("1",NormalVipVO.getUserName());
-		assertEquals("11",NormalVipVO.getPhone());
-		assertEquals(0,NormalVipVO.getBonus());
-		assertEquals("1111",NormalVipVO.getBirthday());
-		
+	public void registerNormalVipTest() {
+		NormalVipVO = VipBlServiceImpl.registerNormalVip(CustomerVO, "1111");
+		assertEquals(1, NormalVipVO.getId());
+		assertEquals("1", NormalVipVO.getUserName());
+		assertEquals("11", NormalVipVO.getPhone());
+		assertEquals(0, NormalVipVO.getBonus());
+		assertEquals("1111", NormalVipVO.getBirthday());
+
 	}
-	
-	
+
 }

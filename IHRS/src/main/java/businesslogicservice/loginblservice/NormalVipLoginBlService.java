@@ -1,6 +1,5 @@
 package businesslogicservice.loginblservice;
 
-import vo.CustomerVO;
 import vo.NormalVipVO;
 
 public interface NormalVipLoginBlService {
@@ -20,12 +19,5 @@ public interface NormalVipLoginBlService {
 	 * @return
 	 */
 	public boolean modify(NormalVipVO normalVipVO,String oldPassword,String newPassword);
-	
-	/**
-	 * @param customerVO  客户信息
-	 * @param birthday    客户生日（YYYY-MM-DD）
-	 * @return            客户升级为普通会员
-	 */
-	public NormalVipVO upgrade(CustomerVO customerVO,String birthday);
 	
 }

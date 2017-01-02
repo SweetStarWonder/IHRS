@@ -21,7 +21,7 @@ public class NormalVipDataTxtHelper implements NormalVipDataHelper{
 
 	public HashMap<Integer, NormalVipPO> getNormalVipData() {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//NormalVip.txt");
+		File file = new File("src//main//resources//NormalVip.txt");
 		HashMap<Integer,NormalVipPO> map = new HashMap<Integer, NormalVipPO>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -47,7 +47,7 @@ public class NormalVipDataTxtHelper implements NormalVipDataHelper{
 
 	public void updateNormalVipData(HashMap<Integer, NormalVipPO> normalVipDataMap) {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//NormalVip.txt");
+		File file = new File("src//main//resources//NormalVip.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);

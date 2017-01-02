@@ -2,7 +2,9 @@ package businesslogic.loginbl;
 
 import java.rmi.RemoteException;
 
+import businesslogic.userbl.AddUserOperationServiceImpl;
 import businesslogicservice.loginblservice.WebSaleLoginBlService;
+import businesslogicservice.userblservice.AddUserOperationService;
 import data.dao.PasswordDao;
 import data.dao.WebSaleDao;
 import po.PasswordPO;
@@ -77,4 +79,21 @@ public class WebSaleLoginBlServiceImpl implements WebSaleLoginBlService{
 		}
 	}
 
+	@Override
+	public boolean add(String webSaleName, String password, String phone) {
+		boolean add=false;
+		int webSaleId=(int)(Math.random()*90000)+10000;
+		AddUserOperationService addUserOperationService=new AddUserOperationServiceImpl();
+		WebSaleVO webSaleVO=new WebSaleVO(webSaleId, webSaleName, phone);
+		PasswordPO passwordPO=new PasswordPO(webSaleId, webSaleName, password, "WebSale");
+		try {
+			add=passwordDao.addPassword(passwordPO) && addUserOperationService.addWebSale(webSaleVO);
+		} catch (RemoteException e) {
+			e.printStackTrace();
+			return false;
+		}
+		return add;
+	}
+
+	
 }

@@ -7,35 +7,44 @@ import vo.ListVO;
 public class ListSimpleCellController {
 	@FXML
 	private Label listIdLabel;
-	
+
 	@FXML
 	private Label hotelNameLabel;
-	
+
 	@FXML
 	private Label timeLabel;
-	
+
 	@FXML
 	private Label priceLabel;
-	
+
 	private PersonalListViewController upperController;
-	
+
 	private ListVO listVO;
-	
+
 	public ListSimpleCellController() {
-		
+
 	}
-	
+
 	@FXML
 	private void initialize() {
-		
+
 	}
-	
+
 	@FXML
 	private void handleClick() {
 		upperController.showDetail(priceLabel, listVO);
 	}
-	
+
 	public void setUpperController(PersonalListViewController upperController) {
 		this.upperController = upperController;
+	}
+	
+	public void setList(ListVO listVO) {
+		this.listVO = listVO;
+		this.listVO = listVO;
+		listIdLabel.setText(listVO.getListId() + "");
+		hotelNameLabel.setText("酒店" + listVO.getHotelId());
+		timeLabel.setText(listVO.getEntryTime());
+		priceLabel.setText(listVO.getPrice() + "");
 	}
 }

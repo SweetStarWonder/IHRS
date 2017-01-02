@@ -21,7 +21,7 @@ public class HotelManagerDataTxtHelper implements HotelManagerDataHelper{
 
 	public HashMap<Integer, HotelManagerPO> getHotelManagerData() {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//HotelManager.txt");
+		File file = new File("src//main//resources//HotelManager.txt");
 		HashMap<Integer,HotelManagerPO> map = new HashMap<Integer, HotelManagerPO>();
 		try{
 			InputStreamReader reader = new InputStreamReader(new FileInputStream(
@@ -46,7 +46,7 @@ public class HotelManagerDataTxtHelper implements HotelManagerDataHelper{
 
 	public void updateHotelManagerData(HashMap<Integer, HotelManagerPO> hotelManagerDataMap) {
 		// TODO Auto-generated method stub
-		File file = new File("TxtData//HotelManager.txt");
+		File file = new File("src//main//resources//HotelManager.txt");
 		try {		
 			FileWriter fw = new FileWriter(file.getAbsoluteFile());
 			BufferedWriter writer = new BufferedWriter(fw);
