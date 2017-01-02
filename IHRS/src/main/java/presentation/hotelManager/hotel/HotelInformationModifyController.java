@@ -106,7 +106,9 @@ public class HotelInformationModifyController {
 			partnerStr += str;
 			partnerStr += ";";
 		}
-		partnerStr = partnerStr.substring(0, partnerStr.length() - 1);
+		if (partnerStr != null && !partnerStr.isEmpty()) {
+			partnerStr = partnerStr.substring(0, partnerStr.length() - 1);
+		}
 		partnerTextField.setText(partnerStr);
 		introductionTextArea.setText(hotelVO.getIntroduction());
 		facilityTextField.setText(hotelVO.getFacility());

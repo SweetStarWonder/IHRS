@@ -80,6 +80,7 @@ public class RoomDaoImpl extends java.rmi.server.UnicastRemoteObject implements 
 //		}
 		HashMap<Integer, ArrayList<Integer>> map1=new HashMap<Integer, ArrayList<Integer>>();
 		map1 = roomInListMap.get(listId);
+		System.out.println(map1);
 		Iterator<Integer> iterator = map1.keySet().iterator();
 		while(iterator.hasNext()){
 			Integer hId = (Integer) iterator.next();
@@ -87,15 +88,18 @@ public class RoomDaoImpl extends java.rmi.server.UnicastRemoteObject implements 
 			roomNums = map1.get(hId);
 			for (Integer integer : roomNums) {
 				HashMap<Integer,RoomPO> roomMap = map.get(hId);
+				System.out.println(roomMap);
 				Iterator<Integer> it = roomMap.keySet().iterator();
 				while(it.hasNext()){
 					Integer rId = (Integer) it.next();
-					if(rId == integer){
+					if(rId.equals(integer)){
+						System.out.println("papapa");
 						rooms.add(roomMap.get(integer));
 					}
 				}
 			}
 		}
+		System.out.println(rooms);
 		return rooms;
 	}
 
